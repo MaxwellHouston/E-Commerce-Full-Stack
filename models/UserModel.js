@@ -11,7 +11,7 @@ module.exports = class Usermodel {
         } catch (err) {
             throw err.stack; 
         }
-    }
+    };
 
     async getByEmail(data) {
         let text = 'SELECT * FROM users WHERE email = $1;';
@@ -22,7 +22,7 @@ module.exports = class Usermodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async getById(data) {
         let text = 'SELECT * FROM users WHERE id = $1;';
@@ -33,7 +33,7 @@ module.exports = class Usermodel {
         } catch(err) {
             throw err.stack;
         }
-    }
+    };
 
     async updateByEmail(data) {
         let text = format('UPDATE users SET %I = $1 WHERE email = $2;', data.column);
@@ -43,7 +43,7 @@ module.exports = class Usermodel {
         } catch(err) {
             throw err.stack;
         }
-    }
+    };
 
     async deleteByEmail(data) {
         let text = 'DELETE FROM users WHERE email = $1;';
@@ -53,7 +53,7 @@ module.exports = class Usermodel {
         } catch(err) {
             throw err.stack;
         }
-    }
+    };
 
     
 

@@ -1,32 +1,27 @@
+//-------------------------------------------------Imports-----------------------------------------------------------------//
 const userRouter = require('express').Router();
-const { validate, ValidationError } = require('express-validation');
-
+const { validate } = require('express-validation');
 const UserModel = require('../models/UserModel');
 const { updateSchema } = require('../functions_schemas/validateSchemas');
-const { hashPassword } = require('../functions_schemas/validateFunctions');
+const { hashPassword, validationError } = require('../functions_schemas/validateFunctions');
 const { checkAuthentication } = require('../passportConfig');
+
+//-------------------------------------------------Models-----------------------------------------------------------------//
 
 const userInstance = new UserModel();
 
-// Input validation
-userRouter.use('/', validate(updateSchema), (err, req, res, next) => {
-    if(err instanceof ValidationError) return res.status(err.statusCode).json(err);
-    next();
-})    
+//-------------------------------------------------Routes-----------------------------------------------------------------//
 
-
-// Routes
 userRouter.get('/', checkAuthentication, async (req, res) => {
     try {
-        res.send(req.user);
+        res.json(req.user);
     } catch(err) {
-        res.status(400).send(err);
+        res.status(400).json(err);
     }
 });
 
-userRouter.put('/', checkAuthentication, async (req, res) => {
+userRouter.put('/', checkAuthentication, validate(updateSchema), async (req, res) => {
     const data = req.body;
-
     for(const key in data){
         try{
             let input = {column: key, value: data[key], email: req.user.email};
@@ -36,19 +31,22 @@ userRouter.put('/', checkAuthentication, async (req, res) => {
             }
             await userInstance.updateByEmail(input);
         } catch(err) {
-            res.status(400).send(err);
+            res.status(400).json(err);
         }
-    }
-    res.send('Update successful');
+    };
+    res.json({message: 'Update successful'});
 });
 
 userRouter.delete('/', checkAuthentication, async (req, res) => {
     try {
         await userInstance.deleteByEmail(req.user.email);
+        res.status(204).send();
     } catch(err) {
-        res.status(400).send(err)
+        res.status(400).json(err)
     }
-    res.status(204).send();
 });
+
+//-------------------------------------------------Catch Validation Errors-----------------------------------------------------------------//
+userRouter.use(validationError);
 
 module.exports = userRouter;

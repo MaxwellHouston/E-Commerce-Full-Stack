@@ -14,7 +14,7 @@ module.exports = class Cartmodel {
         } catch(err) {
             throw err.stack;
         }
-    }
+    };
 
     async getCartsByUserId(data) {
         const text = 'SELECT * FROM cart WHERE user_id = $1;';
@@ -25,7 +25,7 @@ module.exports = class Cartmodel {
         } catch(err) {
             throw err.stack;
         }
-    }
+    };
 
     async getCartById(data) {
         const text = 'SELECT * FROM cart WHERE id = $1;';
@@ -36,7 +36,7 @@ module.exports = class Cartmodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async deleteCart(data) {
         const text = 'DELETE FROM cart WHERE id = $1;';
@@ -46,7 +46,7 @@ module.exports = class Cartmodel {
         } catch (err) {
             throw err.stack
         }
-    }
+    };
 
     async addProduct(data) {
         const text = 'INSERT INTO cart_product VALUES ($1, $2, $3)';
@@ -56,7 +56,7 @@ module.exports = class Cartmodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async getAllProducts(data) {
         const text = 'SELECT product.*, qty FROM product JOIN cart_product ON product_id = id WHERE cart_id = $1;';
@@ -67,7 +67,7 @@ module.exports = class Cartmodel {
         } catch(err) {
             throw err.stack
         }
-    }
+    };
 
     async getProductById(data) {
         const text = 'SELECT product.*, qty FROM product JOIN cart_product ON product_id = id WHERE cart_id = $1 AND product_id = $2;';
@@ -78,7 +78,7 @@ module.exports = class Cartmodel {
         } catch(err) {
             throw err.stack;
         }
-    }
+    };
 
     async updateProductQty(data) {
         const text = 'UPDATE cart_product SET qty = $1 WHERE cart_id = $2 AND product_id = $3;';
@@ -88,7 +88,7 @@ module.exports = class Cartmodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async deleteProductById(data) {
         const text = 'DELETE FROM cart_product WHERE cart_id = $1 AND product_id = $2;';
@@ -98,7 +98,7 @@ module.exports = class Cartmodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async checkout(data) {
         try {
@@ -121,5 +121,5 @@ module.exports = class Cartmodel {
             throw err;
         }
         
-    }
+    };
 }

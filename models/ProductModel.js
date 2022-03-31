@@ -3,33 +3,35 @@ const { query } = require('../DB/db');
 module.exports = class Productmodel {
 
     async getAllProducts() {
+        const text = 'SELECT * FROM product';
+        const inputs = [];
         try{
-            const result = await query('SELECT * FROM product',[]);
+            const result = await query(text, inputs);
             return result.rows;
         } catch(err){
             throw err.stack;
         }
-    }
+    };
 
     async getProductById(data) {
+        const text = 'SELECT * FROM product WHERE id = $1';
+        const inputs = [data];
         try{
-            const text = 'SELECT * FROM product WHERE id = $1';
-            const inputs = [data];
             const result = await query(text, inputs);
             return result.rows[0];
         } catch(err) {
             throw err.stack;
         }
-    }
+    };
 
     async getProductsByCategory(data) {
+        const text = 'SELECT * FROM product WHERE category = $1;';
+        const inputs = [data];
         try{
-            const text = 'SELECT * FROM product WHERE category = $1;';
-            const inputs = [data];
             const result = await query(text, inputs);
             return result.rows;
         } catch(err) {
             throw err.stack;
         }
-    }
+    };
 }

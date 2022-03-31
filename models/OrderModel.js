@@ -11,7 +11,7 @@ module.exports = class Ordermodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async addProduct(data) {
         const text = 'INSERT INTO order_product (order_id, product_id, price, qty) VALUES ($1, $2, (SELECT price FROM product WHERE id = $2), $3);';
@@ -21,7 +21,7 @@ module.exports = class Ordermodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async getOrderProducts(data) {
         const text = 'SELECT product.*, qty FROM product JOIN order_product ON id = product_id WHERE order_id = $1';
@@ -32,7 +32,7 @@ module.exports = class Ordermodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async getAllOrders(data) {
         const text = 'SELECT * FROM orders WHERE user_id = $1';
@@ -43,7 +43,7 @@ module.exports = class Ordermodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
     async getOrderById(data) {
         const text = 'SELECT * FROM orders WHERE id = $1';
@@ -57,6 +57,6 @@ module.exports = class Ordermodel {
         } catch (err) {
             throw err.stack;
         }
-    }
+    };
 
 }

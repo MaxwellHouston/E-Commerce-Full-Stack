@@ -1,32 +1,30 @@
+//-------------------------------------------------Imports-----------------------------------------------------------------//
 const Usermodel = require('../models/UserModel');
 const { registerSchema, loginSchema } = require('../functions_schemas/validateSchemas');
-const { hashPassword } = require('../functions_schemas/validateFunctions');
-const { validate, ValidationError } = require('express-validation');
+const { hashPassword, validationError } = require('../functions_schemas/validateFunctions');
+const { validate } = require('express-validation');
 const passport = require('passport');
-
-const userInstance = new Usermodel();
 const authRouter = require('express').Router();
 
+//-------------------------------------------------Models-----------------------------------------------------------------//
+const userInstance = new Usermodel();
 
 
-//Autherization Routes
+//------------------------------------------Autherization Routes---------------------------------------------------------//
 
 authRouter.post('/register', validate(registerSchema), async (req, res) => {
     if(req.user) return res.status(400).json({message: 'Please log out to create a new user.'});
     let data = req.body;
     //Check if email exists   
     let userCheck = await userInstance.getByEmail(data.email);
-    if(userCheck){
-       return res.status(400).send('Email already in use');
-    }
+    if(userCheck) return res.status(400).json({message: 'Email already in use'});
     //Hash password
     const hashedPassword = await hashPassword(data.password);
-    data.password = hashedPassword;
-        
+    data.password = hashedPassword;        
     //Create new user
     try{
         await userInstance.create(data);
-        res.status(201).send('User created')
+        res.status(201).json({message: 'User created'})
     } catch(err) {
         res.status(400).send(err);
     }
@@ -44,10 +42,7 @@ authRouter.get('/logout', (req, res) => {
     res.json({message: 'User logged out'});
 })
 
-//Catch validation errors
-authRouter.use((err, req, res, next) => {
-    if(err instanceof ValidationError) return res.status(err.statusCode).json(err);
-    next();
-});
+//------------------------------------------Catch Validation Errors---------------------------------------------------------//
+authRouter.use(validationError);
 
 module.exports = authRouter;
