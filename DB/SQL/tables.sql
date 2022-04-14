@@ -12,8 +12,11 @@ CREATE TABLE product (
     id SERIAL PRIMARY KEY,
     name varchar(50) NOT NULL,
     price money NOT NULL,
+    sport varchar(20) NOT NULL,
     category varchar(20),
-    description varchar(250) NOT NULL
+    description varchar(250) NOT NULL,
+    size varchar(5),
+    color varchar(10)
 );
 
 CREATE TABLE cart (
