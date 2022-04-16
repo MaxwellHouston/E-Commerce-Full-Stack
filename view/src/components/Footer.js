@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import twitterLogo from '../utilities/images/svg/twitter.svg';
-import facebookLogo from '../utilities/images/svg/facebook.svg';
-import instagramLogo from '../utilities/images/svg/instagram.svg';
+import twitterLogo from '../utilities/images/icons/twitter.svg';
+import facebookLogo from '../utilities/images/icons/facebook.svg';
+import instagramLogo from '../utilities/images/icons/instagram.svg';
 
 
 export function AppFooter() {
