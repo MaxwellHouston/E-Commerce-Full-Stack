@@ -34,7 +34,6 @@ nav li {
 nav ul li ul {
   visibility: hidden;
   opacity: 0;
-  transition: all 0.5s ease;
   position: absolute;
   top: 4rem;
   display: none;
@@ -61,17 +60,19 @@ nav ul li ul li {
 nav ul li ul li a {
   padding: none;
   width: 100%;
+  font-size: 1rem;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
 }
 
 nav a:hover {
   background-color: rgb(62, 62, 133);
+  color: red;
   cursor: pointer;
   transition-duration: 0.5s;
 }
@@ -140,8 +141,10 @@ nav {
   height: 100%;
 }
 
-.header-icons img:hover {
+.header-icons svg:hover {
   fill: red;
+  cursor: pointer;
+  transition-duration: 0.5s;
 }
 
 /*---------------------------Homepage-----------------------------*/
@@ -160,6 +163,7 @@ nav {
   justify-content: center;
   align-items:center;
   flex-wrap: wrap;
+  width: 25%;
   padding: 4rem 0;
   background-color: #0f0f59;
   color: white;
@@ -178,6 +182,11 @@ nav {
   height: 2.5rem;
   width: 8rem;
   font-size: 1.5rem;
+  box-shadow: 3px 3px 5px black;
+}
+
+.homepage-join-container button:active {
+  transform: translate(3px, 3px);
 }
 
 .homepage-join-container button a {
