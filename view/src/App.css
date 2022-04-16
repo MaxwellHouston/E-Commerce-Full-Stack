@@ -95,7 +95,7 @@ nav {
 
 .search-btn {
   height: 2.5rem;
-  width: 3rem;
+  width: 2.5rem;
   position: absolute;
   border: none;
   border-radius: 1.25rem;
@@ -107,13 +107,13 @@ nav {
 }
 
 .search-btn img {
-  height: 65%;
+  height: 60%;
 }
 
 .header input {
   height: 100%;
   width: 100%;
-  padding-left: 4rem;
+  padding-left: 3rem;
   border: none;
   background-color: rgba(255, 182, 193, 0);
   font-size: 1rem;
@@ -202,6 +202,78 @@ nav {
 
 .homepage-join-container a {
   color: red;
+}
+
+/*---------------------------Register-----------------------------*/
+.register-page {
+  height: 50rem;
+  display: flex;
+}
+
+.register-page .background-container {
+  width: 50%;
+  background-image: url('./utilities/images/register-background.jpg');
+  background-size: cover;
+  background-position: center;
+
+}
+
+.register-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: center;
+  width: 35%;
+  margin: 0 auto;
+}
+
+.register-form h1 {
+  width: 100%;
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 3rem;
+}
+
+.register-form button {
+  margin: 1rem 30%;
+  height: 3rem;
+  width: 40%;
+  background-color: white;
+  border: 1px solid #0f0f59;
+  border-radius: 1.5rem;
+  background-size: 2.5rem;
+  background-position: center left .25rem;
+  background-repeat: no-repeat;
+  font-size: 1.15rem;
+}
+
+.register-form button span {
+  margin-left: 2rem;
+}
+
+.google-log {
+  background-image: url('./utilities/images/google-logo.png');
+}
+
+.facebook-log {
+  background-image: url('./utilities/images/facebook-logo.png');
+}
+
+.or-divider {
+  width: 90%;
+  text-align: center;
+  border-top: 3px solid #8d8d8d;
+  margin-top: 2rem;
+}
+
+.or-divider span {
+  position: relative;
+  top: -.9rem;
+  background-color: white;
+  padding: 1rem;
+  color: #8d8d8d;
+  font-size: 1.5rem;
 }
 
 /*---------------------------Footer-----------------------------*/

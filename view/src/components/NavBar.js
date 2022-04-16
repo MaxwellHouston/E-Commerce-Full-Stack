@@ -12,28 +12,28 @@ export function NavBar() {
                 <ul>
                     <li><Link to='#'>Apparel</Link>
                         <ul className="nav-dropdown">
-                            <li><Link to='home/baseball/apparel'>Baseball</Link></li>
-                            <li><Link to='home/soccer/apparel'>Soccer</Link></li>
-                            <li><Link to='home/tennis/apparel'>Tennis</Link></li>
-                            <li><Link to='home/basketball/apparel'>Basketball</Link></li>
-                            <li><Link to='home/football/apparel'>Football</Link></li>
-                            <li><Link to='home/running/apparel'>Running</Link></li>
-                            <li><Link to='home/lacross/apparel'>Lacross</Link></li>
-                            <li><Link to='home/hockey/apparel'>Hockey</Link></li>
-                            <li><Link to='home/fishing/apparel'>Fishing</Link></li>
+                            <li><Link to='/baseball/apparel'>Baseball</Link></li>
+                            <li><Link to='/soccer/apparel'>Soccer</Link></li>
+                            <li><Link to='/tennis/apparel'>Tennis</Link></li>
+                            <li><Link to='/basketball/apparel'>Basketball</Link></li>
+                            <li><Link to='/football/apparel'>Football</Link></li>
+                            <li><Link to='/running/apparel'>Running</Link></li>
+                            <li><Link to='/lacross/apparel'>Lacross</Link></li>
+                            <li><Link to='/hockey/apparel'>Hockey</Link></li>
+                            <li><Link to='/fishing/apparel'>Fishing</Link></li>
                         </ul>
                     </li>
                     <li><Link to='#'>Equipment</Link>
                         <ul className="nav-dropdown">
-                            <li><Link to='home/baseball/equipment'>Baseball</Link></li>
-                            <li><Link to='home/soccer/equipment'>Soccer</Link></li>
-                            <li><Link to='home/tennis/equipment'>Tennis</Link></li>
-                            <li><Link to='home/basketball/equipment'>Basketball</Link></li>
-                            <li><Link to='home/football/equipment'>Football</Link></li>
-                            <li><Link to='home/running/equipment'>Running</Link></li>
-                            <li><Link to='home/lacross/equipment'>Lacross</Link></li>
-                            <li><Link to='home/hockey/equipment'>Hockey</Link></li>
-                            <li><Link to='home/fishing/equipment'>Fishing</Link></li>
+                            <li><Link to='/baseball/equipment'>Baseball</Link></li>
+                            <li><Link to='/soccer/equipment'>Soccer</Link></li>
+                            <li><Link to='/tennis/equipment'>Tennis</Link></li>
+                            <li><Link to='/basketball/equipment'>Basketball</Link></li>
+                            <li><Link to='/football/equipment'>Football</Link></li>
+                            <li><Link to='/running/equipment'>Running</Link></li>
+                            <li><Link to='/lacross/equipment'>Lacross</Link></li>
+                            <li><Link to='/hockey/equipment'>Hockey</Link></li>
+                            <li><Link to='/fishing/equipment'>Fishing</Link></li>
                         </ul>
                     </li>
                     <li><Link to='#'>Accessories</Link></li>

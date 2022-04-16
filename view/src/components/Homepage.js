@@ -6,7 +6,7 @@ export function Homepage() {
         <div className="homepage-background">
             <div className="homepage-join-container">
                 <h2>Start shopping today</h2>
-                <button><Link to='#'>Sign Up</Link></button>
+                <button><Link to='/register'>Sign Up</Link></button>
                 <p>Already have an account? <Link to='#'>Login</Link></p>
             </div>
         </div>
