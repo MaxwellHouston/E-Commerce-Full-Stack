@@ -3,8 +3,17 @@
   src: url('./utilities/fonts/CoreSans/coresans-regular.otf');
 }
 
+@font-face {
+  font-family: 'League Gothic';
+  src: url('./utilities/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf');
+}
+
 * {
   font-family: 'Core-Sans', sans-serif !important;
+}
+
+button {
+  cursor: pointer;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -71,9 +80,8 @@ nav a {
 }
 
 nav a:hover {
-  background-color: rgb(62, 62, 133);
+  background-color: #3e3e85;
   color: red;
-  cursor: pointer;
   transition-duration: 0.5s;
 }
 
@@ -143,7 +151,6 @@ nav {
 
 .header-icons svg:hover {
   fill: red;
-  cursor: pointer;
   transition-duration: 0.5s;
 }
 
@@ -187,6 +194,7 @@ nav {
 
 .homepage-join-container button:active {
   transform: translate(3px, 3px);
+  box-shadow: none;
 }
 
 .homepage-join-container button a {
@@ -208,55 +216,67 @@ nav {
 .register-page {
   height: 50rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.register-page .background-container {
-  width: 50%;
+.register-page {
   background-image: url('./utilities/images/register-background.jpg');
   background-size: cover;
   background-position: center;
-
 }
 
 .register-form {
+  height: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
   align-items: center;
-  width: 35%;
-  margin: 0 auto;
+  width: 25%;
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid black;
 }
 
 .register-form h1 {
   width: 100%;
   text-align: center;
-  margin: 3rem 0;
+  margin: 1rem;
   font-size: 3rem;
+  font-family: 'League Gothic';
+  text-decoration: underline;
 }
 
-.register-form button {
-  margin: 1rem 30%;
+.third-party-login-btn {
+  margin: 1rem ;
   height: 3rem;
-  width: 40%;
+  width: 60%;
   background-color: white;
   border: 1px solid #0f0f59;
   border-radius: 1.5rem;
   background-size: 2.5rem;
   background-position: center left .25rem;
   background-repeat: no-repeat;
-  font-size: 1.15rem;
+  font-size: 1rem;
 }
 
-.register-form button span {
+.third-party-login-btn:hover {
+  background-color: rgb(232, 240, 254);
+}
+
+.third-party-login-btn a {
   margin-left: 2rem;
+  text-align: center;
+  color: black;
+  text-decoration: none;
 }
 
-.google-log {
+#google-log {
   background-image: url('./utilities/images/google-logo.png');
 }
 
-.facebook-log {
+#facebook-log {
   background-image: url('./utilities/images/facebook-logo.png');
 }
 
@@ -274,6 +294,56 @@ nav {
   padding: 1rem;
   color: #8d8d8d;
   font-size: 1.5rem;
+}
+
+.input-container {
+  width: 51%;
+  margin: .5rem 0;
+}
+
+.input-container input {
+  height: 2rem;
+  width: 100%;
+  padding-top: .7rem;
+}
+
+.input-container label {
+  position: absolute;
+  margin: 1rem .5rem;
+  font-size: 1.15rem;
+  color: #696969;
+  transition: all 0.2s ease-out;
+}
+
+.input-container:focus-within > label  {
+  margin: .25rem .25rem;
+  font-size: .75rem;
+}
+
+.input-filled {
+  margin: .25rem .25rem !important;
+  font-size: .75rem !important;
+}
+
+.submit-btn {
+  width: 30%;
+  margin: 1rem 30%;
+  padding: .5rem 0;
+  font-size: 1.5rem;
+  background-color: #0f0f59;
+  color: white;
+  border: 1px solid black;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 5px black;
+}
+
+.submit-btn:hover {
+  background-color: #3e3e85;
+}
+
+.submit-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
 }
 
 /*---------------------------Footer-----------------------------*/
