@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import searchIcon from '../utilities/images/icons/search.svg';
-import siteLogo from '../utilities/images/max-logo.png'; 
+import siteLogo from '../utilities/images/logos/max-logo.png'; 
 
 
 export function NavBar() {
     return(
         <div className="header">
-            <img className='page-logo' src={siteLogo} alt='Company Logo' />
+            <Link to='/'><img className='page-logo' src={siteLogo} alt='Company Logo' /></Link> 
             <nav>
                 <ul>
                     <li><Link to='#'>Apparel</Link>

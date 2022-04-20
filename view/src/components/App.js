@@ -2,8 +2,10 @@ import '../App.css';
 import { AppFooter } from './Footer';
 import { NavBar } from './NavBar';
 import { Routes, Route } from 'react-router-dom';
-import { Homepage } from './Homepage';
+import { StartPage } from './Startpage';
 import { Register } from './Register';
+import { Login } from './Login';
+import { Homepage } from './Homepage';
 
 function App() {
 
@@ -12,8 +14,10 @@ function App() {
     <div className='main'>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Homepage />} />
+        <Route path='/' element={<StartPage />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/homepage' element={<Homepage />} />
       </Routes>
       <AppFooter />
     </div>

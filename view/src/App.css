@@ -154,10 +154,10 @@ nav {
   transition-duration: 0.5s;
 }
 
-/*---------------------------Homepage-----------------------------*/
-.homepage-background {
+/*---------------------------Startpage-----------------------------*/
+.startpage-background {
   height: 50rem;
-  background-image: url('./utilities/images/homepage-background.jpg');
+  background-image: url('./utilities/images/backgrounds/startpage-background.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -165,7 +165,7 @@ nav {
   align-items: center;
 }
 
-.homepage-join-container {
+.startpage-join-container {
   display: flex;
   justify-content: center;
   align-items:center;
@@ -178,13 +178,13 @@ nav {
   
 }
 
-.homepage-join-container h2 {
+.startpage-join-container h2 {
   width: 100%;
   text-align: center;
   font-size: 1.75rem;
 }
 
-.homepage-join-container button {
+.startpage-join-container button {
   margin: 2rem 0;
   height: 2.5rem;
   width: 8rem;
@@ -192,28 +192,29 @@ nav {
   box-shadow: 3px 3px 5px black;
 }
 
-.homepage-join-container button:active {
+.startpage-join-container button:active {
   transform: translate(3px, 3px);
   box-shadow: none;
 }
 
-.homepage-join-container button a {
+.startpage-join-container button a {
   color: black;
   text-decoration: none;
 }
 
-.homepage-join-container p {
+.startpage-join-container p {
   font-size: .75rem;
   text-align: center;
   width: 100%;
 }
 
-.homepage-join-container a {
+.startpage-join-container a {
   color: red;
 }
 
 /*---------------------------Register-----------------------------*/
-.register-page {
+.register-page,
+.login-page {
   height: 50rem;
   display: flex;
   justify-content: center;
@@ -221,25 +222,27 @@ nav {
 }
 
 .register-page {
-  background-image: url('./utilities/images/register-background.jpg');
+  background-image: url('./utilities/images/backgrounds/register-background.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.register-form {
-  height: 90%;
+.register-form,
+.login-form {
+  height: 93%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
   align-items: center;
-  width: 25%;
+  width: 20%;
   background-color: white;
   border-radius: 1rem;
   border: 1px solid black;
 }
 
-.register-form h1 {
+.register-form h1,
+.login-form h1 {
   width: 100%;
   text-align: center;
   margin: 1rem;
@@ -251,7 +254,7 @@ nav {
 .third-party-login-btn {
   margin: 1rem ;
   height: 3rem;
-  width: 60%;
+  width: 70%;
   background-color: white;
   border: 1px solid #0f0f59;
   border-radius: 1.5rem;
@@ -259,10 +262,16 @@ nav {
   background-position: center left .25rem;
   background-repeat: no-repeat;
   font-size: 1rem;
+  box-shadow: 2px 2px 5px black;
 }
 
 .third-party-login-btn:hover {
   background-color: rgb(232, 240, 254);
+}
+
+.third-party-login-btn:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
 }
 
 .third-party-login-btn a {
@@ -273,11 +282,11 @@ nav {
 }
 
 #google-log {
-  background-image: url('./utilities/images/google-logo.png');
+  background-image: url('./utilities/images/logos/google-logo.png');
 }
 
 #facebook-log {
-  background-image: url('./utilities/images/facebook-logo.png');
+  background-image: url('./utilities/images/logos/facebook-logo.png');
 }
 
 .or-divider {
@@ -291,13 +300,13 @@ nav {
   position: relative;
   top: -.9rem;
   background-color: white;
-  padding: 1rem;
+  padding: .5rem 1rem;
   color: #8d8d8d;
   font-size: 1.5rem;
 }
 
 .input-container {
-  width: 51%;
+  width: 70%;
   margin: .5rem 0;
 }
 
@@ -305,6 +314,7 @@ nav {
   height: 2rem;
   width: 100%;
   padding-top: .7rem;
+  font-family:Arial, sans-serif !important;
 }
 
 .input-container label {
@@ -326,7 +336,7 @@ nav {
 }
 
 .submit-btn {
-  width: 30%;
+  width: 40%;
   margin: 1rem 30%;
   padding: .5rem 0;
   font-size: 1.5rem;
@@ -345,6 +355,34 @@ nav {
   transform: translate(3px, 3px);
   box-shadow: none;
 }
+
+/*---------------------------Login-----------------------------*/
+
+.login-page {
+  background-image: url('./utilities/images/backgrounds/login-background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-form {
+  height: 70%;
+}
+
+.login-form .submit-btn {
+  margin-top: 1.5rem;
+}
+
+.login-form p,
+.register-form p {
+  font-size: .75rem;
+  margin: 1rem;
+}
+
+
+/*---------------------------Homepage-----------------------------*/
+
+
+
 
 /*---------------------------Footer-----------------------------*/
 footer {

@@ -56,7 +56,8 @@ export function Register () {
                     <label for='confirm-password' className={confirmPassword ? 'input-filled' : 'input-empty'}>Confirm Password</label>
                     <input name='confirm-password' onChange={handleConfirmPassword} type='password' />
                 </fieldset>
-                <button onClick={handleSubmit} type="submit" className="submit-btn">Register</button>               
+                <button onClick={handleSubmit} type="submit" className="submit-btn">Register</button>
+                <p>Already have an account? <Link to='/login'>Login</Link></p>               
             </form>
         </div>
     )
