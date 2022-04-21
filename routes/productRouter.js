@@ -15,7 +15,17 @@ productRouter.get('/', async (req, res) => {
     } catch(err){
         res.status(400).json(err);
     }
-})
+});
+
+//Get Sports
+productRouter.get('/sports-list', async (req, res) => {
+    try {
+        const sports = await productInstance.getSports();
+        res.json(sports);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
 
 //Get product by id
 productRouter.get('/:id', async (req, res) => {
@@ -27,7 +37,8 @@ productRouter.get('/:id', async (req, res) => {
     } catch(err) {
         res.status(400).json(err);
     }
-})
+});
+
 
 //Get products by category
 productRouter.get('/categories/:category', async (req, res) => {
@@ -39,6 +50,6 @@ productRouter.get('/categories/:category', async (req, res) => {
     } catch(err) {
         res.status(400).json(err);
     }
-})
+});
 
 module.exports = productRouter;

@@ -381,9 +381,36 @@ nav {
 
 /*---------------------------Homepage-----------------------------*/
 
+.homepage-container {
+  display: flex;
+  justify-content: space-around;
+}
 
+.large-shop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 30rem
+}
 
+.large-shop-container a {
+  font-size: 3rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  color: white;
+}
 
+#shop-equipment {
+  background-image: url('./utilities/images/backgrounds/equipment-background.jpeg');
+  background-size: cover;
+}
+
+#shop-apparel {
+  background-image:  url('./utilities/images/backgrounds/apparel-background.jpg');
+  background-size: cover;
+  background-position: center;
+}
 /*---------------------------Footer-----------------------------*/
 footer {
   display: flex !important;
