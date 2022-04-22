@@ -27,13 +27,13 @@ productRouter.get('/sports-list', async (req, res) => {
     }
 });
 
-//Get product by id
-productRouter.get('/:id', async (req, res) => {
-    const id = req.params.id;
+//Get product by sport
+productRouter.get('/:sport', async (req, res) => {
+    let sport = req.params.sport;
     try {
-        const product = await productInstance.getProductById(id);
-        if(!product) return res.status(404).json({message: 'Invalid product number'});
-        res.json(product);
+        const products = await productInstance.getProductsBySport(sport);
+        if(!products) return res.status(404).json({message: 'Invalid sport'});
+        res.json(products);
     } catch(err) {
         res.status(400).json(err);
     }
@@ -41,15 +41,30 @@ productRouter.get('/:id', async (req, res) => {
 
 
 //Get products by category
-productRouter.get('/categories/:category', async (req, res) => {
+productRouter.get('/all/:category', async (req, res) => {
     let category = req.params.category;
     try {
-        const productList = await productInstance.getProductsByCategory(category);
-        if(productList.length === 0) return res.status(404).json({message: 'Invalid category'});
-        res.json(productList);
+        const products = await productInstance.getProductsByCategory(category);
+        if(products.length === 0) return res.status(404).json({message: 'Invalid category'});
+        res.json(products);
     } catch(err) {
         res.status(400).json(err);
     }
 });
+
+//Get products by sport & category
+productRouter.get('/:sport/:category', async (req, res) => {
+    let data = {
+        sport: req.params.sport,
+        category: req.params.category
+    }
+    try {
+        const products = await productInstance.getProductsBySportAndCategory(data) ;
+        if(products.length === 0) return res.status(400).json({message: 'Invalid category'});
+        res.json(products);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
 
 module.exports = productRouter;

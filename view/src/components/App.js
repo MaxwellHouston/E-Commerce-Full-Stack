@@ -6,6 +6,10 @@ import { StartPage } from './Startpage';
 import { Register } from './Register';
 import { Login } from './Login';
 import { Homepage } from './Homepage';
+import { Shop } from './shop/Shop';
+import { ShopSports } from './shop/ShopSports';
+import { ShopCategories } from './shop/ShopCategories';
+import { ShopSportsCategories } from './shop/ShopSportsCategories';
 
 function App() {
 
@@ -18,6 +22,10 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/homepage' element={<Homepage />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path='shop/:sport' element={<ShopSports />} />
+        <Route path='shop/all/:category' element={<ShopCategories />} />
+        <Route path='shop/:sport/:category' element={<ShopSportsCategories />} />
       </Routes>
       <AppFooter />
     </div>

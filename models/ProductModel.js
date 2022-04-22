@@ -46,6 +46,17 @@ module.exports = class Productmodel {
         }
     };
 
+    async getProductsBySportAndCategory({sport, category}) {
+        const text = 'SELECT * FROM product WHERE sport = $1 AND category = $2;';
+        const inputs = [sport, category];
+        try{
+            const result = await query(text, inputs);
+            return result.rows;
+        } catch(err) {
+            throw err.stack
+        }
+    };
+
     async getSports() {
         const text = 'SELECT DISTINCT sport FROM product;';
         const inputs = [];
@@ -55,5 +66,5 @@ module.exports = class Productmodel {
         } catch (err) {
             throw err.stack
         }
-    }
+    };
 }
