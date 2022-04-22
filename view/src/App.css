@@ -383,34 +383,111 @@ nav {
 
 .homepage-container {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-image: url('./utilities/images/backgrounds/homepage-background.jpg');
 }
 
-.large-shop-container {
+.homepage-container h2 {
+  width: 30%;
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 2rem;
+  background-color: #0f0f59;
+  color: white;
+}
+
+.large-shop-container,
+.small-shop-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
-  height: 30rem
+  background-size: cover;
+  background-position: center;
+  border: 3px solid black;
+  box-shadow: 5px 5px 5px black;
+  filter: grayscale(50%);
 }
 
-.large-shop-container a {
+.large-shop-container:hover,
+.small-shop-container:hover {
+  filter: contrast(150%);
+}
+
+.large-shop-container {
+  width: 30%;
+  height: 30rem;
+  margin: 5rem;
+}
+
+.large-shop-container a,
+.small-shop-container a {
   font-size: 3rem;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
   color: white;
+  text-shadow: 3px 3px 5px black;
+  text-decoration: none;
 }
 
 #shop-equipment {
   background-image: url('./utilities/images/backgrounds/equipment-background.jpeg');
-  background-size: cover;
 }
 
 #shop-apparel {
   background-image:  url('./utilities/images/backgrounds/apparel-background.jpg');
-  background-size: cover;
+}
+
+.sports-slider-container {
+  width: 80%;
+  display: flex;
+  background-color: #c0c0c0;
+  margin: 5rem;
+}
+
+.sports-slider-container button {
+  width: 10%;
+  border: none;
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
 }
+
+.left-slider-btn {
+  background-image: url('./utilities/images/slider-left-arrow.png');
+}
+
+.right-slider-btn {
+  background-image: url('./utilities/images/slider-right-arrow.png');
+}
+
+.sports-slider {
+  width: 80%;
+  display: flex;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  border: 2px solid #0f0f59;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.small-shop-container {
+  height: 20rem;
+  margin: 2rem;
+  align-items: flex-end;
+}
+
+
+.small-shop-container a {
+  color: white;
+  background-color: #0f0f59;
+  width: 20rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
 /*---------------------------Footer-----------------------------*/
 footer {
   display: flex !important;
