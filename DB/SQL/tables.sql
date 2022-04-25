@@ -9,7 +9,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE product (
-    id SERIAL PRIMARY KEY,
+    id varchar(6) PRIMARY KEY,
     name varchar(50) NOT NULL,
     price money NOT NULL,
     sport varchar(20) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE cart (
 
 CREATE TABLE cart_product (
     cart_id integer REFERENCES cart(id),
-    product_id integer REFERENCES product(id),
+    product_id varchar(6) REFERENCES product(id),
     qty integer NOT NULL,
     PRIMARY KEY (cart_id, product_id)
 );
@@ -44,7 +44,7 @@ CREATE TABLE orders (
 
 CREATE TABLE order_product (
     order_id integer REFERENCES orders(id),
-    product_id integer REFERENCES product(id),
+    product_id varchar(6) REFERENCES product(id),
     price money NOT NULL,
     qty integer NOT NULL,
     PRIMARY KEY (order_id, product_id)

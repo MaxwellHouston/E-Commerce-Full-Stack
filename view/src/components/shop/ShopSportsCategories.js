@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import api from "../../utilities/api";
+import { ProductView } from "./ProductView";
 
 export function ShopSportsCategories() {
     const [products, setProducts] = useState([]);
@@ -13,10 +14,16 @@ export function ShopSportsCategories() {
 
     useEffect(() => {
         loadProducts(sport, category)
-    }, [sport, category])
+    }, [sport, category]);
+
+    const renderProducts = () => {
+        return products.map(product => <ProductView key={product.id} product={product} />);
+    }
 
     return (
-        <button >bleh</button>
+        <div>
+            {renderProducts()}
+        </div>
     )
 
 }
