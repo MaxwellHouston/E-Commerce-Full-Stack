@@ -8,6 +8,11 @@
   src: url('./utilities/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf');
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('./utilities/fonts/Roboto/Roboto-Regular.ttf');
+}
+
 * {
   font-family: 'Core-Sans', sans-serif !important;
 }
@@ -378,7 +383,6 @@ nav {
   margin: 1rem;
 }
 
-
 /*---------------------------Homepage-----------------------------*/
 
 .homepage-container {
@@ -487,6 +491,12 @@ nav {
   text-align: center;
   font-size: 2.5rem;
 }
+
+/*---------------------------Shop-----------------------------*/
+.prooduct-view p {
+  font-family: 'Roboto' !important;
+}
+
 
 /*---------------------------Footer-----------------------------*/
 footer {

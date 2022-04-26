@@ -10,33 +10,33 @@ export function NavBar() {
             <Link to='/'><img className='page-logo' src={siteLogo} alt='Company Logo' /></Link> 
             <nav>
                 <ul>
-                    <li><Link to='#'>Apparel</Link>
+                    <li><Link to='/shop/all/apparel'>Apparel</Link>
                         <ul className="nav-dropdown">
-                            <li><Link to='/baseball/apparel'>Baseball</Link></li>
-                            <li><Link to='/soccer/apparel'>Soccer</Link></li>
-                            <li><Link to='/tennis/apparel'>Tennis</Link></li>
-                            <li><Link to='/basketball/apparel'>Basketball</Link></li>
-                            <li><Link to='/football/apparel'>Football</Link></li>
-                            <li><Link to='/running/apparel'>Running</Link></li>
-                            <li><Link to='/lacross/apparel'>Lacross</Link></li>
-                            <li><Link to='/hockey/apparel'>Hockey</Link></li>
-                            <li><Link to='/fishing/apparel'>Fishing</Link></li>
+                            <li><Link to='/shop/baseball/apparel'>Baseball</Link></li>
+                            <li><Link to='/shop/soccer/apparel'>Soccer</Link></li>
+                            <li><Link to='/shop/tennis/apparel'>Tennis</Link></li>
+                            <li><Link to='/shop/basketball/apparel'>Basketball</Link></li>
+                            <li><Link to='/shop/football/apparel'>Football</Link></li>
+                            <li><Link to='/shop/running/apparel'>Running</Link></li>
+                            <li><Link to='/shop/lacrosse/apparel'>Lacrosse</Link></li>
+                            <li><Link to='/shop/hockey/apparel'>Hockey</Link></li>
+                            <li><Link to='/shop/fishing/apparel'>Fishing</Link></li>
                         </ul>
                     </li>
-                    <li><Link to='#'>Equipment</Link>
+                    <li><Link to='/shop/all/equipment'>Equipment</Link>
                         <ul className="nav-dropdown">
-                            <li><Link to='/baseball/equipment'>Baseball</Link></li>
-                            <li><Link to='/soccer/equipment'>Soccer</Link></li>
-                            <li><Link to='/tennis/equipment'>Tennis</Link></li>
-                            <li><Link to='/basketball/equipment'>Basketball</Link></li>
-                            <li><Link to='/football/equipment'>Football</Link></li>
-                            <li><Link to='/running/equipment'>Running</Link></li>
-                            <li><Link to='/lacross/equipment'>Lacross</Link></li>
-                            <li><Link to='/hockey/equipment'>Hockey</Link></li>
-                            <li><Link to='/fishing/equipment'>Fishing</Link></li>
+                            <li><Link to='/shop/baseball/equipment'>Baseball</Link></li>
+                            <li><Link to='/shop/soccer/equipment'>Soccer</Link></li>
+                            <li><Link to='/shop/tennis/equipment'>Tennis</Link></li>
+                            <li><Link to='/shop/basketball/equipment'>Basketball</Link></li>
+                            <li><Link to='/shop/football/equipment'>Football</Link></li>
+                            <li><Link to='/shop/running/equipment'>Running</Link></li>
+                            <li><Link to='/shop/lacrosse/equipment'>Lacrosse</Link></li>
+                            <li><Link to='/shop/hockey/equipment'>Hockey</Link></li>
+                            <li><Link to='/shop/fishing/equipment'>Fishing</Link></li>
                         </ul>
                     </li>
-                    <li><Link to='#'>Accessories</Link></li>
+                    <li><Link to='/shop/gear'>Accessories</Link></li>
                 </ul>
             </nav>
             <form className="search-bar" autoComplete="off">
