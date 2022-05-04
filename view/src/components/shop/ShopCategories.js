@@ -16,7 +16,9 @@ export function ShopCategories() {
     }, [category])
 
     return (
-        <button >bleh</button>
+        <div className="products-container">
+
+        </div>
     )
 
 }

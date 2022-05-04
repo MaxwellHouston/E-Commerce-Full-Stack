@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import api from "../../utilities/api";
+import { Breadcrumbs } from "./Breadcrumbs";
+import { FiltersTab } from "./FiltersTab";
 
 export function ShopSports() {
     const [products, setProducts] = useState([]);
@@ -16,7 +18,7 @@ export function ShopSports() {
     },[sport])
 
     return (
-        <button >bleh</button>
+        <FiltersTab />
     )
 
 }

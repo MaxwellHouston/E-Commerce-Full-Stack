@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import api from "../../utilities/api";
+import { Breadcrumbs } from "./Breadcrumbs";
+import { FiltersTab } from "./FiltersTab";
 import { ProductView } from "./ProductView";
 
 export function ShopSportsCategories() {
@@ -21,8 +23,12 @@ export function ShopSportsCategories() {
     }
 
     return (
-        <div>
-            {renderProducts()}
+        <div className="shop-page">
+            <Breadcrumbs />
+            <FiltersTab />
+            <div className="products-container">
+                {renderProducts()}
+            </div> 
         </div>
     )
 

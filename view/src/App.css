@@ -9,8 +9,8 @@
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('./utilities/fonts/Roboto/Roboto-Regular.ttf');
+  font-family: 'Archivo';
+  src: url('./utilities/fonts/Archivo-VariableFont_wdth\,wght.ttf')
 }
 
 * {
@@ -252,7 +252,7 @@ nav {
   text-align: center;
   margin: 1rem;
   font-size: 3rem;
-  font-family: 'League Gothic';
+  font-family: 'Archivo';
   text-decoration: underline;
 }
 
@@ -457,11 +457,11 @@ nav {
 }
 
 .left-slider-btn {
-  background-image: url('./utilities/images/slider-left-arrow.png');
+  background-image: url('./utilities/images/arrows/slider-left-arrow.png');
 }
 
 .right-slider-btn {
-  background-image: url('./utilities/images/slider-right-arrow.png');
+  background-image: url('./utilities/images/arrows/slider-right-arrow.png');
 }
 
 .sports-slider {
@@ -492,9 +492,124 @@ nav {
   font-size: 2.5rem;
 }
 
+/*---------------------------Breadcrumb-----------------------------*/
+
+.breadcrumb {
+  width: 100%;
+}
+
+.breadcrumb a {
+  float: left;
+  color: #fff;
+  background: #0f0f59;
+  text-decoration: none;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-right: 15px;
+  padding: 0 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.breadcrumb a::before,
+.breadcrumb a::after {
+  content: "";
+  position: absolute;
+  border-color: #0f0f59;
+  border-style: solid;
+  border-width: 15px 5px;
+}
+
+.breadcrumb a::after {
+  left: 100%;
+  border-color: transparent;
+  border-left-color: #0f0f59;
+}
+.breadcrumb a::before {
+  left: -10px;
+  border-left-color: transparent;
+  border-left-color: transparent;
+}
+
+/*---------------------------Filters-----------------------------*/
+
+#filters-container {
+  width: 15%;
+  background-color: white;
+  border: 2px solid black;
+  height: fit-content;
+}
+
+#hide-show-btn {
+float: right;
+background-color: #fff;
+border: none;
+}
+
+#filters-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+#filters-container fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  border: solid 1px black;
+}
+
+#filters-container fieldset h2 {
+  width: 85%;
+  text-align: center;
+  align-self: center;
+  font-size: 1.5rem;
+}
+
+#filters-container fieldset button {
+  width: 15%;
+  font-size: 1.5rem;
+  border: 2px solid rgb(118, 118, 118);
+  border-left: none;
+  border-right: none;
+  line-height: 2.5rem;
+  background-image: url('./utilities/images/arrows/up-arrow-notail.png');
+  background-size: 2.5rem;
+  background-repeat: no-repeat;
+  background-position: right 90%;
+}
+
+#filters-container label {
+  font-family: 'Archivo' !important;
+  margin: .5rem;
+}
+
+.clear-btn {
+  background-color: white !important;
+  border: none !important;
+  background-image: none !important;
+  float: right;
+}
+
 /*---------------------------Shop-----------------------------*/
-.prooduct-view p {
-  font-family: 'Roboto' !important;
+
+.shop-page {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #c0c0c0;
+  overflow-y: hidden;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+
+.product-view p,
+.product-view span {
+  font-family: 'Archivo' !important;
 }
 
 
