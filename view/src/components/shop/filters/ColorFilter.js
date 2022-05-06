@@ -25,19 +25,19 @@ export function ColorFilter({updateFilter, resetFilter, color}) {
             <button onClick={toggleColor}>^</button>
             <div id="color-inputs">
                 {color && <button className="clear-btn" onClick={resetColor}>clear</button>}
-                <input type='radio' id='black' name='color' value='black' />
+                <input type='radio' id='black' name='color' value='Black' />
                 <label for='black'>Black</label>
                 <br/>
-                <input type='radio' id='red' name='color' value='red' />
+                <input type='radio' id='red' name='color' value='Red' />
                 <label for='red'>Red</label>
                 <br/>
-                <input type='radio' id='blue' name='color' value='blue' />
+                <input type='radio' id='blue' name='color' value='Blue' />
                 <label for='blue'>Blue</label>
                 <br/>
-                <input type='radio' id='white' name='color' value='white' />
+                <input type='radio' id='white' name='color' value='White' />
                 <label for='white'>White</label>
                 <br/>
-                <input type='radio' id='pink' name='color' value='pink' />
+                <input type='radio' id='pink' name='color' value='Pink' />
                 <label for='pink'>Pink</label>
                 <br/>
                 <input type='radio' id='none' name='color' value='none' />

@@ -25,7 +25,7 @@ module.exports = class Productmodel {
     };
 
     async getProductsByCategory(data) {
-        const text = `SELECT sub.* FROM (SELECT * FROM product WHERE id LIKE '%33' OR id LIKE '%44') AS sub WHERE category = $1;`;;
+        const text = `SELECT * FROM product WHERE category = $1;`;;
         const inputs = [data];
         try{
             const result = await query(text, inputs);
@@ -36,7 +36,7 @@ module.exports = class Productmodel {
     };
 
     async getProductsBySport(data) {
-        const text = `SELECT sub.* FROM (SELECT * FROM product WHERE id LIKE '%33' OR id LIKE '%44') AS sub WHERE sport = $1;`;
+        const text = `SELECT * FROM product WHERE sport = $1;`;
         const inputs = [data];
         try{
             const result = await query(text, inputs);
@@ -47,7 +47,7 @@ module.exports = class Productmodel {
     };
 
     async getProductsBySportAndCategory({sport, category}) {
-        const text = `SELECT sub.* FROM (SELECT * FROM product WHERE id LIKE '%33' OR id LIKE '%44') AS sub WHERE sport = $1 AND category = $2;`;
+        const text = `SELECT * FROM product WHERE sport = $1 AND category = $2;`;
         const inputs = [sport, category];
         try{
             const result = await query(text, inputs);

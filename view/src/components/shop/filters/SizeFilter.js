@@ -25,13 +25,13 @@ export function SizeFilter({updateFilter, resetFilter, size}) {
             <button onClick={toggleSize}>^</button>
             <div id="size-inputs">
                 {size && <button className="clear-btn" onClick={resetSize}>clear</button>}
-                <input type='radio' id='small' name='size' value='small' />
+                <input type='radio' id='small' name='size' value='S' />
                 <label for='small'>Small</label>
                 <br/>
-                <input type='radio' id='medium' name='size' value='medium' />
+                <input type='radio' id='medium' name='size' value='M' />
                 <label for='medium'>Medium</label>
                 <br/>
-                <input type='radio' id='large' name='size' value='large' />
+                <input type='radio' id='large' name='size' value='L' />
                 <label for='large'>Large</label>
                 <br/>
                 <input type='radio' id='one-size' name='size' value='one-size' />

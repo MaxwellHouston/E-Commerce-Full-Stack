@@ -7,9 +7,6 @@ import { Register } from './account/Register';
 import { Login } from './account/Login';
 import { Homepage } from './Homepage';
 import { Shop } from './shop/Shop';
-import { ShopSports } from './shop/ShopSports';
-import { ShopCategories } from './shop/ShopCategories';
-import { ShopSportsCategories } from './shop/ShopSportsCategories';
 
 function App() {
 

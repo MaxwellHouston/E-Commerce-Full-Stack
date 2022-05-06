@@ -1,3 +1,4 @@
+
 export function PriceFilter({updateFilter, resetFilter, price}) {
 
     const priceInputs = document.getElementById('price-inputs');
@@ -9,7 +10,8 @@ export function PriceFilter({updateFilter, resetFilter, price}) {
     };
 
     const handleChange = ({target}) => {
-        updateFilter('price', target.value);
+        let priceRange = target.value.split(',');
+        updateFilter('price', priceRange);
     };
     
     const resetPrice = (e) => {
@@ -24,16 +26,16 @@ export function PriceFilter({updateFilter, resetFilter, price}) {
             <button onClick={togglePrice}>^</button>
             <div id="price-inputs">
                 {price && <button className="clear-btn" onClick={resetPrice}>clear</button>}
-                <input type='radio' id='0-25' name='price' value='25' />
+                <input type='radio' id='0-25' name='price' value='0,25' />
                 <label for='0-25'>$0 - $25</label>
                 <br/>
-                <input type='radio' id='25-50' name='price' value='50' />
+                <input type='radio' id='25-50' name='price' value='25,50' />
                 <label for='25-50'>$25 - $50</label>
                 <br/>
-                <input type='radio' id='50-75' name='price' value='75' />
+                <input type='radio' id='50-75' name='price' value='50,75' />
                 <label for='50-75'>$50 - $75</label>
                 <br/>
-                <input type='radio' id='75-plus' name='price' value='100' />
+                <input type='radio' id='75-plus' name='price' value='75,500' />
                 <label for='75-plus'>$75 +</label>
             </div> 
         </fieldset>
