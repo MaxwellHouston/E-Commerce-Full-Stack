@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import api from "../../utilities/api";
 
-export function ShopAll({renderProducts, filters, filterProducts}) {
+export function ShopAll({renderProducts, getParams, filters, filterProducts}) {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -12,7 +12,8 @@ export function ShopAll({renderProducts, filters, filterProducts}) {
 
     useEffect(() => {
         loadProducts();
-    },[]);
+        getParams({});
+    },[getParams]);
 
     useEffect(() => {
     setFilteredProducts(filterProducts(filters, products))

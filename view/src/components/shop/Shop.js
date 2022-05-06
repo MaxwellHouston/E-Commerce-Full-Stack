@@ -45,7 +45,7 @@ export function Shop() {
             <Breadcrumbs urlParams={urlParams} />
             <FiltersTab handleFilterChange={handleFilterChange} urlParams={urlParams}/>
             <Routes>
-                <Route path='/' element={<ShopAll renderProducts={renderProducts} filters={filters} filterProducts={filterProducts} />} />
+                <Route path='/' element={<ShopAll renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/:sport' element={<ShopSports renderProducts={renderProducts}  getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/all/:category' element={<ShopCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/:sport/:category' element={<ShopSportsCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />

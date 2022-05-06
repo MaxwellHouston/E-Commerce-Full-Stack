@@ -40,7 +40,7 @@ export function ColorFilter({updateFilter, resetFilter, color}) {
                 <input type='radio' id='pink' name='color' value='Pink' />
                 <label for='pink'>Pink</label>
                 <br/>
-                <input type='radio' id='none' name='color' value='none' />
+                <input type='radio' id='none' name='color' value='No Color' />
                 <label for='none'>None</label>
             </div>
         </fieldset>
