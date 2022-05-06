@@ -15,7 +15,7 @@ CREATE TABLE product (
     sport varchar(20) NOT NULL,
     category varchar(20),
     description varchar(250) NOT NULL,
-    size varchar(5),
+    size varchar(10),
     color varchar(10)
 );
 

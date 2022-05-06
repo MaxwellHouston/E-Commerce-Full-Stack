@@ -8,7 +8,7 @@ export function ShopAll({renderProducts, filters, filterProducts}) {
     const loadProducts = async () => {
             const response = await api.fetchAllProducts();
             setProducts(response);
-    }
+    };
 
     useEffect(() => {
         loadProducts();

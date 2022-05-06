@@ -34,7 +34,7 @@ export function SizeFilter({updateFilter, resetFilter, size}) {
                 <input type='radio' id='large' name='size' value='L' />
                 <label for='large'>Large</label>
                 <br/>
-                <input type='radio' id='one-size' name='size' value='one-size' />
+                <input type='radio' id='one-size' name='size' value='One-Size' />
                 <label for='one-size'>One-Size</label>
             </div>
         </fieldset>
