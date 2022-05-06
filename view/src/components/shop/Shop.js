@@ -1,39 +1,48 @@
-import React, {useState, useEffect} from "react";
-import api from "../../utilities/api";
+import React, {useState, useEffect, useCallback} from "react";
+import { Routes, Route } from "react-router-dom";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { FiltersTab } from "./FiltersTab";
 import { ProductView } from "./ProductView";
+import { ShopAll } from "./ShopAll";
+import { ShopCategories } from "./ShopCategories";
+import { ShopSports } from "./ShopSports";
+import { ShopSportsCategories } from "./ShopSportsCategories";
 
 export function Shop() {
-    const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({price:'', color:'', size:'', sport:'', category:''});
+    const [urlParams, setUrlParams] = useState({});
 
-    const loadProducts = async () => {
-            const response = await api.fetchAllProducts();
-            setProducts(response);
-    }
+    const getParams = useCallback((paramObject) => {
+        setUrlParams(paramObject);
+    },[]);
 
     const handleFilterChange = (filterObject) => {
         setFilters(filterObject);
+    };
+
+    const filterProducts = (filterObject, products) => {
+        let filteredProducts = [];
+        for (const filter in filterObject) {
+            filterProducts.push()
+        }
     }
 
-    const renderProducts = () => {
+
+    const renderProducts = (products) => {
         return products.map(product => <ProductView key={product.id} product={product} />);
     };
 
-    useEffect(() => {
-        loadProducts();
-    },[])
-
     return (
         <div className="shop-page">
-            <Breadcrumbs />
-            <FiltersTab handleFilterChange={handleFilterChange} />
-            <div className="products-container">
-                {renderProducts()}
-            </div> 
+            <Breadcrumbs urlParams={urlParams} />
+            <FiltersTab handleFilterChange={handleFilterChange} urlParams={urlParams}/>
+            <Routes>
+                <Route path='/' element={<ShopAll renderProducts={renderProducts} getParams={getParams} />} />
+                <Route path='/:sport' element={<ShopSports renderProducts={renderProducts}  getParams={getParams} />} />
+                <Route path='/all/:category' element={<ShopCategories renderProducts={renderProducts} getParams={getParams} />} />
+                <Route path='/:sport/:category' element={<ShopSportsCategories renderProducts={renderProducts} getParams={getParams} />} />
+            </Routes>
         </div>
         
-    )
-
+    );
 }

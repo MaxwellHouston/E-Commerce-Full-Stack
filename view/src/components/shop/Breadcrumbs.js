@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
-export function Breadcrumbs() {
-    const {sport, category, product} = useParams();
+export function Breadcrumbs({urlParams}) {
+    const {sport, category, product} = urlParams;
 
 
 

@@ -6,11 +6,11 @@ import { PriceFilter } from "./filters/PriceFilter";
 import { SizeFilter } from "./filters/SizeFilter";
 import { SportFilter } from "./filters/SportFilter";
 
-export function FiltersTab({handleFilterChange}) {
+export function FiltersTab({handleFilterChange, urlParams}) {
 
     const [filters, setFilters] = useState({price:'', color:'', size:'', sport:'', category:''});
     
-    const {sport, category} = useParams();
+    const {sport, category} = urlParams;
 
     useEffect(() => {
         handleFilterChange(filters);

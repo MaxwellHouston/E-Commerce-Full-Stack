@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import api from "../../utilities/api";
-import { Breadcrumbs } from "./Breadcrumbs";
-import { FiltersTab } from "./FiltersTab";
 
-export function ShopSports() {
+export function ShopSports({renderProducts, getParams}) {
     const [products, setProducts] = useState([]);
     const { sport } = useParams();
 
@@ -15,10 +13,13 @@ export function ShopSports() {
 
     useEffect(() => {
         loadProducts(sport);
-    },[sport])
+        getParams({sport});
+    },[sport, getParams])
 
     return (
-        <FiltersTab />
+        <div className="products-container">
+            {renderProducts(products)}
+        </div> 
     )
 
 }

@@ -22,10 +22,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/homepage' element={<Homepage />} />
-        <Route path='/shop' element={<Shop />} />
-        <Route path='shop/:sport' element={<ShopSports />} />
-        <Route path='shop/all/:category' element={<ShopCategories />} />
-        <Route path='shop/:sport/:category' element={<ShopSportsCategories />} />
+        <Route path='/shop/*' element={<Shop />} />
       </Routes>
       <AppFooter />
     </div>
