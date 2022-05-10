@@ -7,6 +7,7 @@ import { Register } from './account/Register';
 import { Login } from './account/Login';
 import { Homepage } from './Homepage';
 import { Shop } from './shop/Shop';
+import { UserPage } from './account/UserPage';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/homepage' element={<Homepage />} />
         <Route path='/shop/*' element={<Shop />} />
+        <Route path='/user' element={<UserPage />} />
       </Routes>
       <AppFooter />
     </div>

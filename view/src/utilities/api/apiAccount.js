@@ -28,6 +28,19 @@ const apiAccount = {
         } catch(err) {
             return err.response
         }
+    },
+
+    fetchUser: async () => {
+        try{
+            const res = await axios({
+                method: 'get',
+                withCredentials: true,
+                url: '/api/user'
+            })
+            return res.data;
+        } catch(err) {
+            return err.response
+        }
     }
 }
 
