@@ -1,4 +1,5 @@
 //-------------------------------------------------Imports-----------------------------------------------------------------//
+
 const Usermodel = require('../models/UserModel');
 const { registerSchema, loginSchema } = require('../functions_schemas/validateSchemas');
 const { hashPassword, validationError } = require('../functions_schemas/validateFunctions');
@@ -7,6 +8,7 @@ const passport = require('passport');
 const authRouter = require('express').Router();
 
 //-------------------------------------------------Models-----------------------------------------------------------------//
+
 const userInstance = new Usermodel();
 
 
@@ -26,21 +28,20 @@ authRouter.post('/register', validate(registerSchema), async (req, res) => {
         await userInstance.create(data);
         res.status(201).json({message: 'User created'})
     } catch(err) {
-        res.status(400).send(err);
+        res.status(400).json(err);
     }
     
 });
 
 authRouter.post('/login', validate(loginSchema), passport.authenticate('local', {failureFlash: true}), (req, res) => {
     const user = req.user;
-    console.log(user);
     res.json({message: `${user.first_name} is logged in`});
 });
 
 authRouter.get('/logout', (req, res) => {
     req.logout();
     res.json({message: 'User logged out'});
-})
+});
 
 //------------------------------------------Catch Validation Errors---------------------------------------------------------//
 authRouter.use(validationError);
