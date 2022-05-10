@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
-import api from "../../utilities/api";
+import apiProducts from "../../utilities/api/apiProducts";
 
 export function ShopAll({renderProducts, getParams, filters, filterProducts}) {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
 
     const loadProducts = async () => {
-            const response = await api.fetchAllProducts();
+            const response = await apiProducts.fetchAllProducts();
             setProducts(response);
     };
 

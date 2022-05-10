@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import api from "../../utilities/api";
+import apiProducts from "../../utilities/api/apiProducts";
 
 export function ShopSportsCategories({renderProducts, getParams, filters, filterProducts}) {
     const [products, setProducts] = useState([]);
@@ -8,7 +8,7 @@ export function ShopSportsCategories({renderProducts, getParams, filters, filter
     const {sport, category} = useParams();
 
     const loadProducts = async (sport, category) => { 
-            const response = await api.fetchProductsBySportAndCategory(sport, category);
+            const response = await apiProducts.fetchProductsBySportAndCategory(sport, category);
             setProducts(response);
     };
 

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import api from "../../utilities/api";
+import apiProducts from "../../utilities/api/apiProducts";
 
 export function ShopCategories({renderProducts, getParams, filters, filterProducts}) {
     const [products, setProducts] = useState([]);
@@ -8,7 +8,7 @@ export function ShopCategories({renderProducts, getParams, filters, filterProduc
     const { category } = useParams();
 
     const loadProducts = async (category) => {
-            const response = await api.fetchProductsByCategory(category);
+            const response = await apiProducts.fetchProductsByCategory(category);
             setProducts(response);
     };
 

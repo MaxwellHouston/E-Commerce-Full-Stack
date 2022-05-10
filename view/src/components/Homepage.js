@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import api from '../utilities/api';
+import apiProducts from '../utilities/api/apiProducts';
 
 export function Homepage (){
 
@@ -14,7 +14,7 @@ export function Homepage (){
     },[]);
 
     const loadSports = async () => {
-        const data = await api.fetchSports();
+        const data = await apiProducts.fetchSports();
         setSports(data);
     };
 

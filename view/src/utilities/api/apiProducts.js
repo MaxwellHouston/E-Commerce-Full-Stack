@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = {
+const apiProducts = {
 
     fetchSports: async () => {
         const res = await axios({
@@ -48,4 +48,4 @@ const api = {
     }
 };
 
-export default api;
+export default apiProducts;
