@@ -1,33 +1,38 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ConfirmPasswordInput } from "./inputs/ConfirmPasswordInput";
+import { EmailInput } from "./inputs/EmailInput";
+import { FirstNameInput } from "./inputs/FirstNameInput";
+import { LastNameInput } from "./inputs/LastNameInput";
+import { PasswordInput } from "./inputs/PasswordInput";
 
 export function Register () {
 
-    const [firstname, setFirstName] = useState('');
-    const [lastname, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [newUser, setNewUser] = useState({first_name:'', last_name:'', email:'', password:'', confirmPassword:''});
 
-    const handleFirstName = ({target}) => {
-        setFirstName(target.value);
-    }
-    const handleLastName = ({target}) => {
-        setLastName(target.value);
-    }
-    const handleEmail = ({target}) => {
-        setEmail(target.value);
-    }
-    const handlePassword = ({target}) => {
-        setPassword(target.value);
-    }
-    const handleConfirmPassword = ({target}) => {
-        setConfirmPassword(target.value);
+    const updateNewUser = (input, value) => {
+        setNewUser((prev) => ({
+            ...prev,
+            [input]: value
+        }))
+    };
+
+    const validatePasswords = () => {
+        if(newUser.password.length < 6){
+            alert('Password must be 6 or more characters');
+            return
+        }
+        if(newUser.password !== newUser.confirmPassword){
+            alert('Passwords must match');
+            return
+        }
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    }
+        validatePasswords();
+        console.log('sucsess')
+    };
 
     return(
         <div className="register-page">
@@ -36,26 +41,11 @@ export function Register () {
                 <button className="third-party-login-btn" id="google-log"><Link to='#'>Login with Google</Link></button>
                 <button className="third-party-login-btn" id="facebook-log"><Link to='#'>Login with Facebook</Link></button>
                 <p className="or-divider"><span>Or</span></p>
-                <fieldset className="input-container">
-                    <label for='first-name' className={firstname ? 'input-filled' : 'input-empty'} >First Name</label>
-                    <input onChange={handleFirstName} name='first-name' />
-                </fieldset>
-                <fieldset className="input-container">
-                    <label for='last-name' className={lastname ? 'input-filled' : 'input-empty'}>Last Name</label>
-                    <input onChange={handleLastName} name='last-name' />
-                </fieldset>
-                <fieldset className="input-container">
-                    <label for='email' className={email ? 'input-filled' : 'input-empty'}>Email</label>
-                    <input name='email' onChange={handleEmail} type='email' />
-                </fieldset>
-                <fieldset className="input-container">
-                    <label for='password' className={password ? 'input-filled' : 'input-empty'}>Password</label>
-                    <input name='password' onChange={handlePassword} type='password' />
-                </fieldset>
-                <fieldset className="input-container">
-                    <label for='confirm-password' className={confirmPassword ? 'input-filled' : 'input-empty'}>Confirm Password</label>
-                    <input name='confirm-password' onChange={handleConfirmPassword} type='password' />
-                </fieldset>
+                <FirstNameInput updateNewUser={updateNewUser} firstname={newUser.first_name} />
+                <LastNameInput updateNewUser={updateNewUser} lastname={newUser.last_name} />
+                <EmailInput updateNewUser={updateNewUser} email={newUser.email} />
+                <PasswordInput updateNewUser={updateNewUser} password={newUser.password} />
+                <ConfirmPasswordInput updateNewUser={updateNewUser} confirmPassword={newUser.confirmPassword} />
                 <button onClick={handleSubmit} type="submit" className="submit-btn">Register</button>
                 <p>Already have an account? <Link to='/login'>Login</Link></p>               
             </form>
