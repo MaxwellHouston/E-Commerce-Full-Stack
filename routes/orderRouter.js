@@ -1,7 +1,7 @@
 //-------------------------------------------------Imports-----------------------------------------------------------------//
 const orderRouter = require('express').Router();
 const Ordermodel = require('../models/OrderModel');
-const { checkAuthentication } = require('../passportConfig');
+const { checkAuthentication } = require('../config/passportConfig');
 
 //-------------------------------------------------Models-----------------------------------------------------------------//
 const orderInstance = new Ordermodel();

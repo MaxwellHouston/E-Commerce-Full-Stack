@@ -2,7 +2,7 @@
 const cartRouter = require('express').Router();
 const Cartmodel = require('../models/CartModel');
 const productCartRouter = require('./productCartRouter');
-const { checkAuthentication } = require('../passportConfig');
+const { checkAuthentication } = require('../config/passportConfig');
 
 //-------------------------------------------------Models-----------------------------------------------------------------//
 const cartInstance = new Cartmodel();

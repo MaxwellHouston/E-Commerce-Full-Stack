@@ -3,21 +3,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
-const swaggerDoc = require('./swaggerDoc.json');
+const swaggerDoc = require('./config/swaggerDoc.json');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('express-flash');
 
 //--------------------------------------------------Imports-----------------------------------------------------------------//
-const {PORT, session_secret} = require('./config');
+const {PORT, session_secret} = require('./config/config');
 const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const productRouter = require('./routes/productRouter');
 const cartRouter = require('./routes/cartRouter');
 const orderRouter = require('./routes/orderRouter');
-const { loadPassport } = require('./passportConfig');
-const { validationError } = require('./functions_schemas/validateFunctions');
+const { loadPassport } = require('./config/passportConfig');
 
 const app = express();
 

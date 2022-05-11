@@ -1,5 +1,5 @@
 const Pool = require('pg').Pool;
-const {dbLogin, database_url, node_env} = require('../config');
+const {dbLogin, database_url, node_env} = require('../config/config');
 
 
 const localConfig = {
