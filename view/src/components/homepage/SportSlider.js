@@ -46,9 +46,9 @@ export function SportSlider() {
             const upperCase = sport[0].toUpperCase();
             const base = sport.slice(1);
             const title = upperCase+base;
-            return <div className="small-shop-container" id={`shop-${sport}`} key={sport} style={{ backgroundImage: `url(${require(`../../utilities/images/backgrounds/${sport}-background.jpg`)})`}} >
-            <Link to={`/${sport}`}>{title}</Link>
-            </div>})
+            return <Link to={`/shop/${sport}`} className="small-shop-container" id={`shop-${sport}`} key={sport} style={{ backgroundImage: `url(${require(`../../utilities/images/backgrounds/${sport}-background.jpg`)})`}} >
+                       <span>{title}</span>
+                   </Link>})
     }
     
     
