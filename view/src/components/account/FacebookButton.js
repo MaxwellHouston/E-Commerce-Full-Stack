@@ -25,6 +25,6 @@ export function FacbookButton() {
     }
 
     return(
-        <button className="third-party-login-btn" id="facebook-log" onClick={facebookLogin} ><span>Login with Facebook</span></button>
+        <div className="third-party-login-btn" id="facebook-log" onClick={facebookLogin} ><span>Login with Facebook</span></div>
     )
 }

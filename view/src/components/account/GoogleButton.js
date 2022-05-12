@@ -25,6 +25,6 @@ export function GoogleButton() {
     }
 
     return(
-        <button className="third-party-login-btn" id="google-log" onClick={googleLogin} ><span>Login with Google</span></button>
+        <div className="third-party-login-btn" id="google-log" onClick={googleLogin} ><span>Login with Google</span></div>
     )
 }
