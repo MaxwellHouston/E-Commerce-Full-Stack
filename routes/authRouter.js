@@ -35,7 +35,7 @@ authRouter.post('/register', validate(registerSchema), async (req, res) => {
 
 authRouter.post('/login', validate(loginSchema), passport.authenticate('local', {failureFlash: true}), (req, res) => {
     const user = req.user;
-    res.json({message: `${user.first_name} is logged in`});
+    res.json({message: `Login Successful`});
 });
 
 authRouter.get('/login-google', passport.authenticate('google', {scope: ['profile', 'email']}), (req, res) => {

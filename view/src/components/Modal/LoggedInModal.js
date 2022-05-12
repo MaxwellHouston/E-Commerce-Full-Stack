@@ -7,12 +7,12 @@ export function LoggedInModal() {
     useEffect(() => {
         setTimeout(() => {
             window.close();
-        }, 1000)
+        }, 1000) 
     }, [])
 
     return(
         <ReactModal isOpen={true} id='logged-in-modal'>
-            <p>Login successful</p>
+            <p>Login Successful</p>
         </ReactModal>
     )
 }

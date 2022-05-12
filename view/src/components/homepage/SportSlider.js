@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import apiProducts from '../utilities/api/apiProducts';
+import apiProducts from '../../utilities/api/apiProducts';
 
-export function Homepage (){
-
+export function SportSlider() {
+    
     const [sports, setSports] = useState([]);
 
     let scrollRightId;
@@ -46,28 +46,20 @@ export function Homepage (){
             const upperCase = sport[0].toUpperCase();
             const base = sport.slice(1);
             const title = upperCase+base;
-            return <div className="small-shop-container" id={`shop-${sport}`} key={sport} style={{ backgroundImage: `url(${require(`../utilities/images/backgrounds/${sport}-background.jpg`)})`}} >
+            return <div className="small-shop-container" id={`shop-${sport}`} key={sport} style={{ backgroundImage: `url(${require(`../../utilities/images/backgrounds/${sport}-background.jpg`)})`}} >
             <Link to={`/${sport}`}>{title}</Link>
             </div>})
     }
-
+    
+    
+    
     return(
-        <div className="homepage-container">
-            <div className="large-shop-container" id='shop-apparel' >
-                <Link to='#'>Shop Apparel</Link>
-            </div>
-            <div className="large-shop-container" id='shop-equipment' >
-                <Link to='#'>Shop Equipment</Link>
-            </div>
-            <h2>Shop By Sport</h2>
-            <div className="sports-slider-container">
+        <div className="sports-slider-container">
                 <button className="left-slider-btn" onMouseDown={scrollIntervalLeft} onMouseUp={stopScrollLeft} onClick={scrollLeft}></button>
                 <div className="sports-slider" id='sports-slider'>
                     {renderSports()}
                 </div>                  
                 <button className="right-slider-btn" onMouseDown={scrollIntervalRight} onMouseUp={stopScrollRight} onClick={scrollRight}></button>
-            </div>
-            
         </div>
     )
 }

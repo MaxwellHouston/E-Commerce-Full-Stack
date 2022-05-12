@@ -392,7 +392,6 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: url('./utilities/images/backgrounds/homepage-background.jpg');
 }
 
 .homepage-container h2 {
@@ -443,10 +442,11 @@ nav {
   background-image:  url('./utilities/images/backgrounds/apparel-background.jpg');
 }
 
+/*---------------------------Sport Slider-----------------------------*/
+
 .sports-slider-container {
   width: 80%;
   display: flex;
-  background-color: #c0c0c0;
   margin: 5rem;
 }
 
@@ -472,7 +472,6 @@ nav {
   display: flex;
   overflow: scroll;
   scroll-behavior: smooth;
-  border: 2px solid #0f0f59;
 }
 
 ::-webkit-scrollbar {

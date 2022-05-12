@@ -12,12 +12,13 @@ export function GoogleButton({location}) {
 
     const googleLogin = async (e) => {
         e.preventDefault();
+
         let timer;
         const loginWindow = openWindow(window, 500, 600)
         if(loginWindow){
             timer = setInterval(() => {
                 if (loginWindow.closed) {
-                    navigate('/user', {state: location});
+                    navigate('/welcome', {state: location});
                     if(timer)clearInterval(timer);
                 }
             }, 500)
@@ -25,6 +26,6 @@ export function GoogleButton({location}) {
     }
 
     return(
-        <div className="third-party-login-btn" id="google-log" onClick={googleLogin} ><span>Login with Google</span></div>
+         <div className="third-party-login-btn" id="google-log" onClick={googleLogin} ><span>Login with Google</span></div>
     )
 }
