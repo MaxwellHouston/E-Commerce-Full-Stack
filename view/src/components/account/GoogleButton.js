@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export function GoogleButton() {
+export function GoogleButton({location}) {
 
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export function GoogleButton() {
         if(loginWindow){
             timer = setInterval(() => {
                 if (loginWindow.closed) {
-                    navigate('/user');
+                    navigate('/user', {state: location});
                     if(timer)clearInterval(timer);
                 }
             }, 500)

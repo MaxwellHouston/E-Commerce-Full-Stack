@@ -79,8 +79,8 @@ export function Register () {
             <form className="register-form">
                 <AlertModal show={showModal} message={modalMessage} close={closeModal} callback={modalSuccess && registerSuccess} />
                 <h1>Register</h1>
-                <GoogleButton />
-                <FacbookButton />
+                <GoogleButton location={'/register'} />
+                <FacbookButton location={'/register'} />
                 <p className="or-divider"><span>Or</span></p>
                 <FirstNameInput updateNewUser={updateNewUser} firstname={newUser.first_name} />
                 <LastNameInput updateNewUser={updateNewUser} lastname={newUser.last_name} />

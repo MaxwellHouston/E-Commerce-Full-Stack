@@ -61,8 +61,8 @@ export function Login (){
             <form className="login-form">
                 <AlertModal show={showModal} message={modalMessage} close={closeModal} callback={modalSuccess && loginSuccess} />
                 <h1>Login</h1>
-                <GoogleButton />
-                <FacbookButton />
+                <GoogleButton location={'/login'} />
+                <FacbookButton location={'/login'} />
                 <p className="or-divider"><span>Or</span></p>
                 <EmailInput updateNewLogin={updateNewLogin} email={newLogin.email} />
                 <PasswordInput updateNewLogin={updateNewLogin} password={newLogin.password} />

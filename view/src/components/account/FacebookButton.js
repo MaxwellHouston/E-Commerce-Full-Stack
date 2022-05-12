@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export function FacbookButton() {
+export function FacbookButton({location}) {
 
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export function FacbookButton() {
         if(loginWindow){
             timer = setInterval(() => {
                 if (loginWindow.closed) {
-                    navigate('/user');
+                    navigate('/user', {state: location});
                     if(timer)clearInterval(timer);
                 }
             }, 500)
