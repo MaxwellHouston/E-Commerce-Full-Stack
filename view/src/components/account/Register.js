@@ -7,6 +7,8 @@ import { LastNameInput } from "./inputs/LastNameInput";
 import { PasswordInput } from "./inputs/PasswordInput";
 import apiAccount from "../../utilities/api/apiAccount";
 import { AlertModal } from "../Modal/AlertModal";
+import { GoogleButton } from "./GoogleButton";
+import { FacbookButton } from "./FacebookButton";
 
 export function Register () {
 
@@ -77,8 +79,8 @@ export function Register () {
             <form className="register-form">
                 <AlertModal show={showModal} message={modalMessage} close={closeModal} callback={modalSuccess && registerSuccess} />
                 <h1>Register</h1>
-                <button className="third-party-login-btn" id="google-log"><Link to='#'>Login with Google</Link></button>
-                <button className="third-party-login-btn" id="facebook-log"><Link to='#'>Login with Facebook</Link></button>
+                <GoogleButton />
+                <FacbookButton />
                 <p className="or-divider"><span>Or</span></p>
                 <FirstNameInput updateNewUser={updateNewUser} firstname={newUser.first_name} />
                 <LastNameInput updateNewUser={updateNewUser} lastname={newUser.last_name} />

@@ -4,7 +4,7 @@ const format = require('pg-format');
 module.exports = class Usermodel {
 
     async create(data) {
-        let text = 'INSERT INTO users (first_name, last_name, email, password, created) VALUES($1, $2, $3, $4, current_timestamp);';
+        let text = 'INSERT INTO users (first_name, last_name, email, password, created) VALUES($1, $2, $3, $4, current_timestamp) RETURNING *;';
         let inputs = [data.first_name, data.last_name, data.email, data.password];
         try{
             return await query(text, inputs);

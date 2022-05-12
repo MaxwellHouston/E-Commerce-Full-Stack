@@ -279,7 +279,7 @@ nav {
   transform: translate(2px, 2px);
 }
 
-.third-party-login-btn a {
+.third-party-login-btn span {
   margin-left: 2rem;
   text-align: center;
   color: black;

@@ -8,6 +8,7 @@ import { Login } from './account/Login';
 import { Homepage } from './Homepage';
 import { Shop } from './shop/Shop';
 import { UserPage } from './account/UserPage';
+import { LoggedInModal } from './Modal/LoggedInModal';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/homepage' element={<Homepage />} />
         <Route path='/shop/*' element={<Shop />} />
         <Route path='/user' element={<UserPage />} />
+        <Route path='login/success' element={<LoggedInModal />} />
       </Routes>
       <AppFooter />
     </div>

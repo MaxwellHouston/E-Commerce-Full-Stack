@@ -38,6 +38,22 @@ authRouter.post('/login', validate(loginSchema), passport.authenticate('local', 
     res.json({message: `${user.first_name} is logged in`});
 });
 
+authRouter.get('/login-google', passport.authenticate('google', {scope: ['profile', 'email']}), (req, res) => {
+
+});
+
+authRouter.get('/login-google/redirect', passport.authenticate('google', {failureRedirect: 'http://localhost:3000/login', successRedirect: 'http://localhost:3000/login/success'}), (req, res) => {
+
+});
+
+authRouter.get('/login-facebook', passport.authenticate('facebook', {scope: ['email']}), (req, res) => {
+
+});
+
+authRouter.get('/login-facebook/redirect', passport.authenticate('facebook', {failureRedirect: 'http://localhost:3000/login', successRedirect: 'http://localhost:3000/login/success'}), (req, res) => {
+
+});
+
 authRouter.get('/logout', (req, res) => {
     req.logout();
     res.json({message: 'User logged out'});

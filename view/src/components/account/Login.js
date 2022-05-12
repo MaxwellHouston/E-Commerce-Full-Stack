@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import apiAccount from "../../utilities/api/apiAccount";
 import { AlertModal } from "../Modal/AlertModal";
+import { FacbookButton } from "./FacebookButton";
+import { GoogleButton } from "./GoogleButton";
 import { EmailInput } from "./inputs/EmailInput";
 import { PasswordInput } from "./inputs/PasswordInput";
 
@@ -59,8 +61,8 @@ export function Login (){
             <form className="login-form">
                 <AlertModal show={showModal} message={modalMessage} close={closeModal} callback={modalSuccess && loginSuccess} />
                 <h1>Login</h1>
-                <button className="third-party-login-btn" id="google-log"><Link to='#'>Login with Google</Link></button>
-                <button className="third-party-login-btn" id="facebook-log"><Link to='#'>Login with Facebook</Link></button>
+                <GoogleButton />
+                <FacbookButton />
                 <p className="or-divider"><span>Or</span></p>
                 <EmailInput updateNewLogin={updateNewLogin} email={newLogin.email} />
                 <PasswordInput updateNewLogin={updateNewLogin} password={newLogin.password} />
