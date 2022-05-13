@@ -633,8 +633,8 @@ border: none;
   width: 100%;
 }
 
-#alert-modal-button {
-  
+#logged-in-modal-p {
+  margin-top: 12rem;
 }
 
 /*---------------------------Footer-----------------------------*/

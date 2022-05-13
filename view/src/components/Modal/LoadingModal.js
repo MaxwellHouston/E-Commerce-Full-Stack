@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import apiAccount from '../../utilities/api/apiAccount';
 import { LoadingWheel } from '../animated/LoadingWheel';
 
-export function WelcomeModal({storeUser}) {
+export function LoadingModal({storeUser}) {
 
     const navigate = useNavigate();
     const location = useLocation();

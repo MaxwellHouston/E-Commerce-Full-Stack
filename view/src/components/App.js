@@ -10,7 +10,7 @@ import { Homepage } from './homepage/Homepage';
 import { Shop } from './shop/Shop';
 import { UserPage } from './account/UserPage';
 import { LoggedInModal } from './Modal/LoggedInModal';
-import { WelcomeModal } from './Modal/WelcomeModal';
+import { LoadingModal } from './Modal/LoadingModal';
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className='main'>
-      <NavBar />
+      <NavBar user={user} />
       <Routes>
         <Route path='/' element={<StartPage />} />
         <Route path='/register' element={<Register />} />
@@ -31,7 +31,7 @@ function App() {
         <Route path='/shop/*' element={<Shop />} />
         <Route path='/user' element={<UserPage />} />
         <Route path='login/success' element={<LoggedInModal  />} />
-        <Route path='/welcome' element={<WelcomeModal storeUser={storeUser} /> } />
+        <Route path='/welcome' element={<LoadingModal storeUser={storeUser} /> } />
       </Routes>
       <AppFooter />
     </div>

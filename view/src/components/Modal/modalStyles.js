@@ -23,3 +23,19 @@ export const alertStyle = {
         boxShadow: '3px 3px 5px black'
     }
 }
+
+export const loggedInStyle = {
+    overlay: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        margin: '0',
+        backgroundColor: '#0f0f59',
+    },
+    content: {
+        textAlign: 'center',
+        fontSize: '3rem',
+        backgroundColor: '#0f0f59',
+        color: 'white'
+    }
+}

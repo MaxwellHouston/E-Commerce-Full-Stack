@@ -1,6 +1,9 @@
 import ReactModal from 'react-modal';
 import { useEffect } from 'react';
+import { loggedInStyle } from './modalStyles';
+
 ReactModal.setAppElement('#root');
+
 
 export function LoggedInModal() {
 
@@ -11,8 +14,8 @@ export function LoggedInModal() {
     }, [])
 
     return(
-        <ReactModal isOpen={true} id='logged-in-modal'>
-            <p>Login Successful</p>
+        <ReactModal isOpen={true} style={loggedInStyle}>
+            <p id='logged-in-modal-p'>Login Successful</p>
         </ReactModal>
     )
 }
