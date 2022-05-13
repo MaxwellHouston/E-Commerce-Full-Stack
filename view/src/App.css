@@ -624,6 +624,18 @@ border: none;
   font-family: 'Archivo' !important;
 }
 
+/*---------------------------Modals-----------------------------*/
+
+#alert-modal-p {
+  font-family: 'Archivo' !important;
+  text-align: center;
+  margin: 1rem 0rem;
+  width: 100%;
+}
+
+#alert-modal-button {
+  
+}
 
 /*---------------------------Footer-----------------------------*/
 footer {

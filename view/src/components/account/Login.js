@@ -42,7 +42,7 @@ export function Login (){
             } else {
                 setModalMessage(res.data.message);
                 setShowModal(true);
-            }
+            } 
         } else if (res.status === 401){
             setModalMessage('Email/Password are incorrect')
             setShowModal(true);

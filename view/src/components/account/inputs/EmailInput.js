@@ -11,7 +11,7 @@ export function EmailInput({updateNewUser, updateNewLogin, email}) {
     return(
         <fieldset className="input-container">
             <label for='email' className={email ? 'input-filled' : 'input-empty'}>Email</label>
-            <input name='email' onChange={handleEmail} type='email' />
+            <input name='email' onChange={handleEmail} type='email' required />
         </fieldset>
         )
 }

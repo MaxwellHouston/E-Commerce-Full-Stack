@@ -7,7 +7,7 @@ export function LastNameInput({updateNewUser, lastname}) {
     return(
         <fieldset className="input-container">
             <label for='last-name' className={lastname ? 'input-filled' : 'input-empty'}>Last Name</label>
-            <input onChange={handleLastName} name='last-name' />
+            <input onChange={handleLastName} name='last-name' required />
         </fieldset>
         )
 }
