@@ -1,19 +1,50 @@
+import { useCallback, useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import { alertStyle } from './modalStyles';
 ReactModal.setAppElement('#root');
 
-export function AlertModal({show, close, message, callback}) {
+export function AlertModal({show, close, modalMessage, callback}) {
+
+    const [message, setMessage] = useState('')
 
     const runCallBack = () => {
         callback && callback();
     }
-/*
-    const handleMessage = () => {
-        console.log(message);
-        if(typeof(message) === 'string') return message;
 
-    }
-*/
+    const handleMessage = useCallback( () => {
+        if(typeof(modalMessage) === 'string'){
+            setMessage(modalMessage);
+        } else {
+            if(!modalMessage.data.details){
+                setMessage(modalMessage.data.message);
+            } else {
+                let rawErrorType = (modalMessage.data.details.body[0].message).match(/".*"/)[0];
+                let errorType = '';
+                switch(rawErrorType) {
+                    case '"first_name"':
+                        errorType = 'First Name';
+                        break;
+                    case '"last_name"':
+                        errorType = 'Last Name';
+                        break;
+                    case '"email"':
+                        errorType = 'Email';
+                        break;
+                    case '"password"':
+                        errorType = 'Password';
+                        break;
+                    default:
+                        errorType = rawErrorType;
+                        break;
+                }
+                setMessage(`${errorType} is required`)
+            }
+        }
+    }, [modalMessage])
+
+    useEffect(() => {
+        handleMessage();
+    },[handleMessage])
 
     return(
         <ReactModal isOpen={show} onAfterClose={ runCallBack } style={alertStyle}>

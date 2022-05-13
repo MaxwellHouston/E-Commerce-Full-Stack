@@ -36,13 +36,8 @@ export function Login (){
         e.preventDefault();
         let res = await apiAccount.login(newLogin);
         if(res.status === 400){
-            if(res.data.name){
-                setModalMessage(res.data.details.body[0].message);
-                setShowModal(true);
-            } else {
-                setModalMessage(res.data.message);
-                setShowModal(true);
-            } 
+            setModalMessage(res);
+            setShowModal(true);
         } else if (res.status === 401){
             setModalMessage('Email/Password are incorrect')
             setShowModal(true);
@@ -59,7 +54,7 @@ export function Login (){
     return(
         <div className="login-page">
             <form className="login-form">
-                <AlertModal show={showModal} message={modalMessage} close={closeModal} callback={modalSuccess && loginSuccess} />
+                <AlertModal show={showModal} modalMessage={modalMessage} close={closeModal} callback={modalSuccess && loginSuccess} />
                 <h1>Login</h1>
                 <GoogleButton location={'/login'} />
                 <FacbookButton location={'/login'} />

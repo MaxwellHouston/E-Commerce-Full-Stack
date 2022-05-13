@@ -57,13 +57,8 @@ export function Register () {
         if(!comparePasswords()) return;
         let res = await apiAccount.register(registerObject);
         if(res.status === 400){
-            if(res.data.name){
-                setModalMessage(res.data.details.body[0].message);
-                setShowModal(true);
-            } else {
-                setModalMessage(res.data.message);
-                setShowModal(true);
-            }
+            setModalMessage(res);
+            setShowModal(true);
         } else if (res.status === 201){
             setModalMessage('User Created');
             setModalSuccess(true);
@@ -77,7 +72,7 @@ export function Register () {
     return(
         <div className="register-page">
             <form className="register-form">
-                <AlertModal show={showModal} message={modalMessage} close={closeModal} callback={modalSuccess && registerSuccess} />
+                <AlertModal show={showModal} modalMessage={modalMessage} close={closeModal} callback={modalSuccess && registerSuccess} />
                 <h1>Register</h1>
                 <GoogleButton location={'/register'} />
                 <FacbookButton location={'/register'} />
