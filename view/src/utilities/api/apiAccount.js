@@ -12,7 +12,7 @@ const apiAccount = {
             });
             return res;
         } catch(err) {
-            return err.response
+            return err.response;
         }
     },
 
@@ -26,7 +26,20 @@ const apiAccount = {
             });
             return res;
         } catch(err) {
-            return err.response
+            return err.response;
+        }
+    },
+
+    logout: async () => {
+        try {
+            const res = await axios({
+                method: 'get',
+                withCredentials: true,
+                url: '/api/logout'
+            });
+            return res.data.message;
+        } catch (err) {
+            return err.response;
         }
     },
 
@@ -39,7 +52,7 @@ const apiAccount = {
             })
             return res.data;
         } catch(err) {
-            return err.response
+            return err.response;
         }
     }
 }
