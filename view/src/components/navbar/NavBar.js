@@ -13,7 +13,7 @@ import { SearchBar } from "./SearchBar";
 export function NavBar({user}) {
     return(
         <div className="header">
-            <Link to='/'><img className='page-logo' src={siteLogo} alt='Company Logo' /></Link> 
+            <Link to={user.id ? '/homepage' : '/'}><img className='page-logo' src={siteLogo} alt='Company Logo' /></Link> 
             <nav>
                 <ul className="shop-links">
                     <ApparelMenu />

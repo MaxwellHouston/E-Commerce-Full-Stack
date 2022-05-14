@@ -77,7 +77,6 @@ nav {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  padding: 2rem 0;
   box-shadow: 5px 5px 5px black;
 }
 
@@ -110,6 +109,7 @@ nav {
 .shop-links .nav-dropdown a {
   width: 100%;
   text-align: center;
+  padding: 2rem 0;
 }
 
 .shop-links .nav-dropdown:hover {

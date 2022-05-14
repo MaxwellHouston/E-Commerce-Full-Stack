@@ -11,7 +11,7 @@ export function LoadingModal({storeUser}) {
     const loadUser = useCallback ( 
         async () => {
             const user = await apiAccount.fetchUser();
-            if(user.status === 400){
+            if(user.status){
                 console.log('Please Login');
                 navigate(location.state || '/');
             } else {
