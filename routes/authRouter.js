@@ -30,7 +30,6 @@ authRouter.post('/register', validate(registerSchema), async (req, res) => {
     } catch(err) {
         res.status(400).json(err);
     }
-    
 });
 
 authRouter.post('/login', validate(loginSchema), passport.authenticate('local', {failureFlash: true}), (req, res) => {

@@ -3,7 +3,7 @@ const { Joi } = require('express-validation');
 module.exports = {
     productInputSchema: {
         body: Joi.object({
-            product_id: Joi.number().max(100).required(),
+            product_id: Joi.string().max(6).required(),
             qty: Joi.number().required().min(1)
         })
     },

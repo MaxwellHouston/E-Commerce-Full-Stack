@@ -1,5 +1,5 @@
-import React, {useState, useCallback} from "react";
-import { Routes, Route } from "react-router-dom";
+import React, {useState, useCallback, useEffect} from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { FiltersTab } from "./FiltersTab";
 import { ProductView } from "./ProductView";
@@ -8,10 +8,22 @@ import { ShopCategories } from "./ShopCategories";
 import { ShopSports } from "./ShopSports";
 import { ShopSportsCategories } from "./ShopSportsCategories";
 import currency from 'currency.js';
+import apiCarts from "../../utilities/api/apiCarts";
+import { NoUserModal } from "../Modal/NoUserModal";
 
-export function Shop() {
+export function Shop({user}) {
     const [filters, setFilters] = useState({price:'', color:'', size:'', sport:'', category:''});
+    const [cart, setCart] = useState({});
     const [urlParams, setUrlParams] = useState({});
+
+    useEffect(() => {
+        loadCart();
+    },[]);
+
+    const loadCart = async () => {
+        const activeCart = await apiCarts.fetchActiveCart();
+        setCart(activeCart);
+    };
 
     const getParams = useCallback((paramObject) => {
         setUrlParams(paramObject);
@@ -50,6 +62,7 @@ export function Shop() {
                 <Route path='/all/:category' element={<ShopCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/:sport/:category' element={<ShopSportsCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
             </Routes>
+            {!user.id && <NoUserModal />}
         </div>
         
     );

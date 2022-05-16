@@ -31,8 +31,11 @@ module.exports = class Cartmodel {
         const text = 'SELECT * FROM cart WHERE id = $1;';
         const inputs = [data];
         try {
-            const result = await query(text, inputs);
-            return result.rows[0];
+            const products = await this.getAllProducts(data);
+            const cart = await query(text, inputs);
+            if(!cart.rows[0]) return cart.rows[0];
+            cart.rows[0].products = products;
+            return cart.rows[0];
         } catch (err) {
             throw err.stack;
         }

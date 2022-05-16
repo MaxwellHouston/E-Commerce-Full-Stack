@@ -670,6 +670,18 @@ border: none;
   margin-top: 12rem;
 }
 
+#no-user-modal-p {
+  font-size: 2rem;
+  padding: 4rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+#no-user-modal-btn {
+  font-size: 2rem;
+  padding: .5rem 2rem;
+}
+
 /*---------------------------Footer-----------------------------*/
 footer {
   display: flex !important;

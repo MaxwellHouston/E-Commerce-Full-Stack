@@ -33,8 +33,8 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/homepage' element={<Homepage user={user} />} />
-        <Route path='/shop/*' element={<Shop />} />
-        <Route path='/user' element={<UserPage />} />
+        <Route path='/shop/*' element={<Shop user={user} />} />
+        <Route path='/user' element={<UserPage user={user} />} />
         <Route path='/login/success' element={<LoggedInModal  />} />
         <Route path='/welcome' element={<LoadingModal storeUser={storeUser} /> } />
         <Route path='/logout' element={<LogoutModal clearUser={clearUser} /> } />
