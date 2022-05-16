@@ -77,11 +77,11 @@ export function Register () {
                 <GoogleButton location={'/register'} />
                 <FacbookButton location={'/register'} />
                 <p className="or-divider"><span>Or</span></p>
-                <FirstNameInput updateNewUser={updateNewUser} firstname={newUser.first_name} />
-                <LastNameInput updateNewUser={updateNewUser} lastname={newUser.last_name} />
-                <EmailInput updateNewUser={updateNewUser} email={newUser.email} />
-                <PasswordInput updateNewUser={updateNewUser} password={newUser.password} />
-                <ConfirmPasswordInput updateNewUser={updateNewUser} confirmPassword={newUser.confirmPassword} />
+                <FirstNameInput updateFunction={updateNewUser} firstname={newUser.first_name} />
+                <LastNameInput updateFunction={updateNewUser} lastname={newUser.last_name} />
+                <EmailInput updateFunction={updateNewUser} email={newUser.email} />
+                <PasswordInput updateFunction={updateNewUser} password={newUser.password} />
+                <ConfirmPasswordInput updateFunction={updateNewUser} confirmPassword={newUser.confirmPassword} />
                 <button onClick={handleSubmit} type="submit" className="submit-btn">Register</button>
                 <p>Already have an account? <Link to='/login'>Login</Link></p>               
             </form>

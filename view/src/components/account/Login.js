@@ -59,8 +59,8 @@ export function Login (){
                 <GoogleButton location={'/login'} />
                 <FacbookButton location={'/login'} />
                 <p className="or-divider"><span>Or</span></p>
-                <EmailInput updateNewLogin={updateNewLogin} email={newLogin.email} />
-                <PasswordInput updateNewLogin={updateNewLogin} password={newLogin.password} />
+                <EmailInput updateFunction={updateNewLogin} email={newLogin.email} />
+                <PasswordInput updateFunction={updateNewLogin} password={newLogin.password} />
                 <button onClick={handleSubmit} type="submit" className="submit-btn">Login</button>
                 <p>No account? <Link to='/register' >Register Here</Link></p>               
             </form>
