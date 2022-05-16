@@ -5,7 +5,7 @@ ReactModal.setAppElement('#root');
 
 export function AlertModal({show, close, modalMessage, callback}) {
 
-    const [message, setMessage] = useState('')
+    const [message, setMessage] = useState('');
 
     const runCallBack = () => {
         callback && callback();
@@ -18,7 +18,8 @@ export function AlertModal({show, close, modalMessage, callback}) {
             if(!modalMessage.data.details){
                 setMessage(modalMessage.data.message);
             } else {
-                let rawErrorType = (modalMessage.data.details.body[0].message).match(/".*"/)[0];
+                let errorAlert = modalMessage.data.details.body[0].message;
+                let rawErrorType = errorAlert.match(/".*"/)[0];
                 let errorType = '';
                 switch(rawErrorType) {
                     case '"first_name"':
@@ -37,7 +38,7 @@ export function AlertModal({show, close, modalMessage, callback}) {
                         errorType = rawErrorType;
                         break;
                 }
-                setMessage(`${errorType} is required`)
+                setMessage(errorAlert.replace(rawErrorType, errorType))
             }
         }
     }, [modalMessage])

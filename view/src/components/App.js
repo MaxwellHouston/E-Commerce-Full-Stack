@@ -13,6 +13,7 @@ import { LoggedInModal } from './Modal/LoggedInModal';
 import { LoadingModal } from './Modal/LoadingModal';
 import { LogoutModal } from './Modal/LogoutModal';
 import { Cart } from './cart/Cart';
+import apiAccount from '../utilities/api/apiAccount';
 
 function App() {
 
@@ -26,6 +27,16 @@ function App() {
     setUser({});
   }, []);
 
+  const updateUser = async (updatesObject) => {
+    const response = await apiAccount.updateUser(updatesObject);
+    if(response.status === 200) {
+      let updatedUser = await apiAccount.fetchUser();
+      setUser(updatedUser);
+    } else {
+      return response;
+    }
+  };
+
   return (
     <div className='main'>
       <NavBar user={user} />
@@ -35,7 +46,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/homepage' element={<Homepage user={user} />} />
         <Route path='/shop/*' element={<Shop user={user} />} />
-        <Route path='/user/*' element={<UserPage user={user} />} />
+        <Route path='/user/*' element={<UserPage user={user} updateUser={updateUser} />} />
         <Route path='/login/success' element={<LoggedInModal  />} />
         <Route path='/welcome' element={<LoadingModal storeUser={storeUser} /> } />
         <Route path='/logout' element={<LogoutModal clearUser={clearUser} /> } />

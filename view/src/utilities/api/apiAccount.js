@@ -54,6 +54,20 @@ const apiAccount = {
         } catch(err) {
             return err.response;
         }
+    },
+
+    updateUser: async (data) => {
+        try {
+            const res = await axios({
+                method: 'put',
+                data,
+                withCredentials: true,
+                url: '/api/user'
+            });
+            return res.data;
+        } catch (err) {
+            return err.response;    
+        }
     }
 }
 
