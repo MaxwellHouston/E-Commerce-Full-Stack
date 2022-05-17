@@ -682,6 +682,21 @@ border: none;
   padding: .5rem 2rem;
 }
 
+#delete-user-modal-p {
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  margin: 2rem;
+}
+
+#delete-user-modal-btn {
+  font-size: 1.5rem;
+  margin:0 2rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+
 /*---------------------------Footer-----------------------------*/
 footer {
   display: flex !important;

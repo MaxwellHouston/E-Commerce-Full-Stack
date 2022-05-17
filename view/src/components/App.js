@@ -15,6 +15,7 @@ import { LogoutModal } from './Modal/LogoutModal';
 import { Cart } from './cart/Cart';
 import apiAccount from '../utilities/api/apiAccount';
 
+
 function App() {
 
   const [user, setUser] = useState({});
@@ -46,7 +47,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/homepage' element={<Homepage user={user} />} />
         <Route path='/shop/*' element={<Shop user={user} />} />
-        <Route path='/user/*' element={<UserPage user={user} updateUser={updateUser} />} />
+        <Route path='/user/*' element={<UserPage user={user} updateUser={updateUser} clearUser={clearUser} />} />
         <Route path='/login/success' element={<LoggedInModal  />} />
         <Route path='/welcome' element={<LoadingModal storeUser={storeUser} /> } />
         <Route path='/logout' element={<LogoutModal clearUser={clearUser} /> } />

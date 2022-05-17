@@ -68,6 +68,19 @@ const apiAccount = {
         } catch (err) {
             return err.response;    
         }
+    },
+
+    deleteAccount: async () => {
+        try {
+            const res = await axios({
+                method: 'delete',
+                withCredentials: true,
+                url: '/api/user'
+            });
+            return res.data;
+        } catch (err) {
+            return err.response;
+        }
     }
 }
 

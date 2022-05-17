@@ -7,9 +7,10 @@ import { EmailInput } from "./inputs/EmailInput";
 import { FirstNameInput } from "./inputs/FirstNameInput";
 import { LastNameInput } from "./inputs/LastNameInput";
 import { PasswordInput } from "./inputs/PasswordInput";
+import { DeleteModal } from '../Modal/DeleteModal';
 
 
-export function UserPage({user, updateUser}) {
+export function UserPage({user, updateUser, clearUser}) {
 
     const [currentUser, setcurrentUser] = useState({id:'', first_name:'', last_name:'', email:'', password:'', created:'', modified:''});
     const [userUpdates, setUserUpdates] = useState({});
@@ -72,11 +73,12 @@ export function UserPage({user, updateUser}) {
             <ul className="user-links">
                 <li><Link to='#'>View Cart</Link></li>
                 <li><Link to='#'>View Orders</Link></li>
-                <li><Link to='#'>Delete Account</Link></li>
-                <li><Link to='#'>Log Out</Link></li>
+                <li><Link to='/user/delete-account'>Delete Account</Link></li>
+                <li><Link to='/logout'>Log Out</Link></li>
             </ul>
             <Routes>
-                <Route path='/user/cart' element={<Cart />} />
+                <Route path='/cart' element={<Cart />} />
+                <Route path='/delete-account' element={<DeleteModal clearUser={clearUser} />} />
             </Routes>
         </div>
     )
