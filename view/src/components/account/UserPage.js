@@ -1,16 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
-import { Route, Routes, Link } from "react-router-dom";
-import apiAccount from "../../utilities/api/apiAccount"
-import { Cart } from "../cart/Cart";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AlertModal } from "../Modal/AlertModal";
 import { EmailInput } from "./inputs/EmailInput";
 import { FirstNameInput } from "./inputs/FirstNameInput";
 import { LastNameInput } from "./inputs/LastNameInput";
 import { PasswordInput } from "./inputs/PasswordInput";
-import { DeleteModal } from '../Modal/DeleteModal';
 
-
-export function UserPage({user, updateUser, clearUser}) {
+export function UserPage({user, updateUser}) {
 
     const [currentUser, setcurrentUser] = useState({id:'', first_name:'', last_name:'', email:'', password:'', created:'', modified:''});
     const [userUpdates, setUserUpdates] = useState({});
@@ -60,8 +56,8 @@ export function UserPage({user, updateUser, clearUser}) {
     };
 
     return(
-        <div>
-            <h1>Hello {user.first_name}</h1>
+        <div className="account-container">
+            <h1>{`${user.first_name || 'Max'}'s Account`}</h1>
             <form className='user-page-form'>
                 <AlertModal show={showModal} close={closeModal} modalMessage={modalMessage} />
                 <FirstNameInput firstname={currentUser.first_name} updateFunction={updateUserInfo} updateLocked={updateLocks.first_name} toggleUpdate={toggleUpdate} />
@@ -70,16 +66,13 @@ export function UserPage({user, updateUser, clearUser}) {
                 <PasswordInput password={currentUser.password} updateFunction={updateUserInfo} updateLocked={updateLocks.password} toggleUpdate={toggleUpdate} />
                 <button className="submit-btn" onClick={submitUpdates}>Submit Updates</button>
             </form>
+            <p className="or-divider"></p>
             <ul className="user-links">
-                <li><Link to='#'>View Cart</Link></li>
+                <li><Link to='/account/cart'>View Cart</Link></li>
                 <li><Link to='#'>View Orders</Link></li>
-                <li><Link to='/user/delete-account'>Delete Account</Link></li>
+                <li><Link to='/account/delete-account'>Delete Account</Link></li>
                 <li><Link to='/logout'>Log Out</Link></li>
             </ul>
-            <Routes>
-                <Route path='/cart' element={<Cart />} />
-                <Route path='/delete-account' element={<DeleteModal clearUser={clearUser} />} />
-            </Routes>
         </div>
     )
 }

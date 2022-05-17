@@ -14,6 +14,7 @@ import { LoadingModal } from './Modal/LoadingModal';
 import { LogoutModal } from './Modal/LogoutModal';
 import { Cart } from './cart/Cart';
 import apiAccount from '../utilities/api/apiAccount';
+import { Account } from './account/Account';
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/homepage' element={<Homepage user={user} />} />
         <Route path='/shop/*' element={<Shop user={user} />} />
-        <Route path='/user/*' element={<UserPage user={user} updateUser={updateUser} clearUser={clearUser} />} />
+        <Route path='/account/*' element={<Account user={user} updateUser={updateUser} clearUser={clearUser} />} />
         <Route path='/login/success' element={<LoggedInModal  />} />
         <Route path='/welcome' element={<LoadingModal storeUser={storeUser} /> } />
         <Route path='/logout' element={<LogoutModal clearUser={clearUser} /> } />

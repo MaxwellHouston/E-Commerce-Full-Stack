@@ -12,7 +12,7 @@ export function UserMenu({user}) {
         } else {
             return (
                 <ul className="dropdown-menu" id='user-menu'>  
-                    <li><Link to='/user'>Account</Link></li>
+                    <li><Link to='/account'>Account</Link></li>
                     <li><Link to='#'>Orders</Link></li>
                     <li><Link to='/logout'>Logout</Link></li>
                     <li className='user-menu-name'>Logged in as:</li>

@@ -1,11 +1,29 @@
 @font-face {
-  font-family: 'Core-Sans';
-  src: url('./utilities/fonts/CoreSans/coresans-regular.otf');
+  font-family: 'Poppins';
+  src: url('./utilities/fonts/Poppins/Poppins-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'League Gothic';
-  src: url('./utilities/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf');
+  font-family: 'Poppins';
+  src: url('./utilities/fonts/Poppins/Poppins-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./utilities/fonts/Poppins/Poppins-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./utilities/fonts/Poppins/Poppins-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
@@ -14,7 +32,7 @@
 }
 
 * {
-  font-family: 'Core-Sans', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 button {
@@ -303,6 +321,7 @@ nav {
   background-position: center left .25rem;
   background-repeat: no-repeat;
   font-size: 1rem;
+  font-weight: 500;
   box-shadow: 2px 2px 5px black;
 }
 
@@ -651,11 +670,107 @@ border: none;
   width: 80%;
 }
 
+/*---------------------------Product View-----------------------------*/
+
+.product-view a {
+  text-decoration: none;
+}
+
+
+
+
 
 .product-view p,
 .product-view span {
   font-family: 'Archivo' !important;
 }
+
+
+
+/*---------------------------Account-----------------------------*/
+
+.account-background {
+  background-image: url('./utilities/images/backgrounds/account-background.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+/*---------------------------UserPage-----------------------------*/
+
+.account-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  width: 30%;
+  text-align: center;
+  margin: 3rem 0;
+  border: solid 2px black;
+  box-shadow: 2px 2px 5px black;
+}
+
+.account-container h1 {
+  width: 100%;
+  font-size: 3rem;
+  padding: 2rem;
+  background-color: #0f0f59;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+.user-page-form {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.user-page-form .input-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.user-page-form .input-container label {
+left: 0;
+}
+
+.toggle-update-btn {
+  background-color: #0f0f59;
+  color: #fff;
+  border: none;
+  padding: .5rem;
+}
+ 
+.user-page-form .input-container input:disabled {
+  font-weight: bold;
+}
+
+.user-page-form .submit-btn {
+  width: 60%;
+  margin: 2rem;
+  margin-bottom: 0rem;
+}
+
+.user-links {
+  width: 80%;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  margin: 2rem;
+}
+
+.user-links a {
+  color: #0f0f59;
+}
+
+.user-links a:hover {
+  color: red;
+}
+
 
 /*---------------------------Modals-----------------------------*/
 

@@ -62,7 +62,7 @@ export function Shop({user}) {
                 <Route path='/all/:category' element={<ShopCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/:sport/:category' element={<ShopSportsCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
             </Routes>
-            {!user.id && <NoUserModal />}
+            {/*!user.id && <NoUserModal /> */}
         </div>
         
     );
