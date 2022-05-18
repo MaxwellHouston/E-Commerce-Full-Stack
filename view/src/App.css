@@ -559,7 +559,10 @@ nav {
 /*---------------------------Breadcrumb-----------------------------*/
 
 .breadcrumb {
-  width: 100%;
+  position: absolute;
+  display: flex;
+  top: 4.1rem;
+  left: 0;
 }
 
 .breadcrumb a {
@@ -600,6 +603,9 @@ nav {
 
 #filters-container {
   width: 15%;
+  position: absolute;
+  left: 0;
+  top: 6rem;
   background-color: white;
   border: 2px solid black;
   height: fit-content;
@@ -660,31 +666,93 @@ border: none;
 .shop-page {
   display: flex;
   flex-wrap: wrap;
-  background-color: #c0c0c0;
+  justify-content: center;
+  background-color: #fff;
   overflow-y: hidden;
+  min-height: 80vh;
 }
 
 .products-container {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  justify-content: space-around;
+  width: 70%;
 }
 
 /*---------------------------Product View-----------------------------*/
 
-.product-view a {
-  text-decoration: none;
+.product-view {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px black;
+  margin: 2rem;
 }
 
+.product-view h2 {
+  font-size: 1.5rem;
+  line-height: 3rem;
+}
 
+.product-view a {
+  text-decoration: none;
+  color: #fff;
+}
 
+.product-thumbnail {
+  width: 75%;
+  padding: 2rem;
+}
 
+.product-view-info {
+  width: 100%;
+  background-color: #0f0f59;
+}
 
 .product-view p,
-.product-view span {
+.product-view span,
+.product-view h2 {
   font-family: 'Archivo' !important;
 }
 
+/*---------------------------Product Page-----------------------------*/
+
+.product-page {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product-img-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.product-img-container img {
+  width: 50%;
+}
+
+.product-info {
+  text-align: center;
+  background-color: #696969;
+  color: #fff;
+  width: 40%;
+}
+
+.product-info h1 {
+  font-size: 5rem;
+  margin: 3rem;
+  text-shadow: 2px 2px 5px black;
+}
+
+.product-price {
+  font-size: 2rem;
+}
 
 
 /*---------------------------Account-----------------------------*/

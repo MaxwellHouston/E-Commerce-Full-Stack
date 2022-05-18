@@ -67,4 +67,26 @@ module.exports = class Productmodel {
             throw err.stack
         }
     };
+
+    async getProductsByNameColor({name, color}) {
+        const text = 'SELECT size, id FROM product WHERE name=$1 AND color=$2';
+        const inputs = [name, color];
+        try{
+            const result = await query(text, inputs);
+            return result.rows;
+        } catch(err) {
+            throw err.stack
+        }
+    };
+
+    async getProductsByNameSize({name, size}) {
+        const text = 'SELECT color, id FROM product WHERE name=$1 AND size=$2';
+        const inputs = [name, size];
+        try{
+            const result = await query(text, inputs);
+            return result.rows;
+        } catch(err) {
+            throw err.stack
+        }
+    }
 }

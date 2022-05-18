@@ -45,7 +45,34 @@ const apiProducts = {
             url: `/api/products/${sport}/${category}`
         });
         return sportCategoryProducts.data;
-    }
+    },
+
+    fetchProductById: async (id) => {
+        const product = await axios({
+            method: 'get',
+            withCredentials: true,
+            url: `/api/products/id/${id}`
+        });
+        return product.data;
+    },
+
+    fetchProductByNameSize: async (name, size) => {
+        const products = await axios({
+            method: 'get',
+            withCredentials: true,
+            url: `/api/products/name/${name}/size/${size}`
+        });
+        return products.data;
+    },
+
+    fetchProductByNameColor: async (name, color) => {
+        const products = await axios({
+            method: 'get',
+            withCredentials: true,
+            url: `/api/products/name/${name}/color/${color}`
+        });
+        return products.data;
+    },
 };
 
 export default apiProducts;

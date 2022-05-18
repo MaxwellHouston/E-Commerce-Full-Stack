@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 export function Breadcrumbs({urlParams}) {
-    const {sport, category, product} = urlParams;
+    const {sport, category, item} = urlParams;
 
     return(
         <ul className="breadcrumb">
@@ -12,7 +12,7 @@ export function Breadcrumbs({urlParams}) {
             <li><Link to='/shop'>shop</Link></li>
             {sport && <li><Link to={`/shop/${sport}`} >{sport}</Link></li>}
             {category && <li><Link to={`/shop/${sport ? sport : 'all'}/${category}`}>{category}</Link></li>}
-            {product && <li><Link to='#'>{product}</Link></li>}
+            {item && <li><Link to='#'>{item}</Link></li>}
         </ul>
     )
 }
