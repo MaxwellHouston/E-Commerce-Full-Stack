@@ -53,7 +53,7 @@ export function Shop({user}) {
                 <Route path='/:sport/:category' element={<ShopSportsCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/:sport/:category/:productid' element={<ProductPage getParams={getParams}/>} />
             </Routes>
-            {/*!user.id && <NoUserModal /> */}
+            {!user.id && <NoUserModal />}
         </div>
         
     );

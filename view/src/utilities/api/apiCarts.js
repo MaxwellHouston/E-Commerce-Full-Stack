@@ -28,11 +28,28 @@ const apiCarts = {
                 withCredentials: true,
                 url: '/api/carts'
             });
-            return res;
+            return res.data;
+        } catch(err) {
+            return err.response;
+        }
+    },
+
+    addItemToCart: async (data) => {
+        try{
+            const cart = await apiCarts.fetchActiveCart();
+            const res = await axios({
+                method: 'post',
+                data,
+                withCredentials: true,
+                url: `/api/carts/${cart.id}/items`
+            });
+            return res.data;
         } catch(err) {
             return err.response;
         }
     }
+
+
 }
 
 export default apiCarts;

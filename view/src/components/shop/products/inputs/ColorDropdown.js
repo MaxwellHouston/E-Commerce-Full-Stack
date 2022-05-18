@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import apiProducts from "../../../utilities/api/apiProducts";
-
+import apiProducts from "../../../../utilities/api/apiProducts";
 
 export function ColorDropdown({product}) {
 

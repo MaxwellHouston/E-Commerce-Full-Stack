@@ -85,6 +85,7 @@ nav {
   display: none;
   width: 12rem;
   border: solid 1px black;
+  z-index: 100;
 }
 
 .dropdown-menu li {
