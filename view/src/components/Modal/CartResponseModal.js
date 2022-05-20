@@ -1,14 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import { alertStyle } from './modalStyles';
 ReactModal.setAppElement('#root');
 
 export function CartResponseModal({show, close, modalMessage}) {
-
-    const [message, setMessage] = useState('');
-
-
-
 
     return(
         <ReactModal isOpen={show} style={alertStyle}>

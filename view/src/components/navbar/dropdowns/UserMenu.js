@@ -21,7 +21,6 @@ export function UserMenu({user}) {
             )
         }
     }
-
     return (
         <li className="nav-dropdown">
             <Link to='#' className="svg-link">

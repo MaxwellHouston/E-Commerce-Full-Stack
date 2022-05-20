@@ -7,10 +7,11 @@ const orderInstance = new Ordermodel();
 module.exports = class Cartmodel {
 
     async create(data) {
-        const text = 'INSERT INTO cart (user_id, created) VALUES ($1, current_timestamp);';
+        const text = 'INSERT INTO cart (user_id, created) VALUES ($1, current_timestamp) RETURNING *;';
         const inputs = [data];
         try {
-            return await query(text, inputs);
+            const newCart = await query(text, inputs);
+            return newCart.rows[0];
         } catch(err) {
             throw err.stack;
         }

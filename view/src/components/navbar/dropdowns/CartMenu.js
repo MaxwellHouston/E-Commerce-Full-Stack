@@ -1,6 +1,16 @@
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import apiCarts from "../../../utilities/api/apiCarts";
 
 export function CartMenu({user}) {
+
+    const [numItems, setNumItems] = useState(0);
+
+    const getNumItems = async () => {
+            let num = await apiCarts.fetchNumItems();
+            console.log('help');
+            setNumItems(num);
+    };
 
     const renderCartOptions = () => {
         if(!user.id) {
@@ -12,14 +22,19 @@ export function CartMenu({user}) {
         } else {
             return (
                 <ul className="dropdown-menu" id='cart-menu'>
-                    <li>Items in Cart</li>
-                    <li><Link to='#'>View Cart</Link></li>
-                    <li><Link to='#'>Checkout</Link></li>
+                    <li>Items in Cart: <span>{numItems}</span></li>
+                    <li><Link to='/account/cart'>View Cart</Link></li>
+                    <li><Link to='/account/cart/checkout'>Checkout</Link></li>
                 </ul>
             )
         }
-        
-    }
+    };
+
+    useEffect(() => {
+        if(user.id){
+           // getNumItems();
+        }
+    },[user])
 
     return (
         <li className="nav-dropdown">

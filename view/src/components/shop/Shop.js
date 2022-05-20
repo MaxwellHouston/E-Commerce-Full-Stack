@@ -1,5 +1,5 @@
-import React, {useState, useCallback, useEffect} from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import React, {useState, useCallback } from "react";
+import { Routes, Route } from "react-router-dom";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { FiltersTab } from "./FiltersTab";
 import { ProductView } from "./products/ProductView";
@@ -8,7 +8,6 @@ import { ShopCategories } from "./ShopCategories";
 import { ShopSports } from "./ShopSports";
 import { ShopSportsCategories } from "./ShopSportsCategories";
 import currency from 'currency.js';
-import apiCarts from "../../utilities/api/apiCarts";
 import { NoUserModal } from "../Modal/NoUserModal";
 import { ProductPage } from "./products/ProductPage";
 

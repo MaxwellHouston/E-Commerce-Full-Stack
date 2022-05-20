@@ -1,5 +1,5 @@
 
-export function QtyInput({qty, updateQty, incrementQty, decrementQty}) {
+export function QtyInput({qty, updateQty, incrementQty, decrementQty, disabled}) {
 
     const handleQtyChange = (e) => {
         let qtyAsNumber = Number(e.target.value);
@@ -19,7 +19,7 @@ export function QtyInput({qty, updateQty, incrementQty, decrementQty}) {
     return(
         <fieldset className="qty-input">
             <label for='qty'>Qty:</label>
-            <input id='qty-input' name='qty' value={qty} onChange={handleQtyChange} onKeyDown={numberValidation} />
+            <input id='qty-input' name='qty' value={qty} onChange={handleQtyChange} onKeyDown={numberValidation} disabled={disabled || false}/>
             <button onClick={incrementQty}>+</button>
             <button onClick={decrementQty}>-</button>
         </fieldset>
