@@ -1,31 +1,34 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import apiAccount from '../../utilities/api/apiAccount';
 import { LoadingWheel } from '../animated/LoadingWheel';
+import { CartContext } from '../context/CartContext';
+import { UserContext } from '../context/UserContext';
 
-export function LoadingModal({storeUser}) {
+export function LoadingModal() {
+
+    const { user, load } = useContext(UserContext);
+    const { loadCart, checkCart } = useContext(CartContext);
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const loadUser = useCallback ( 
         async () => {
-            const user = await apiAccount.fetchUser();
-            if(user.status){
+            const user = await load();
+            if(!user){
                 console.log('Please Login');
                 navigate(location.state || '/');
             } else {
-                storeUser(user);
                 setTimeout(() => {
-                    navigate('/homepage');
-                }, 1000); 
+                    navigate('/load-cart');
+                }, 500); 
             }
-        }, [storeUser, navigate, location.state]
-    )
+        }, [load, navigate, location.state]
+    );
 
     useEffect(() => {
         loadUser();
-    }, [loadUser, navigate])
+    }, [loadUser, navigate]);
 
     return (
             <LoadingWheel />

@@ -1,28 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 import { AlertModal } from "../Modal/AlertModal";
 import { EmailInput } from "./inputs/EmailInput";
 import { FirstNameInput } from "./inputs/FirstNameInput";
 import { LastNameInput } from "./inputs/LastNameInput";
 import { PasswordInput } from "./inputs/PasswordInput";
 
-export function UserPage({user, updateUser}) {
+export function UserPage() {
 
-    const [currentUser, setcurrentUser] = useState({id:'', first_name:'', last_name:'', email:'', password:'', created:'', modified:''});
     const [userUpdates, setUserUpdates] = useState({});
     const [updateLocks, setUpdateLocks] = useState({first_name:true, last_name:true, email:true, password:true});
     const [modalMessage, setModalMessage] = useState('');
     const [showModal, setShowModal] = useState(false);
 
-    useEffect(() => {
-        setcurrentUser(user);
-    },[user]);
-    
+    const { user, update } = useContext(UserContext);
+
     const updateUserInfo = (input, value) => {
-        setcurrentUser((prev) => ({
-            ...prev,
-            [input]: value
-        }));
         setUserUpdates((prev) => ({
             ...prev,
             [input]: value
@@ -44,7 +38,7 @@ export function UserPage({user, updateUser}) {
 
     const submitUpdates = async (e) => {
         e.preventDefault();
-        const res = await updateUser(userUpdates);
+        const res = await update(userUpdates);
         if (res.status === 400) {
             setModalMessage(res);
             setShowModal(true);
@@ -60,10 +54,10 @@ export function UserPage({user, updateUser}) {
             <h1>{`${user.first_name || 'Max'}'s Account`}</h1>
             <form className='user-page-form'>
                 <AlertModal show={showModal} close={closeModal} modalMessage={modalMessage} />
-                <FirstNameInput firstname={currentUser.first_name} updateFunction={updateUserInfo} updateLocked={updateLocks.first_name} toggleUpdate={toggleUpdate} />
-                <LastNameInput lastname={currentUser.last_name} updateFunction={updateUserInfo} updateLocked={updateLocks.last_name} toggleUpdate={toggleUpdate} />
-                <EmailInput email={currentUser.email} updateFunction={updateUserInfo} updateLocked={updateLocks.email} toggleUpdate={toggleUpdate} />
-                <PasswordInput password={currentUser.password} updateFunction={updateUserInfo} updateLocked={updateLocks.password} toggleUpdate={toggleUpdate} />
+                <FirstNameInput firstname={userUpdates.first_name || user.first_name} updateFunction={updateUserInfo} updateLocked={updateLocks.first_name} toggleUpdate={toggleUpdate} />
+                <LastNameInput lastname={userUpdates.last_name || user.last_name} updateFunction={updateUserInfo} updateLocked={updateLocks.last_name} toggleUpdate={toggleUpdate} />
+                <EmailInput email={userUpdates.email || user.email} updateFunction={updateUserInfo} updateLocked={updateLocks.email} toggleUpdate={toggleUpdate} />
+                <PasswordInput password={userUpdates.password || user.password} updateFunction={updateUserInfo} updateLocked={updateLocks.password} toggleUpdate={toggleUpdate} />
                 <button className="submit-btn" onClick={submitUpdates}>Submit Updates</button>
             </form>
             <p className="or-divider"></p>

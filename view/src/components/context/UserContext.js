@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import apiAccount from "../../utilities/api/apiAccount";
 
 export const UserContext = createContext();
@@ -7,33 +7,41 @@ export const UserProvider = ({children}) => {
 
     const [user, setUser] = useState({});
 
-    const loadUser = async () => {
-        const loadedUser = await apiAccount.fetchUser();
-        if(loadedUser.status){
-            return false;
-        } else {
-            setUser(loadUser);
-            return true;
-        }
-    };
+    const loadUser = useCallback( 
+        async () => {
+            const loadedUser = await apiAccount.fetchUser();
+            if(loadedUser.status){
+                return false;
+            } else {
+                setUser(loadedUser);
+                return true;
+            }
+        },[]
+    );
     
     const updateUser = async (updatesObject) => {
       const response = await apiAccount.updateUser(updatesObject);
       if(response.status === 200) {
-        let updatedUser = await apiAccount.fetchUser();
-        setUser(updatedUser);
+        loadUser();
+        return response;
       } else {
         return response;
       }
     };
 
-    const deleteAccount = async () => {
+    const deleteUser = async () => {
         await apiAccount.deleteAccount();
         setUser({});        
     };
 
+    const clearUser = useCallback( 
+        () => {
+            setUser({});
+        },[]
+    );
+
     return (
-        <UserContext.Provider value={{user: user, load: loadUser, update: updateUser, delete: deleteAccount}}>
+        <UserContext.Provider value={{user: user, clearUser: clearUser, load: loadUser, update: updateUser, deleteUser: deleteUser}}>
             {children}
         </UserContext.Provider>
     )

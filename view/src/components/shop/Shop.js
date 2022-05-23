@@ -1,4 +1,4 @@
-import React, {useState, useCallback } from "react";
+import React, {useState, useCallback, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { FiltersTab } from "./FiltersTab";
@@ -10,10 +10,13 @@ import { ShopSportsCategories } from "./ShopSportsCategories";
 import currency from 'currency.js';
 import { NoUserModal } from "../Modal/NoUserModal";
 import { ProductPage } from "./products/ProductPage";
+import { UserContext } from "../context/UserContext";
 
-export function Shop({user}) {
+export function Shop() {
     const [filters, setFilters] = useState({price:'', color:'', size:'', sport:'', category:''});
     const [urlParams, setUrlParams] = useState({});
+
+    const { user } = useContext(UserContext);
 
     const getParams = useCallback((paramObject) => {
         setUrlParams(paramObject);

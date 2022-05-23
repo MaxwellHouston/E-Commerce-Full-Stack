@@ -4,14 +4,14 @@ import { Cart } from "../cart/Cart";
 import { UserPage } from "./UserPage";
 
 
-export function Account({user, updateUser, clearUser}) {
+export function Account() {
 
     return(
         <div className="account-background">
             <Routes>
-                <Route path='/' element={<UserPage user={user} updateUser={updateUser} />} />
+                <Route path='/' element={<UserPage />} />
                 <Route path='/cart' element={<Cart />} />
-                <Route path='/delete-account' element={<DeleteModal clearUser={clearUser} />} />
+                <Route path='/delete-account' element={<DeleteModal />} />
             </Routes>
         </div>
     )

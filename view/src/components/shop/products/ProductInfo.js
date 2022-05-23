@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import apiCarts from "../../../utilities/api/apiCarts";
+import { CartContext } from "../../context/CartContext";
 import { CartResponseModal } from "../../Modal/CartResponseModal";
 import { ColorDropdown } from "./inputs/ColorDropdown";
 import { QtyInput } from "./inputs/QtyInput";
@@ -10,6 +11,8 @@ export function ProductInfo({product}) {
     const [qty, setQty] = useState(1);
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
+
+    const { addProduct } = useContext(CartContext);
 
     const updateQty = (newQty) => {
         setQty(newQty);
@@ -28,12 +31,12 @@ export function ProductInfo({product}) {
     };
 
     const addToCart = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         let data = {
             product_id: product.id,
             qty,
         };
-        const res = await apiCarts.addItemToCart(data);
+        const res = await addProduct(data);
         responseHandler(res);
     };
 

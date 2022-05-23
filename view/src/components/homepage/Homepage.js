@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 import { NoUserModal } from "../Modal/NoUserModal";
 import { SportSlider } from "./SportSlider";
 
-export function Homepage ({user}){
+export function Homepage (){
 
+    const { user } = useContext(UserContext);
 
     return(
         <div className="homepage-container">

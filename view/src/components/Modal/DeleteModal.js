@@ -2,14 +2,17 @@ import { useNavigate } from 'react-router-dom';
 import apiAccount from '../../utilities/api/apiAccount';
 import ReactModal from 'react-modal';
 import { deleteUserStyle } from './modalStyles';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 
-export function DeleteModal({clearUser}) {
+export function DeleteModal() {
 
     const navigate = useNavigate();
 
+    const { deleteUser } = useContext(UserContext);
+
     const deleteAccount = () => {
-        apiAccount.deleteAccount();
-        clearUser();
+        deleteUser();
         navigate('/');         
     };
 

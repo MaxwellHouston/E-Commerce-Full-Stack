@@ -34,7 +34,7 @@ userRouter.put('/', checkAuthentication, validate(updateSchema), async (req, res
             res.status(400).json(err);
         }
     };
-    res.json({message: 'Update successful'});
+    res.json({message: 'Update successful', status: 200});
 });
 
 userRouter.delete('/', checkAuthentication, async (req, res) => {

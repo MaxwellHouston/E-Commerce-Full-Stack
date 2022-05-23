@@ -1,43 +1,32 @@
-import { useEffect, useState, useCallback } from "react";
-import apiCarts from "../../utilities/api/apiCarts"
+import { useEffect, useState, useContext } from "react";
 import { CartProductView } from "./CartProductView";
 import { OrderSummary } from "./OrderSummary";
+import { LoadingWheel } from '../animated/LoadingWheel';
 import currency from 'currency.js';
+import { CartContext } from "../context/CartContext";
 
 export function Cart() {
 
-    const [cart, setCart] = useState({});
     const [products, setProducts] = useState([]);
 
-    const cartCheck = useCallback (async () => {
-        if(cart.id) return;
-        const activeCart = await apiCarts.fetchActiveCart();
-        if(!activeCart){
-            await apiCarts.create();
-        }
-    },[cart])
+    const {cart} = useContext(CartContext);
 
     useEffect(() => {
-        cartCheck()
-    },[cartCheck])
-
-    const fetchCart = useCallback( 
-        async () => {
-            const activeCart = await apiCarts.fetchActiveCart();
-            if(activeCart){
-                setCart(activeCart);
-                setProducts(activeCart.products);
-            }
-        },[]
-    );
-
-    useEffect(() => {
-        fetchCart();
-    }, [fetchCart]);
+        if(cart.products) setProducts(cart.products);
+    }, [cart]);
 
     const renderProducts = () => {
-        let productArray = products.map(product => <CartProductView key={product.id} product={product} cart={cart} fetchCart={fetchCart} />)
-        return productArray;
+        if(products){
+            if(products.length === 0) return (<li className="empty-cart">Cart Empty</li>);
+            let productArray = products.map(product => <CartProductView key={product.id} product={product} />)
+            return productArray;
+        } else {
+            return (
+                <li className="loading-cart">
+                    <LoadingWheel />
+                </li>
+            )
+        }
     };
 
     const getSubtotal = () => {

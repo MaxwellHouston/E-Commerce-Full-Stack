@@ -1,18 +1,17 @@
-import apiCarts from "../../utilities/api/apiCarts"
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 
-export function RemoveItemBtn({fetchCart, productId, cartId}) {
+export function RemoveItemBtn({productId}) {
 
-    const removeItem = async () => {
-        const res = await apiCarts.removeItem(productId, cartId);
-        if(res === 204){
-            fetchCart();
-        } else {
-            console.log('Delete failed');
-        }
+    const { removeProduct } = useContext(CartContext);
+
+    const handleClick = async () => {
+        const res = await removeProduct(productId);
+        if(!res) console.log('Could not delete');
     }
 
     return(
-        <button onClick={removeItem}>X</button>
+        <button onClick={handleClick}>X</button>
     )
 }

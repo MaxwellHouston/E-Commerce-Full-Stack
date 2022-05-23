@@ -1,11 +1,14 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiAccount from '../../utilities/api/apiAccount';
 import { LoadingWheel } from '../animated/LoadingWheel';
+import { UserContext } from '../context/UserContext';
 
-export function LogoutModal({clearUser}) {
+export function LogoutModal() {
 
     const navigate = useNavigate();
+
+    const { clearUser } = useContext(UserContext);
 
     const logout = useCallback ( 
         async () => {
