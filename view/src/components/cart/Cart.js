@@ -1,9 +1,10 @@
 import { useEffect, useState, useContext } from "react";
-import { CartProductView } from "./CartProductView";
+import { Routes, Route } from 'react-router-dom';
 import { OrderSummary } from "./OrderSummary";
-import { LoadingWheel } from '../animated/LoadingWheel';
 import currency from 'currency.js';
 import { CartContext } from "../context/CartContext";
+import { CartProductList } from "./CartProductList";
+import { Checkout } from "./checkout/Checkout";
 
 export function Cart() {
 
@@ -14,20 +15,6 @@ export function Cart() {
     useEffect(() => {
         if(cart.products) setProducts(cart.products);
     }, [cart]);
-
-    const renderProducts = () => {
-        if(products){
-            if(products.length === 0) return (<li className="empty-cart">Cart Empty</li>);
-            let productArray = products.map(product => <CartProductView key={product.id} product={product} />)
-            return productArray;
-        } else {
-            return (
-                <li className="loading-cart">
-                    <LoadingWheel />
-                </li>
-            )
-        }
-    };
 
     const getSubtotal = () => {
         if(products.length !== 0){
@@ -41,10 +28,11 @@ export function Cart() {
 
     return(
         <div className="cart-container">
-            <ul className="cart-items-list">
-                {renderProducts()}
-            </ul>
-            <OrderSummary subTotal={getSubtotal()} />           
+        <Routes>
+            <Route path='/' element={<CartProductList products={products} />} />
+            <Route path='/checkout' element={<Checkout />} />
+        </Routes>           
+        <OrderSummary subTotal={getSubtotal()} />           
         </div>
     )
 }

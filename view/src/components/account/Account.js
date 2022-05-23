@@ -10,7 +10,7 @@ export function Account() {
         <div className="account-background">
             <Routes>
                 <Route path='/' element={<UserPage />} />
-                <Route path='/cart' element={<Cart />} />
+                <Route path='/cart/*' element={<Cart />} />
                 <Route path='/delete-account' element={<DeleteModal />} />
             </Routes>
         </div>

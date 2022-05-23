@@ -4,7 +4,7 @@ import { QtyInput } from "../shop/products/inputs/QtyInput";
 import { RemoveItemBtn } from "./RemoveItemBtn";
 
 
-export function CartProductView({product}) {
+export function CartProductCard({product}) {
 
     const [qty, setQty] = useState(product.qty);
 
