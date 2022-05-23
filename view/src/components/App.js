@@ -1,5 +1,4 @@
 import '../App.css';
-import { useState, useCallback } from 'react';
 import { AppFooter } from './Footer';
 import { NavBar } from './navbar/NavBar';
 import { Routes, Route } from 'react-router-dom';
@@ -9,7 +8,7 @@ import { Login } from './account/Login';
 import { Homepage } from './homepage/Homepage';
 import { Shop } from './shop/Shop';
 import { LoggedInModal } from './Modal/LoggedInModal';
-import { LoadingModal } from './Modal/LoadingModal';
+import { LoadUserModal } from './Modal/LoadUserModal';
 import { LogoutModal } from './Modal/LogoutModal';
 import { Account } from './account/Account';
 import { UserProvider } from './context/UserContext';
@@ -31,7 +30,7 @@ function App() {
             <Route path='/shop/*' element={<Shop />} />
             <Route path='/account/*' element={<Account />} />
             <Route path='/login/success' element={<LoggedInModal />} />
-            <Route path='/welcome' element={<LoadingModal /> } />
+            <Route path='/load-user' element={<LoadUserModal /> } />
             <Route path='/load-cart' element={<LoadCartModal /> } />
             <Route path='/logout' element={<LogoutModal  /> } />
           </Routes>

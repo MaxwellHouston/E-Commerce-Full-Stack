@@ -1,13 +1,11 @@
 import { useCallback, useContext, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LoadingWheel } from '../animated/LoadingWheel';
-import { CartContext } from '../context/CartContext';
 import { UserContext } from '../context/UserContext';
 
-export function LoadingModal() {
+export function LoadUserModal() {
 
-    const { user, load } = useContext(UserContext);
-    const { loadCart, checkCart } = useContext(CartContext);
+    const { load } = useContext(UserContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -19,9 +17,7 @@ export function LoadingModal() {
                 console.log('Please Login');
                 navigate(location.state || '/');
             } else {
-                setTimeout(() => {
-                    navigate('/load-cart');
-                }, 500); 
+                navigate('/load-cart');
             }
         }, [load, navigate, location.state]
     );

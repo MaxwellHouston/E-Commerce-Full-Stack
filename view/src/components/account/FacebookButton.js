@@ -17,7 +17,7 @@ export function FacbookButton({location}) {
         if(loginWindow){
             timer = setInterval(() => {
                 if (loginWindow.closed) {
-                    navigate('/welcome', {state: location});
+                    navigate('/load-user', {state: location});
                     if(timer)clearInterval(timer);
                 }
             }, 500)

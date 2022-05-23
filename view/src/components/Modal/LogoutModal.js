@@ -16,7 +16,7 @@ export function LogoutModal() {
             console.log(logoutMessage);
             setTimeout(() => {
                 navigate('/');
-            }, 1000); 
+            }, 500); 
         }, [navigate]
     )
 

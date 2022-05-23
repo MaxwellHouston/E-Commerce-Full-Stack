@@ -29,7 +29,7 @@ export function Login (){
     };
 
     const loginSuccess = () => {
-        navigate('/welcome');
+        navigate('/load-user');
     }
 
     const handleSubmit = async (e) => {

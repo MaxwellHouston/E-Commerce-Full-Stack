@@ -2,14 +2,20 @@ import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoadingWheel } from '../animated/LoadingWheel';
 import { CartContext } from '../context/CartContext';
+import { UserContext } from '../context/UserContext';
 
 export function LoadCartModal() {
 
     const { cart, loadCart, checkCart } = useContext(CartContext);
+    const { user } = useContext(UserContext);
 
     const navigate = useNavigate();
 
-
+    useEffect(() => {
+        if(!user.id){
+            navigate('/');
+        }
+    }, [user, navigate]);
 
     useEffect(() => {
         checkCart();
@@ -21,9 +27,7 @@ export function LoadCartModal() {
 
     useEffect(() => {
         if(cart.id){
-            setTimeout(() => {
-                navigate('/homepage');
-            }, 500); 
+            navigate('/homepage');
         }
     }, [navigate, cart]);
 
