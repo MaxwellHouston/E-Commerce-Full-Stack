@@ -23,5 +23,14 @@ module.exports = {
             email: Joi.string().email(),
             password: Joi.string().min(6)
         })
+    },
+    addressSchema: {
+        body: Joi.object({
+            street: Joi.string().trim(),
+            city: Joi.string().trim().alphanum(),
+            state: Joi.string().trim().alphanum(),
+            zip: Joi.string().trim().length(5),
+            comments: Joi.string().trim().max(250)
+        })
     }
 };

@@ -55,6 +55,36 @@ module.exports = class Usermodel {
         }
     };
 
-    
+    async addAddress(data) {
+        let text = 'INSERT INTO address (user_id, street, city, state, zip, comments) VALUES($1, $2, $3, $4, $5, $6)';
+        let inputs = [data.user_id, data.street, data.city, data.state, data.zip, data.comments];
+        try {
+            return await query(text, inputs);
+        } catch (err) {
+            throw err.stack;
+        }
+    };
 
+    async getAddresses(data) {
+        let text = 'SELECT * FROM address WHERE user_id = $1;'
+        let inputs = [data];
+        try {
+            const result = await query(text, inputs);
+            return result.rows;
+        } catch (err) {
+            throw err.stack;
+        }
+    };
+
+    async updateAddress(data) {
+        let text = format('UPDATE address SET %I = $1 WHERE user_id = $2;', data.column);
+        let inputs = [data.value, data.user_id];
+        try {
+            return await query(text, inputs);
+        } catch (err) {
+            throw err.stack;
+        }
+    };
+
+    
 }

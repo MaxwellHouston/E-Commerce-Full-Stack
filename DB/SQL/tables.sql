@@ -8,6 +8,16 @@ CREATE TABLE users (
     modified timestamp
 );
 
+CREATE TABLE address (
+    id SERIAL PRIMARY KEY,
+    user_id integer REFERENCES users(id),
+    street varchar(100) NOT NULL,
+    city varchar(100) NOT NULL,
+    state varchar(20) NOT NULL,
+    zip varchar(5) NOT NULL,
+    comments varchar(250)
+);
+
 CREATE TABLE product (
     id varchar(6) PRIMARY KEY,
     name varchar(50) NOT NULL,

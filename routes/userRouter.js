@@ -5,10 +5,15 @@ const UserModel = require('../models/UserModel');
 const { updateSchema } = require('../functions_schemas/validateSchemas');
 const { hashPassword, validationError } = require('../functions_schemas/validateFunctions');
 const { checkAuthentication } = require('../config/passportConfig');
+const addressRouter = require('./addressRouter');
 
 //-------------------------------------------------Models-----------------------------------------------------------------//
 
 const userInstance = new UserModel();
+
+//-------------------------------------------------Address Router-----------------------------------------------------------------//
+
+userRouter.use('/address', addressRouter);
 
 //-------------------------------------------------Routes-----------------------------------------------------------------//
 
