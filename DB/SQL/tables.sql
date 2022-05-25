@@ -13,7 +13,7 @@ CREATE TABLE address (
     user_id integer REFERENCES users(id),
     street varchar(100) NOT NULL,
     city varchar(100) NOT NULL,
-    state varchar(20) NOT NULL,
+    state varchar(2) NOT NULL,
     zip varchar(5) NOT NULL,
     comments varchar(250)
 );
