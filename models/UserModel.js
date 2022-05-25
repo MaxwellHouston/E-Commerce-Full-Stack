@@ -77,8 +77,8 @@ module.exports = class Usermodel {
     };
 
     async updateAddress(data) {
-        let text = format('UPDATE address SET %I = $1 WHERE user_id = $2;', data.column);
-        let inputs = [data.value, data.user_id];
+        let text = format('UPDATE address SET %I = $1 WHERE id = $2;', data.column);
+        let inputs = [data.value, data.id];
         try {
             return await query(text, inputs);
         } catch (err) {

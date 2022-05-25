@@ -20,7 +20,7 @@ export function OrderSummary({subTotal}) {
         } else {
             return <button className='submit-btn'>Place Order</button>
         }
-    }
+    };
 
     const calculateTax = useCallback( 
         () => {

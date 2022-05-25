@@ -1,10 +1,9 @@
 import { useEffect, useState, useContext } from "react";
 import { Routes, Route } from 'react-router-dom';
-import { OrderSummary } from "./OrderSummary";
 import currency from 'currency.js';
 import { CartContext } from "../context/CartContext";
-import { CartProductList } from "./CartProductList";
 import { Checkout } from "./checkout/Checkout";
+import { CartOverview } from "./CartOverview";
 
 export function Cart() {
 
@@ -29,10 +28,9 @@ export function Cart() {
     return(
         <div className="cart-container">
         <Routes>
-            <Route path='/' element={<CartProductList products={products} />} />
-            <Route path='/checkout' element={<Checkout />} />
-        </Routes>           
-        <OrderSummary subTotal={getSubtotal()} />           
+            <Route path='/' element={<CartOverview products={products} subTotal={getSubtotal()} />} />
+            <Route path='/checkout' element={<Checkout subTotal={getSubtotal()} />} />
+        </Routes>                      
         </div>
     )
 }

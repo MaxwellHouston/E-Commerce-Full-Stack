@@ -1,11 +1,13 @@
-import { Payment } from "./Payment"
-import { Shipping } from "./Shipping"
+import { OrderSummary } from "../OrderSummary"
+import { Payment } from "./payment/Payment"
+import { Shipping } from "./shipping/Shipping"
 
 
-export const Checkout = () => {
+export const Checkout = ({subTotal}) => {
 
     return(
-        <div>
+        <div className="checkout-page">
+            <OrderSummary subTotal={subTotal} />
             <Shipping />
             <Payment />
         </div>

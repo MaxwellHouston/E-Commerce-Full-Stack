@@ -29,11 +29,11 @@ addressRouter.post('/', checkAuthentication, async (req, res) => {
     }
 });
 
-addressRouter.put('/', checkAuthentication, validate(addressSchema), async (req, res) => {
+addressRouter.put('/:addressid', checkAuthentication, validate(addressSchema), async (req, res) => {
     let data = req.body;
     for(const key in data){
         try {
-            let input = {column: key, value: data[key], user_id: req.user.id};
+            let input = {column: key, value: data[key], id: req.params.addressid};
             await userInstance.updateAddress(input);
         } catch (err) {
             res.status(400).json(err);
