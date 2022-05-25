@@ -1,6 +1,6 @@
 const { validate } = require('express-validation');
 const { checkAuthentication } = require('../config/passportConfig');
-const { validationError } = require('../functions_schemas/validateFunctions');
+const { validationError, validateAddress } = require('../functions_schemas/validateFunctions');
 const { addressSchema } = require('../functions_schemas/validateSchemas');
 const Usermodel = require('../models/UserModel');
 
@@ -40,6 +40,18 @@ addressRouter.put('/:addressid', checkAuthentication, validate(addressSchema), a
         }
     }
     res.json({message: 'Update successful'});
+});
+
+addressRouter.post('/validate', validateAddress, async (req, res) => {
+    if(req.verifiedAddress){
+        let verifiedAddress = {
+            street: req.verifiedAddress.Address2,
+            city: req.verifiedAddress.City,
+            state: req.verifiedAddress.State,
+            zip: req.verifiedAddress.Zip5,
+        };
+        res.json(verifiedAddress);
+    };
 });
 
 addressRouter.use(validationError);

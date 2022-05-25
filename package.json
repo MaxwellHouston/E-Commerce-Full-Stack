@@ -9,6 +9,7 @@
   "author": "Max Houston",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -17,6 +18,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.2",
     "express-validation": "^3.0.8",
+    "express-xml-bodyparser": "^0.3.0",
     "http-errors": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.15",
@@ -28,6 +30,7 @@
     "pg": "^8.7.3",
     "pg-format": "^1.0.4",
     "swagger-jsdoc": "^6.1.0",
-    "swagger-ui-express": "^4.3.0"
+    "swagger-ui-express": "^4.3.0",
+    "xml2js": "^0.4.23"
   }
 }

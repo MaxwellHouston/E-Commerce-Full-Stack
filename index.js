@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('express-flash');
+const xmlparser = require('express-xml-bodyparser');
 
 //--------------------------------------------------Imports-----------------------------------------------------------------//
 const {PORT, session_secret} = require('./config/config');
@@ -24,6 +25,7 @@ const app = express();
 app.use(flash());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(xmlparser());
 app.use(cors({origin: 'http://localhost:3000', credentials: true}));
 app.use(session({
     secret: session_secret,

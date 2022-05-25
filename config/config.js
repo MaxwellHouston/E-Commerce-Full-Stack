@@ -24,5 +24,7 @@ module.exports = {
 
     database_url: process.env.DATABASE_URL,
 
-    session_secret: process.env.SESSION_SECRET
+    session_secret: process.env.SESSION_SECRET,
+
+    USPSID: process.env.USER_ID
 }
