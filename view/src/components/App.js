@@ -14,6 +14,7 @@ import { Account } from './account/Account';
 import { UserProvider } from './context/UserContext';
 import { CartProvider } from './context/CartContext';
 import { LoadCartModal } from './Modal/LoadCartModal';
+import { AddressProvider } from './context/AddressContext';
 
 function App() {
 
@@ -21,20 +22,22 @@ function App() {
     <div className='main'>
       <UserProvider>
         <CartProvider>
-          <NavBar  />
-          <Routes>
-            <Route path='/' element={<StartPage />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/homepage' element={<Homepage />} />
-            <Route path='/shop/*' element={<Shop />} />
-            <Route path='/account/*' element={<Account />} />
-            <Route path='/login/success' element={<LoggedInModal />} />
-            <Route path='/load-user' element={<LoadUserModal /> } />
-            <Route path='/load-cart' element={<LoadCartModal /> } />
-            <Route path='/logout' element={<LogoutModal  /> } />
-          </Routes>
-          <AppFooter />
+          <AddressProvider>
+            <NavBar  />
+            <Routes>
+              <Route path='/' element={<StartPage />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/homepage' element={<Homepage />} />
+              <Route path='/shop/*' element={<Shop />} />
+              <Route path='/account/*' element={<Account />} />
+              <Route path='/login/success' element={<LoggedInModal />} />
+              <Route path='/load-user' element={<LoadUserModal /> } />
+              <Route path='/load-cart' element={<LoadCartModal /> } />
+              <Route path='/logout' element={<LogoutModal  /> } />
+            </Routes>
+            <AppFooter />
+          </AddressProvider>
         </CartProvider>
       </UserProvider>
     </div>

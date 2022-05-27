@@ -2,6 +2,8 @@ import { useCallback, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiAccount from '../../utilities/api/apiAccount';
 import { LoadingWheel } from '../animated/LoadingWheel';
+import { AddressContext } from '../context/AddressContext';
+import { CartContext } from '../context/CartContext';
 import { UserContext } from '../context/UserContext';
 
 export function LogoutModal() {
@@ -9,6 +11,8 @@ export function LogoutModal() {
     const navigate = useNavigate();
 
     const { clearUser } = useContext(UserContext);
+    const { clearAddressList } = useContext(AddressContext);
+    const { clearCart } = useContext(CartContext);
 
     const logout = useCallback ( 
         async () => {
@@ -22,8 +26,10 @@ export function LogoutModal() {
 
     useEffect(() => {
         logout();
+        clearCart();
+        clearAddressList();
         clearUser();
-    }, [logout, clearUser])
+    }, [logout, clearUser, clearCart, clearAddressList])
 
     return (
             <LoadingWheel />

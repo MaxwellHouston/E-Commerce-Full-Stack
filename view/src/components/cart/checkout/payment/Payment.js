@@ -3,7 +3,7 @@
 export const Payment = () => {
 
     return(
-        <div>
+        <div className="payment-form">
             Payment
         </div>
     )

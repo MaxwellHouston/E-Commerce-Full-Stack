@@ -92,3 +92,28 @@ export const deleteUserStyle = {
         boxShadow: '3px 3px 5px black'
     }
 }
+
+export const addressValidationStyle = {
+    overlay: {
+        width: '30%', 
+        height:'50%',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    content: {
+        position: 'static',
+        display: 'flex',
+        width: '75%',
+        height: '75%',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'white', 
+        border: '1px solid black',
+        boxShadow: '3px 3px 5px black'
+    }
+}

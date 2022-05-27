@@ -1,22 +1,24 @@
 
-export const AddressCard = ({address, updateAddress, close}) => {
+export const AddressCard = ({address, updateAddress, selectedAddress}) => {
 
-    const handleUpdate= (e) => {
-        updateAddress('street', address.street);
-        updateAddress('city', address.city);
-        updateAddress('state', address.state);
-        updateAddress('zip', address.zip);
-        updateAddress('comments', address.comments);
-        close(e);
+    const handleUpdate= () => {
+        let addressObject = {
+            id: address.id,
+            street: address.street,
+            city: address.city,
+            state: address.state,
+            zip: address.zip,
+            comments: address.comments
+        }
+        updateAddress(addressObject);
     };
 
     return(
-        <div className="address-card" onClick={handleUpdate}>
+        <div className={selectedAddress === address.id ? "address-card selected" : "address-card"} onClick={handleUpdate}>
             <p>{address.street}</p>
             <p>{address.city}</p>
             <p>{address.state}</p>
             <p>{address.zip}</p>
-            <p>{address.comments}</p>
         </div>
     )
 }

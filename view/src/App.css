@@ -845,6 +845,7 @@ left: 0;
 
 .cart-container {
   display: flex;
+  width: 100%;
 }
 
 .cart-overview,
@@ -900,13 +901,15 @@ left: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
+  width: 25%;
   background-color: #fff;
   line-height: 2rem;
-  margin: 5rem;
 }
 
 .order-summary h1 {
   font-size: 3rem;
+  text-align: center;
   margin-bottom: 3rem;
 }
 
@@ -915,30 +918,122 @@ left: 0;
 }
 
 /*---------------------------Checkout-----------------------------*/
+
+.checkout-page {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
 /*---------------------------Shipping-----------------------------*/
 
-.address-form {
+.shipping {
   background-color: #fff;
+  width: 35%;
+}
+
+.shipping h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem;
+}
+
+#state-input {
+  width: 35%;
+  display: flex;
+}
+
+#state-input select {
+  width: 40%;
+  text-align: center;
+}
+
+#zip-input {
+  width: 35%;
 }
 
 .input-container textarea {
   padding-top: 1rem;
+  width: 100%;
 }
 
-.address-card-container {
+.address-form {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.address-card {
+.address-slider {
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+  background-color: #696969;
+}
+
+.address-card,
+.valid-address-card {
   background-color: #0f0f59;
   color: #fff;
-  margin: 1.5rem;
-  line-height: 2rem;
-  padding: 1.5rem;
+  font-size: .75rem;
+  min-width: 25%;
+  margin: .5rem;
+  padding: .5rem;
+  line-height: 1.5rem;
+  box-shadow: 2px 2px 5px black;
+}
+
+#new-address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected {
+  border: solid 1px red;
+}
+
+.address-card:hover {
+  background-color: #3e3e85;
+  cursor: pointer;
+}
+
+.address-form .submit-btn:disabled {
+  background-color: #535370;
+  cursor: default;
+}
+
+.address-form .submit-btn:disabled:active {
+  transform: none;
+  box-shadow: 3px 3px 5px black;
+}
+
+.address-modal h2 {
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+.address-modal-btns {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.address-modal-btns button {
+  background-color: #0f0f59;
+  color: #fff;
+  font-size: 1.25rem;
+  border-radius: .5rem;
 }
 
 /*---------------------------Payment-----------------------------*/
+
+.payment-form {
+  width: 30%;
+  background-color: #fff;
+}
+
 /*---------------------------Address-----------------------------*/
 
 

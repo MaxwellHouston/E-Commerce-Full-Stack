@@ -18,12 +18,12 @@ addressRouter.get('/', checkAuthentication, async (req, res) => {
     }
 });
 
-addressRouter.post('/', checkAuthentication, async (req, res) => {
+addressRouter.post('/', checkAuthentication, validate(addressSchema), async (req, res) => {
     let data = req.body;
     data.user_id = req.user.id;
     try {
-        const response = await userInstance.addAddress(data);
-        res.json(response);
+        let newAddress = await userInstance.addAddress(data);
+        res.json(newAddress);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -45,10 +45,10 @@ addressRouter.put('/:addressid', checkAuthentication, validate(addressSchema), a
 addressRouter.post('/validate', validateAddress, async (req, res) => {
     if(req.verifiedAddress){
         let verifiedAddress = {
-            street: req.verifiedAddress.Address2,
-            city: req.verifiedAddress.City,
-            state: req.verifiedAddress.State,
-            zip: req.verifiedAddress.Zip5,
+            street: req.verifiedAddress.Address2[0],
+            city: req.verifiedAddress.City[0],
+            state: req.verifiedAddress.State[0],
+            zip: req.verifiedAddress.Zip5[0],
         };
         res.json(verifiedAddress);
     };

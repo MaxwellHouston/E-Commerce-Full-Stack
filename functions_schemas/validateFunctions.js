@@ -24,8 +24,7 @@ module.exports = {
 
     async validateAddress(req, res, next) {
         let data = req.body;
-        let body = 
-        `<AddressValidateRequest USERID="${USPSID}"><Revision>1</Revision><Address><Address1/><Address2>${data.street}</Address2><City>${data.city}</City><State>${data.state}</State><Zip5>${data.zip}</Zip5><Zip4/></Address></AddressValidateRequest>`;
+        let body = `<AddressValidateRequest USERID="${USPSID}"><Revision>1</Revision><Address><Address1/><Address2>${data.street}</Address2><City>${data.city}</City><State>${data.state}</State><Zip5>${data.zip}</Zip5><Zip4/></Address></AddressValidateRequest>`;
         try{
             const validationResult = await axios({
                 method: 'post',
@@ -47,7 +46,7 @@ module.exports = {
             });
             next();
         } catch(err) {
-            console.log(err)
+            console.log(err);
             res.status(400).send(err.response);
         }
 

@@ -56,10 +56,11 @@ module.exports = class Usermodel {
     };
 
     async addAddress(data) {
-        let text = 'INSERT INTO address (user_id, street, city, state, zip, comments) VALUES($1, $2, $3, $4, $5, $6)';
+        let text = 'INSERT INTO address (user_id, street, city, state, zip, comments) VALUES($1, $2, $3, $4, $5, $6) RETURNING *;';
         let inputs = [data.user_id, data.street, data.city, data.state, data.zip, data.comments];
         try {
-            return await query(text, inputs);
+            const newAddress = await query(text, inputs);
+            return newAddress.rows[0];
         } catch (err) {
             throw err.stack;
         }

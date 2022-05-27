@@ -1,38 +1,60 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import ReactModal from 'react-modal';
-import apiAccount from '../../utilities/api/apiAccount';
-import { AddressCard } from '../cart/checkout/shipping/AddressCard';
+import { AddressContext } from '../context/AddressContext';
+import { addressValidationStyle } from './modalStyles';
 ReactModal.setAppElement('#root');
 
-export function AddressModal({show, close, updateAddress}) {
+export function AddressModal({show, close, address, updateAddress}) {
 
-    const [addressList, setAddressList] = useState([]);
+    const [message, setMessage] = useState('Validating...');
+    const [validatedAddress, setValidatedAddress] = useState(null);
 
-    const loadAddresses = async () => {
-        const userAddresses = await apiAccount.fetchAddresses();
-        if(userAddresses.status) return;
-        setAddressList(userAddresses);
+    const { validateAddress, saveAddress } = useContext(AddressContext);
+    
+    const handleValidation = async () => {
+        const validationResult = await validateAddress(address);
+        if(typeof validationResult === 'string'){
+            setMessage(validationResult);
+        } else {
+            setMessage('Save this address?')
+            validationResult.comments = address.comments;
+            setValidatedAddress(validationResult);
+        }
     };
 
-    const renderAddresses = () => {
-        if(addressList.length === 0){
-            return (
-                <div className='address-card'>
-                    <p>No addresses saved</p>
-                </div>
-            );
-        };
-        let addressCards = addressList.map(address => <AddressCard key={address.id} address={address} updateAddress={updateAddress} close={close} />);
-        return addressCards;
+    const save = async (e) => {
+        let saveResponse = await saveAddress(validatedAddress);
+        if(saveResponse) {
+            setMessage('Address Saved');
+            updateAddress(saveResponse);
+            back(e);
+        } else {
+            setMessage('Save failed');
+        }
     };
 
+    const back = (e) => {
+        setMessage('Validating');
+        setValidatedAddress(null);
+        close(e);
+    }
+    
     return(
-        <ReactModal isOpen={show} onAfterOpen={loadAddresses}>
-            <div className='address-card-container'>
-                {renderAddresses()}
+        <ReactModal className='address-modal' isOpen={show} onAfterOpen={handleValidation} style={ addressValidationStyle } >
+            <h2>{message}</h2>
+            { validatedAddress && (
+                <div className='valid-address-card'>
+                    <p>{validatedAddress.street}</p>
+                    <p>{validatedAddress.city}</p>
+                    <p>{validatedAddress.state}</p>
+                    <p>{validatedAddress.zip}</p>
+                </div>)
+            }
+            <div className='address-modal-btns'>
+                <button id='alert-modal-button' onClick={back}>Back</button>
+                { validatedAddress && <button id='alert-modal-button' onClick={save}>Save</button>}
             </div>
-            <p>Manage Addresses</p>
-            <button id='alert-modal-button' onClick={close}>Close</button>
+
         </ReactModal>
     )
 }

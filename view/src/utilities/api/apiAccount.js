@@ -122,6 +122,20 @@ const apiAccount = {
         } catch (err) {
             return err.response;
         }
+    },
+
+    validateAddress: async (address) => {
+        try{
+            const res = await axios({
+                method: 'post',
+                data: address,
+                withCredentials: true,
+                url: '/api/user/address/validate'
+            });
+            return res.data;
+        } catch (err) {
+            return err.response;
+        }
     }
 }
 
