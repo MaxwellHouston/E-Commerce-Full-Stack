@@ -4,7 +4,7 @@ import { AddressContext } from '../context/AddressContext';
 import { addressValidationStyle } from './modalStyles';
 ReactModal.setAppElement('#root');
 
-export function AddressModal({show, close, address, updateAddress}) {
+export function AddressModal({show, close, address, updateAddress, scrollToActive}) {
 
     const [message, setMessage] = useState('Validating...');
     const [validatedAddress, setValidatedAddress] = useState(null);
@@ -28,6 +28,7 @@ export function AddressModal({show, close, address, updateAddress}) {
             setMessage('Address Saved');
             updateAddress(saveResponse);
             back(e);
+            scrollToActive();
         } else {
             setMessage('Save failed');
         }

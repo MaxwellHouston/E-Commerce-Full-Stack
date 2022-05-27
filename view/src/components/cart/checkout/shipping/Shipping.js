@@ -38,9 +38,15 @@ export const Shipping = () => {
         }
     };
 
+    const scrollToActive = () => {
+        const activeCard = document.getElementById(`address-card-${selectedAddress}`);
+        activeCard.scrollIntoView(false);
+    }
+
     return(
         <div className="shipping">
-            <AddressModal show={showAddressModal} close={toggleAddressModal} address={address} updateAddress={updateAddressByObject} />
+        <button onClick={scrollToActive}>test</button>
+            <AddressModal show={showAddressModal} close={toggleAddressModal} address={address} updateAddress={updateAddressByObject} scrollToActive={scrollToActive} />
             <h2>Shipping</h2>
             <AddressList updateAddress={updateAddressByObject} selectedAddress={selectedAddress} resetAddress={resetAddress} />
             <p className="or-divider"><span>Or</span></p>

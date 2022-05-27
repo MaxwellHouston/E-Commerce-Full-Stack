@@ -14,7 +14,7 @@ export const AddressCard = ({address, updateAddress, selectedAddress}) => {
     };
 
     return(
-        <div className={selectedAddress === address.id ? "address-card selected" : "address-card"} onClick={handleUpdate}>
+        <div className={selectedAddress === address.id ? "address-card selected" : "address-card"} id={`address-card-${address.id}`} onClick={handleUpdate}>
             <p>{address.street}</p>
             <p>{address.city}</p>
             <p>{address.state}</p>

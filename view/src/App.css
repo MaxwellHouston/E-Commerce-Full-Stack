@@ -963,11 +963,44 @@ left: 0;
   justify-content: center;
 }
 
-.address-slider {
+.slider-container {
+  width: 100%;
+  position: relative;
+}
+
+#address-slider {
   display: flex;
   overflow-x: scroll;
+  scroll-behavior: smooth;
   width: 100%;
+  min-height: 9rem;
   background-color: #696969;
+}
+
+#scroll-btn-left,
+#scroll-btn-right {
+  position: absolute;
+  height: 100%;
+  width: 3rem;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+#scroll-btn-left {
+  background-image: url('./utilities/images/arrows/white-arrow-left.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  left: 0;
+}
+
+#scroll-btn-right {
+  background-image: url('./utilities/images/arrows/white-arrow-right.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  right: 0;
+  top: 0;
 }
 
 .address-card,
@@ -982,7 +1015,7 @@ left: 0;
   box-shadow: 2px 2px 5px black;
 }
 
-#new-address {
+#address-card-0 {
   display: flex;
   justify-content: center;
   align-items: center;
