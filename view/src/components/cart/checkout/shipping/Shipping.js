@@ -1,12 +1,7 @@
 import { useState } from "react";
-import apiAccount from "../../../../utilities/api/apiAccount"
 import { AddressModal } from "../../../Modal/AddressModal";
+import { AddressForm } from "./AddressForm";
 import { AddressList } from "./AddressList";
-import { CityInput } from "./inputs/CityInput";
-import { CommentsInput } from "./inputs/CommentsInput";
-import { StateInput } from "./inputs/StateInput";
-import { StreetInput } from "./inputs/StreetInput";
-import { ZipInput } from "./inputs/ZipInput";
 
 export const Shipping = () => {
 
@@ -49,14 +44,7 @@ export const Shipping = () => {
             <h2>Shipping</h2>
             <AddressList updateAddress={updateAddressByObject} selectedAddress={selectedAddress} resetAddress={resetAddress} />
             <p className="or-divider"><span>Or</span></p>
-            <form className="address-form">
-                <StreetInput street={address.street} updateAddress={updateAddressByInput} selectedAddress={selectedAddress} />
-                <CityInput city={address.city} updateAddress={updateAddressByInput} selectedAddress={selectedAddress} />
-                <StateInput state={address.state} updateAddress={updateAddressByInput} selectedAddress={selectedAddress} />
-                <ZipInput zip={address.zip} updateAddress={updateAddressByInput} selectedAddress={selectedAddress} />
-                <CommentsInput comments={address.comments} updateAddress={updateAddressByInput} selectedAddress={selectedAddress} />
-                <button className="submit-btn" onClick={toggleAddressModal} disabled={address.id ? true : false}>Save Address</button>
-            </form>
+            <AddressForm address={address} updateAddress={updateAddressByInput} toggleAddressModal={toggleAddressModal} selectedAddress={selectedAddress} />
         </div>
 
     )
