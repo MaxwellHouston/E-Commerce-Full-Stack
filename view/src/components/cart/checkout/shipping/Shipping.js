@@ -45,7 +45,6 @@ export const Shipping = () => {
 
     return(
         <div className="shipping">
-        <button onClick={scrollToActive}>test</button>
             <AddressModal show={showAddressModal} close={toggleAddressModal} address={address} updateAddress={updateAddressByObject} scrollToActive={scrollToActive} />
             <h2>Shipping</h2>
             <AddressList updateAddress={updateAddressByObject} selectedAddress={selectedAddress} resetAddress={resetAddress} />

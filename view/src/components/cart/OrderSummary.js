@@ -37,11 +37,13 @@ export function OrderSummary({subTotal}) {
 
     return(
         <div className="order-summary">
-            <h1>Order Summary</h1>
-            <p>Subtotal: {subTotal}</p>
-            <p>Shipping & Handling: $0.00</p>
-            <p>Sales Tax: {currency(salesTax).format()}</p>
-            <p>Total: {currency(total).format()}</p>
+            <h2>Order Summary</h2>
+            <div className='order-details'>
+                <p>Subtotal: {subTotal}</p>
+                <p>Shipping & Handling: $0.00</p>
+                <p>Sales Tax: {currency(salesTax).format()}</p>
+                <p>Total: {currency(total).format()}</p>
+            </div>
             {renderSubmitBtn()}
         </div>
     )

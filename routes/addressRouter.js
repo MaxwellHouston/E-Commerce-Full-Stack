@@ -11,7 +11,6 @@ const userInstance = new Usermodel();
 addressRouter.get('/', checkAuthentication, async (req, res) => {
     try {
         const addressList = await userInstance.getAddresses(req.user.id);
-        if(addressList.length === 0) res.status(400).json({message: 'No addresses found'});
         res.json(addressList);
     } catch (err) {
         res.status(400).json(err);
