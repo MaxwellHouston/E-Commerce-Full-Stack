@@ -897,7 +897,7 @@ left: 0;
   line-height: 2rem;
 }
 
-.order-summary {
+.order-summary-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -906,7 +906,10 @@ left: 0;
   background-color: #fff;
 }
 
-.order-details {
+.order-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   background-color: #696969;
   color: white;
   width: 100%;
@@ -914,11 +917,12 @@ left: 0;
   line-height: 2.5rem;
 }
 
-.order-details p {
-  margin-left: 2rem;
+.order-summary p {
+  width: 51%;
+
 }
 
-.order-summary .submit-btn {
+.order-summary-container .submit-btn {
   margin-top: 3rem;
 }
 
@@ -938,7 +942,7 @@ left: 0;
 }
 
 .shipping h2,
-.order-summary h2,
+.order-summary-container h2,
 .payment h2 {
   text-align: center;
   width: 100%;
@@ -1082,6 +1086,18 @@ left: 0;
   background-color: #fff;
 }
 
+.payment-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.StripeElement {
+  width: 90%;
+  margin-bottom: 1rem;
+}
+
 /*---------------------------Address-----------------------------*/
 
 
@@ -1124,7 +1140,6 @@ left: 0;
   padding: 0 1rem;
   margin-bottom: 1rem;
 }
-
 
 /*---------------------------Footer-----------------------------*/
 footer {

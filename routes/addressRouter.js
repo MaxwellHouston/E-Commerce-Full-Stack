@@ -50,7 +50,7 @@ addressRouter.post('/validate', validateAddress, async (req, res) => {
             zip: req.verifiedAddress.Zip5[0],
         };
         res.json(verifiedAddress);
-    };
+    }
 });
 
 addressRouter.use(validationError);

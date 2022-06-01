@@ -29,6 +29,7 @@
     "passport-local": "^1.0.0",
     "pg": "^8.7.3",
     "pg-format": "^1.0.4",
+    "stripe": "^9.5.0",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.3.0",
     "xml2js": "^0.4.23"

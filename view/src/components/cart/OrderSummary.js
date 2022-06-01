@@ -1,26 +1,10 @@
 import currency from 'currency.js';
 import { useCallback, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 export function OrderSummary({subTotal}) {
 
     const [salesTax, setSalesTax] = useState(0);
     const [total, setTotal] = useState(0);
-
-    const location = useLocation();
-    const navigate = useNavigate();
-
-    const toCheckout = () => {
-        navigate('/account/cart/checkout');
-    };
-
-    const renderSubmitBtn = () => {
-        if(location.pathname === '/account/cart'){ 
-            return <button className='submit-btn' onClick={toCheckout}>Check Out</button>
-        } else {
-            return <button className='submit-btn'>Place Order</button>
-        }
-    };
 
     const calculateTax = useCallback( 
         () => {
@@ -36,15 +20,11 @@ export function OrderSummary({subTotal}) {
     }, [calculateTax])
 
     return(
-        <div className="order-summary">
-            <h2>Order Summary</h2>
-            <div className='order-details'>
-                <p>Subtotal: {subTotal}</p>
-                <p>Shipping & Handling: $0.00</p>
-                <p>Sales Tax: {currency(salesTax).format()}</p>
-                <p>Total: {currency(total).format()}</p>
-            </div>
-            {renderSubmitBtn()}
+        <div className='order-summary'>
+            <p>Subtotal: {subTotal}</p>
+            <p>Shipping & Handling: $0.00</p>
+            <p>Sales Tax: {currency(salesTax).format()}</p>
+            <p>Total: {currency(total).format()}</p>
         </div>
     )
 }

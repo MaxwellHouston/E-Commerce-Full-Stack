@@ -47,7 +47,7 @@ module.exports = {
             next();
         } catch(err) {
             console.log(err);
-            res.status(400).send(err.response);
+            res.json({message: 'Invalid address'})
         }
 
     }

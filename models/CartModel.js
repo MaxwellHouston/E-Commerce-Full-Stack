@@ -1,6 +1,6 @@
 const { query } = require('../DB/db');
 const Ordermodel = require('../models/OrderModel');
-const processPayment = require('../functions_schemas/paymentFunctions');
+const { processPayment } = require('../functions_schemas/paymentFunctions');
 
 const orderInstance = new Ordermodel();
 

@@ -1,8 +1,10 @@
 
 
-const processPayment = () => {
-    return true
+module.exports = {
+
+    processPayment () {
+        return true
+    },
+
+    
 }
-
-
-module.exports = processPayment;
