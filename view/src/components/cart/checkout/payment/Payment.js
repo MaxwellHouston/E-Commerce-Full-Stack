@@ -7,15 +7,16 @@ import { OrderSummary } from '../../OrderSummary';
 
 const stripePromise = loadStripe('pk_test_51L5WeeITjfAKbWHqglZGdbyKmaSBnG3wOIT4eP5gxKOuGCZx33taIoP6ymu7lOb7AFH7xUpiL5eTYblygO4hVU0p001NcHjned');
 
-export const Payment = ({subTotal}) => {
+export const Payment = ({subTotal, total, updateTotal}) => {
 
     const [clientSecret, setClientSecret] = useState('');
 
     const loadSecret = useCallback( 
         async () => {
-            let secretResponse = await apiPayment.paymentIntent({total: 5000});
+            if(!total) return;
+            let secretResponse = await apiPayment.paymentIntent({total: total});
             if(secretResponse) setClientSecret(secretResponse);
-        }, []
+        }, [total]
     );
 
     useEffect(() => {
@@ -27,12 +28,12 @@ export const Payment = ({subTotal}) => {
         appearance: {
             theme: 'stripe'
         }
-    }
+    };
 
     return(
         <div className="payment">
             <h2>Payment</h2>
-            <OrderSummary subTotal={subTotal} />
+            <OrderSummary subTotal={subTotal} updateTotal={updateTotal} />
             {clientSecret && (
                 <Elements stripe={stripePromise} options={options} >
                     <PaymentForm />

@@ -3,29 +3,18 @@ import { AddressModal } from "../../../Modal/AddressModal";
 import { AddressForm } from "./AddressForm";
 import { AddressList } from "./AddressList";
 
-export const Shipping = () => {
+export const Shipping = ({address, updateAddressByInput, updateAddressByObject}) => {
 
-    const [address, setAddress] = useState({street: '', city: '', state: '', zip: '', comments: ''});
     const [selectedAddress, setSelectedAddress] = useState(0);
     const [showAddressModal, setShowAddressModal] = useState(false);
 
-    const updateAddressByInput = (input, value) => {
-        setAddress((prev) => ({
-            ...prev,
-            [input]: value
-        }))
-    };
-
-    const updateAddressByObject = (newAddress) => {
+    const updateAddressAndId = (newAddress) => {
         setSelectedAddress(newAddress.id);
-        if(!newAddress.comments) {
-            newAddress.comments = '';
-        }
-        setAddress(newAddress);
+        updateAddressByObject(newAddress);
     };
 
     const resetAddress = () => {
-        setAddress({street: '', city: '', state: '', zip: '', comments: ''});
+        updateAddressByObject({street: '', city: '', state: '', zip: '', comments: ''});
         setSelectedAddress(0);
     };
 
@@ -45,9 +34,9 @@ export const Shipping = () => {
 
     return(
         <div className="shipping">
-            <AddressModal show={showAddressModal} close={toggleAddressModal} address={address} updateAddress={updateAddressByObject} scrollToActive={scrollToActive} />
+            <AddressModal show={showAddressModal} close={toggleAddressModal} address={address} updateAddress={updateAddressAndId} scrollToActive={scrollToActive} />
             <h2>Shipping</h2>
-            <AddressList updateAddress={updateAddressByObject} selectedAddress={selectedAddress} resetAddress={resetAddress} />
+            <AddressList updateAddress={updateAddressAndId} selectedAddress={selectedAddress} resetAddress={resetAddress} />
             <p className="or-divider"><span>Or</span></p>
             <AddressForm address={address} updateAddress={updateAddressByInput} toggleAddressModal={toggleAddressModal} selectedAddress={selectedAddress} />
         </div>
