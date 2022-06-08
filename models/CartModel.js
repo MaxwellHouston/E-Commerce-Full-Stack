@@ -108,17 +108,16 @@ module.exports = class Cartmodel {
         try {
             const products = await this.getAllProducts(data.cart_id);
             if(products.length === 0) return 'empty';
-            const paid = processPayment();
-            if(!paid) return 'payment';
             const newOrder = await orderInstance.create(data.user_id);
             const orderId = newOrder.rows[0].id;
             for(const item of products){
-                let data = {
+                let newItem = {
                     order_id: orderId,
                     product_id: item.id,
+                    price: item.price,
                     qty: item.qty
                 }
-                await orderInstance.addProduct(data);
+                await orderInstance.addProduct(newItem);
             }
             return orderId;
         } catch (err) {

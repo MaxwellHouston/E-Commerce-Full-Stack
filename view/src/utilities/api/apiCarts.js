@@ -88,6 +88,20 @@ const apiCarts = {
         } catch(err) {
             return err.response;
         }
+    },
+
+    deleteCart: async (cartId) => {
+        try {
+            const res = await axios({
+                method: 'delete',
+                withCredentials: true,
+                url: `/api/carts/${cartId}`
+            });
+            console.log(res.data);
+            return res.data;
+        } catch (err) {
+            return err.response;
+        }
     }
 
 }

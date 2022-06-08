@@ -853,13 +853,15 @@ left: 0;
   display: flex;
 }
 
-.cart-items-list {
+.cart-items-list,
+.order-product-list {
   background-color: #fff;
   max-height: 90vh;
   overflow: scroll;
 }
 
-.cart-product-view {
+.cart-product-view,
+.order-product-view {
   display: flex;
   justify-content: space-between;
   height: 10rem;
@@ -867,11 +869,13 @@ left: 0;
   margin: 1rem
 }
 
-.cart-product-view img {
+.cart-product-view img,
+.order-product-view img {
   margin: 1rem;
 }
 
-.cart-product-info {
+.cart-product-info,
+.order-product-info {
   width: 75%;
   display: flex;
   flex-wrap: wrap;
@@ -880,12 +884,14 @@ left: 0;
   margin: 1rem;
 }
 
-.cart-product-info h2 {
+.cart-product-info h2,
+.order-product-info h2 {
   font-size: 2rem;
   width: 80%;
 }
 
-.cart-product-price {
+.cart-product-price,
+.order-product-price {
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: underline;
@@ -929,6 +935,10 @@ left: 0;
 /*---------------------------Checkout-----------------------------*/
 
 .checkout-page {
+  width: 100%;
+}
+
+.checkout-forms {
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -1098,9 +1108,69 @@ left: 0;
   margin-bottom: 1rem;
 }
 
-/*---------------------------Address-----------------------------*/
+/*---------------------------Orders-----------------------------*/
+.order-container {
+  display: flex;
+  justify-content: center;
+}
 
+.order-confirmation {
+  background-color: #fff;
+  width: 75%;
+  margin: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.order-confirmation h1 {
+  width: 100%;
+  background-color: #0f0f59;
+  color: #fff;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 5rem;
+}
 
+.order-product-list {
+  width: 50%;
+  min-height: 70vh;
+}
+
+.order-product-view h2 {
+  width: 70%;
+}
+
+.order-product-price {
+  width: 25%;
+}
+
+.order-product-qty {
+  padding: 1rem;
+}
+
+.order-info {
+  width: 50%;
+}
+
+.order-shipping {
+  width: 100%;
+}
+
+.order-shipping h2 {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.order-shipping-address {
+  line-height: 1.5rem;
+  text-decoration: underline;
+  margin: 2rem;
+}
+
+.order-shipping textarea {
+  margin: 2rem;
+  resize: none;
+}
 
 /*---------------------------Modals-----------------------------*/
 

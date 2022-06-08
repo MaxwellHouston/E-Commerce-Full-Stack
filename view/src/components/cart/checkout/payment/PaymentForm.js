@@ -2,8 +2,7 @@ import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import { useState } from "react";
 import { PaymentErrorModal } from "../../../Modal/PaymentErrorModal";
 
-
-export const PaymentForm = () => {
+export const PaymentForm = ({shippingAddress, saveState}) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -14,12 +13,18 @@ export const PaymentForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!shippingAddress.id){
+            setErrorMessage('Please select a shipping address');
+            setShowModal(true);
+            return;
+        }
         if(!stripe || !elements) return;
         setIsLoading(true);
+        saveState();
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: 'http://localhost:3000/account/cart/checkout-result'
+                return_url: 'http://localhost:3000/account/cart/checkout/result'
             }
         });
         if(error) {

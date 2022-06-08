@@ -13,7 +13,7 @@ export function FacbookButton({location}) {
     const facebookLogin = async (e) => {
         e.preventDefault();
         let timer;
-        const loginWindow = openWindow(window, 500, 600)
+        const loginWindow = openWindow(window, 500, 600);
         if(loginWindow){
             timer = setInterval(() => {
                 if (loginWindow.closed) {

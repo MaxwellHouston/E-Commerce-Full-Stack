@@ -1,9 +1,17 @@
-import { useCallback, useState } from "react";
-import { Payment } from "./payment/Payment";
-import { Shipping } from "./shipping/Shipping";
+import { useCallback, useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { CheckoutStatus } from "./CheckoutStatus";
+import { CheckoutForms } from "./CheckoutForms";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+import { PaymentVerification } from "./payment/PaymentVerification";
+import apiOrders from "../../../utilities/api/apiOrders";
+import { TestPay } from "./payment/TestPay";
 
-export const Checkout = ({subTotal}) => {
+const stripePromise = loadStripe('pk_test_51L5WeeITjfAKbWHqglZGdbyKmaSBnG3wOIT4eP5gxKOuGCZx33taIoP6ymu7lOb7AFH7xUpiL5eTYblygO4hVU0p001NcHjned');
+
+export const Checkout = ({subTotal, cartId}) => {
 
     const [shippingAddress, setShippingAddress] = useState({street: '', city: '', state: '', zip: '', comments: ''});
     const [total, setTotal] = useState('');
@@ -27,11 +35,32 @@ export const Checkout = ({subTotal}) => {
             setTotal(newTotal);
         }, []
     );
+    
+    const saveState = () => {
+        window.localStorage.setItem('ORDER_SHIPPING_ADDRESS', JSON.stringify(shippingAddress));
+        window.localStorage.setItem('ORDER_TOTAL', JSON.stringify(total));
+    }
 
     return (
         <div className="checkout-page">
-            <Shipping updateAddressByInput={updateAddressByInput} updateAddressByObject={updateAddressByObject} address={shippingAddress} />
-            <Payment total={total} subTotal={subTotal} updateTotal={updateTotal} />
+            <Routes>
+                <Route path='/*' element={
+                    <CheckoutForms 
+                        updateAddressByInput={updateAddressByInput}
+                        updateAddressByObject={updateAddressByObject} 
+                        shippingAddress={shippingAddress} 
+                        total={total} 
+                        subTotal={subTotal} 
+                        updateTotal={updateTotal}
+                        stripePromise={stripePromise}
+                        saveState={saveState} 
+                    />} 
+                />
+                <Route path='/result' element={        
+                <Elements stripe={stripePromise}>
+                    <CheckoutStatus cartId={cartId} />
+                </Elements>} />
+            </Routes>
         </div>
     )
 };  

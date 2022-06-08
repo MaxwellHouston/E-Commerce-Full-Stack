@@ -4,7 +4,7 @@ import currency from 'currency.js';
 import { CartContext } from "../context/CartContext";
 import { Checkout } from "./checkout/Checkout";
 import { CartOverview } from "./CartOverview";
-import { CheckoutStatus } from "./checkout/CheckoutStatus";
+import { OrderConfirmation } from "../orders/OrderConfirmation";
 
 export function Cart() {
 
@@ -30,8 +30,7 @@ export function Cart() {
         <div className="cart-container">
         <Routes>
             <Route path='/' element={<CartOverview products={products} subTotal={getSubtotal()} />} />
-            <Route path='/checkout' element={<Checkout subTotal={getSubtotal()} />} />
-            <Route path='/checkout-result' element={<CheckoutStatus />} />
+            <Route path='/checkout/*' element={<Checkout subTotal={getSubtotal()} cartId={cart.id} />} />
         </Routes>                      
         </div>
     )

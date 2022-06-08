@@ -7,7 +7,7 @@ export const CartProvider = ({children}) => {
 
     const [cart, setCart] =useState({});
 
-    const cartCheck = useCallback (async () => {
+    const checkCart = useCallback (async () => {
         if(cart.id) return;
         const activeCart = await apiCarts.fetchActiveCart();
         if(!activeCart){
@@ -46,6 +46,14 @@ export const CartProvider = ({children}) => {
         }
     };
 
+    const deleteCart = useCallback( async (cartId) => {
+        const res = await apiCarts.deleteCart(cartId);
+        console.log(res);
+        setCart({});
+        checkCart();
+        loadCart();
+    },[checkCart, loadCart])
+
     const clearCart = useCallback( 
         () => { setCart({}) }, [] 
     );
@@ -53,7 +61,7 @@ export const CartProvider = ({children}) => {
 
 
     return (
-        <CartContext.Provider value={{cart: cart, loadCart: loadCart, checkCart: cartCheck, updateQty: updateQty, addProduct: addProduct, removeProduct: removeProduct, clearCart: clearCart}}>
+        <CartContext.Provider value={{cart: cart, loadCart: loadCart, checkCart: checkCart, updateQty: updateQty, addProduct: addProduct, removeProduct: removeProduct, deleteCart: deleteCart, clearCart: clearCart}}>
             {children}
         </CartContext.Provider>
     )

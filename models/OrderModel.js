@@ -14,8 +14,8 @@ module.exports = class Ordermodel {
     };
 
     async addProduct(data) {
-        const text = 'INSERT INTO order_product (order_id, product_id, price, qty) VALUES ($1, $2, (SELECT price FROM product WHERE id = $2), $3);';
-        const inputs = [data.order_id, data.product_id, data.qty];
+        const text = 'INSERT INTO order_product (order_id, product_id, price, qty) VALUES ($1, $2, $3, $4);';
+        const inputs = [data.order_id, data.product_id, data.price, data.qty];
         try {
             return await query(text, inputs);
         } catch (err) {
