@@ -40,6 +40,19 @@ const apiOrders = {
         } catch (err) {
             return err.response;
         }
+    },
+
+    getUserOrders: async () => {
+        try {
+            const ordersArray = await axios({
+                method: 'get',
+                withCredentials: true,
+                url: `/api/orders`
+            });
+            return ordersArray.data;
+        } catch (err) {
+            
+        }
     }
 
 }

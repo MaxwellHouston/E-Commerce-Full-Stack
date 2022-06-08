@@ -10,7 +10,7 @@ CREATE TABLE users (
 
 CREATE TABLE address (
     id SERIAL PRIMARY KEY,
-    user_id integer REFERENCES users(id),
+    user_id integer REFERENCES users(id) ON DELETE CASCADE,
     street varchar(100) NOT NULL,
     city varchar(100) NOT NULL,
     state varchar(2) NOT NULL,
@@ -31,21 +31,21 @@ CREATE TABLE product (
 
 CREATE TABLE cart (
     id SERIAL PRIMARY KEY,
-    user_id integer REFERENCES users(id),
+    user_id integer REFERENCES users(id) ON DELETE CASCADE,
     created timestamp NOT NULL,
     modified timestamp
 );
 
 CREATE TABLE cart_product (
-    cart_id integer REFERENCES cart(id),
-    product_id varchar(6) REFERENCES product(id),
+    cart_id integer REFERENCES cart(id) ON DELETE CASCADE,
+    product_id varchar(6) REFERENCES product(id) ON DELETE CASCADE,
     qty integer NOT NULL,
     PRIMARY KEY (cart_id, product_id)
 );
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
-    user_id integer REFERENCES users(id),
+    user_id integer REFERENCES users(id) ON DELETE CASCADE,
     total_price money DEFAULT 0,
     status varchar(20) NOT NULL,
     created timestamp NOT NULL,
@@ -53,8 +53,8 @@ CREATE TABLE orders (
 );
 
 CREATE TABLE order_product (
-    order_id integer REFERENCES orders(id),
-    product_id varchar(6) REFERENCES product(id),
+    order_id integer REFERENCES orders(id) ON DELETE CASCADE,
+    product_id varchar(6) REFERENCES product(id) ON DELETE CASCADE,
     price money NOT NULL,
     qty integer NOT NULL,
     PRIMARY KEY (order_id, product_id)

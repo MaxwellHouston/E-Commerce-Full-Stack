@@ -1110,9 +1110,72 @@ left: 0;
 
 /*---------------------------Orders-----------------------------*/
 .order-container {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
+
+.orders-page {
+  background-color: #fff;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.orders-page h1 {
+  width: 100%;
+  font-size: 3rem;
+  line-height: 5rem;
+  text-align: center;
+}
+
+.orders-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.order-card {
+  width: 80%;
+  margin: 2rem 0;
+  border-radius: 2rem;
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-around;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background-color: #0f0f59;
+  color: #fff;
+  padding: 2rem;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+.order-header-title {
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.order-card .order-product-list {
+  width: 100%;
+  min-height: 0;
+  padding: 2rem 0;
+  background-color: #696969;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.order-card .order-product-view {
+  background-color: #fff;
+}
+
+/*---------------------------Order Confirmation-----------------------------*/
+
 
 .order-confirmation {
   background-color: #fff;

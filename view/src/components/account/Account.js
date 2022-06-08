@@ -3,6 +3,7 @@ import { DeleteModal } from "../Modal/DeleteModal";
 import { Cart } from "../cart/Cart";
 import { UserPage } from "./UserPage";
 import { Orders } from "../orders/Orders";
+import { Addresses } from "../addresses/Addresses";
 
 
 export function Account() {
@@ -14,6 +15,7 @@ export function Account() {
                 <Route path='/cart/*' element={<Cart />} />
                 <Route path='/delete-account' element={<DeleteModal />} />
                 <Route path='/orders/*' element={<Orders />} />
+                <Route path='/addresses' element={<Addresses />} />
             </Routes>
         </div>
     )

@@ -13,7 +13,7 @@ export function UserMenu({user}) {
             return (
                 <ul className="dropdown-menu" id='user-menu'>  
                     <li><Link to='/account'>Account</Link></li>
-                    <li><Link to='#'>Orders</Link></li>
+                    <li><Link to='/account/orders'>Orders</Link></li>
                     <li><Link to='/logout'>Logout</Link></li>
                     <li className='user-menu-name'>Logged in as:</li>
                     <li className='user-menu-name'>{`${user.first_name} ${user.last_name}`}</li>
