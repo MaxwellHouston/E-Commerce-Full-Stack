@@ -1,10 +1,10 @@
-import { CityInput } from "./inputs/CityInput";
-import { CommentsInput } from "./inputs/CommentsInput";
-import { StateInput } from "./inputs/StateInput";
-import { StreetInput } from "./inputs/StreetInput";
-import { ZipInput } from "./inputs/ZipInput";
+import { CityInput } from "../../../address/inputs/CityInput";
+import { CommentsInput } from "../../../address/inputs/CommentsInput";
+import { StateInput } from "../../../address/inputs/StateInput";
+import { StreetInput } from "../../../address/inputs/StreetInput";
+import { ZipInput } from "../../../address/inputs/ZipInput";
 
-export const AddressForm = ({address, updateAddress, selectedAddress, toggleAddressModal}) => {
+export const ShippingForm = ({address, updateAddress, selectedAddress, toggleAddressModal}) => {
     return(
         <form className="address-form">
             <StreetInput street={address.street} updateAddress={updateAddress} selectedAddress={selectedAddress} />

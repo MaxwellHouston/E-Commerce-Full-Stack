@@ -22,22 +22,27 @@ export const AddressProvider = ({children}) => {
     };
 
     const saveAddress = async (newAddress) => {
-        let updateResult = await apiAccount.createAddress(newAddress);
-        if(updateResult.id){
+        let creationResult = await apiAccount.createAddress(newAddress);
+        if(creationResult.id){
             loadAddresses();
-            return updateResult;
+            return creationResult;
         } else {
-            console.log(updateResult);
+            console.log(creationResult);
             return false
         }
     };
+
+    const updateAddress = async (updatesObject, addressId) => {
+        let updateResult = await apiAccount.updateAddress(updatesObject, addressId);
+        return updateResult;
+    }
 
     const clearAddressList = useCallback( 
         () => { setAddressList([]) }, []
     );
 
     return (
-        <AddressContext.Provider value={{addressList: addressList, loadAddresses: loadAddresses, validateAddress: validateAddress, saveAddress: saveAddress, clearAddressList: clearAddressList}}>
+        <AddressContext.Provider value={{addressList: addressList, loadAddresses: loadAddresses, validateAddress: validateAddress, updateAddress: updateAddress, saveAddress: saveAddress, clearAddressList: clearAddressList}}>
             {children}
         </AddressContext.Provider>
     )

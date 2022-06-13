@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import { AddressContext } from "../../../context/AddressContext";
+import { AddressContext } from "../context/AddressContext";
 import { AddressCard } from "./AddressCard";
 import { ScrollBtn } from "./ScrollBtn";
 

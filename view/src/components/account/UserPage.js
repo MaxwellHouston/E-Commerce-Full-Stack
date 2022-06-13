@@ -63,6 +63,7 @@ export function UserPage() {
             <p className="or-divider"></p>
             <ul className="user-links">
                 <li><Link to='/account/cart'>View Cart</Link></li>
+                <li><Link to='/account/addresses'>View Addresses</Link></li>
                 <li><Link to='/account/orders'>View Orders</Link></li>
                 <li><Link to='/account/delete-account'>Delete Account</Link></li>
                 <li><Link to='/logout'>Log Out</Link></li>

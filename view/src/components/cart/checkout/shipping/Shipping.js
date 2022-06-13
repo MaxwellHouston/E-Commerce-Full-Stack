@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AddressModal } from "../../../Modal/AddressModal";
-import { AddressForm } from "./AddressForm";
-import { AddressList } from "./AddressList";
+import { ShippingForm } from "./ShippingForm";
+import { AddressList } from "../../../address/AddressList";
 
 export const Shipping = ({address, updateAddressByInput, updateAddressByObject}) => {
 
@@ -38,7 +38,7 @@ export const Shipping = ({address, updateAddressByInput, updateAddressByObject})
             <h2>Shipping</h2>
             <AddressList updateAddress={updateAddressAndId} selectedAddress={selectedAddress} resetAddress={resetAddress} />
             <p className="or-divider"><span>Or</span></p>
-            <AddressForm address={address} updateAddress={updateAddressByInput} toggleAddressModal={toggleAddressModal} selectedAddress={selectedAddress} />
+            <ShippingForm address={address} updateAddress={updateAddressByInput} toggleAddressModal={toggleAddressModal} selectedAddress={selectedAddress} />
         </div>
 
     )
