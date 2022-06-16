@@ -8,7 +8,7 @@ export const StreetInput = ({street, updateAddress, selectedAddress}) => {
     return (
         <fieldset className="input-container">
             <label className={street ? 'input-filled' : 'input-empty'}>Street</label>
-            <input onChange={handleInput} value={street} disabled={selectedAddress === 0 ? false : true}/>
+            <input onChange={handleInput} value={street} disabled={selectedAddress === 0 ? false : true} required />
         </fieldset>
     )
 }

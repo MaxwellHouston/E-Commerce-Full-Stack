@@ -67,11 +67,22 @@ module.exports = class Usermodel {
     };
 
     async getAddresses(data) {
-        let text = 'SELECT * FROM address WHERE user_id = $1;'
+        let text = 'SELECT * FROM address WHERE user_id = $1 ORDER BY id;'
         let inputs = [data];
         try {
             const result = await query(text, inputs);
             return result.rows;
+        } catch (err) {
+            throw err.stack;
+        }
+    };
+
+    async getAddressById(addressId) {
+        let text = 'SELECT * FROM address WHERE id = $1;'
+        let inputs = [addressId];
+        try {
+            const result = await query(text, inputs);
+            return result.rows[0];
         } catch (err) {
             throw err.stack;
         }

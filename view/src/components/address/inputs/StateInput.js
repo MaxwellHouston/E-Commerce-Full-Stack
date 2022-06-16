@@ -7,7 +7,7 @@ export const StateInput = ({state, updateAddress, selectedAddress}) => {
 
     return (
         <fieldset className="input-container" id="state-input">
-            <select value={state} onChange={handleInput} disabled={selectedAddress === 0 ? false : true}>
+            <select value={state} onChange={handleInput} disabled={selectedAddress === 0 ? false : true} required >
 	            <option value="AL">AL</option>
 	            <option value="AK">AK</option>
 	            <option value="AR">AR</option>	

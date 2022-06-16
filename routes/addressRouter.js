@@ -37,8 +37,9 @@ addressRouter.put('/:addressid', checkAuthentication, validate(addressSchema), a
         } catch (err) {
             res.status(400).json(err);
         }
-    }
-    res.json({message: 'Update successful'});
+    };
+    let updatedAddress = await userInstance.getAddressById(req.params.addressid);
+    res.json(updatedAddress);
 });
 
 addressRouter.post('/validate', validateAddress, async (req, res) => {

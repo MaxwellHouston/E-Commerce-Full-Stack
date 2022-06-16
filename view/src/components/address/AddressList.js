@@ -15,7 +15,7 @@ export const AddressList = ({updateAddress, selectedAddress, resetAddress}) => {
     useEffect(() => {
         let cardArray = [];
         cardArray.push(                
-            <div className='address-card' id='address-card-0' key={0} onClick={resetAddress}>
+            <div className={selectedAddress === 0 ? "address-card selected" : "address-card"} id='address-card-0' key={0} onClick={resetAddress}>
                 <p>Create New Address</p>
             </div>
         );

@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AddressModal } from "../../../Modal/AddressModal";
 import { ShippingForm } from "./ShippingForm";
 import { AddressList } from "../../../address/AddressList";
+import { AddressContext } from "../../../context/AddressContext";
+import { AddressVerificationModal } from "../../../Modal/AddressVerificationModal";
 
 export const Shipping = ({address, updateAddressByInput, updateAddressByObject}) => {
 
     const [selectedAddress, setSelectedAddress] = useState(0);
     const [showAddressModal, setShowAddressModal] = useState(false);
+
+    const { saveAddress } = useContext(AddressContext);
 
     const updateAddressAndId = (newAddress) => {
         setSelectedAddress(newAddress.id);
@@ -19,7 +23,7 @@ export const Shipping = ({address, updateAddressByInput, updateAddressByObject})
     };
 
     const toggleAddressModal = (e) => {
-        e.preventDefault();
+        if(e) e.preventDefault();
         if(showAddressModal === false){
             setShowAddressModal(true);
         } else {
@@ -28,13 +32,24 @@ export const Shipping = ({address, updateAddressByInput, updateAddressByObject})
     };
 
     const scrollToActive = () => {
-        const activeCard = document.getElementById(`address-card-${selectedAddress}`);
+        let activeCard = document.getElementById(`address-card-${selectedAddress}`);
         activeCard.scrollIntoView(false);
-    }
+    };
+
+    const saveNewAddress = async (validatedAddress) => {
+        let saveResponse = await saveAddress(validatedAddress);
+        if(saveResponse) {
+            updateAddressAndId(saveResponse);
+            return 'Address Saved';
+        } else {
+            return false;
+        }
+    };
 
     return(
         <div className="shipping">
-            <AddressModal show={showAddressModal} close={toggleAddressModal} address={address} updateAddress={updateAddressAndId} scrollToActive={scrollToActive} />
+            <AddressVerificationModal show={showAddressModal} close={toggleAddressModal} address={address} addressFunction={saveNewAddress} onCloseFunction={scrollToActive} />
+            {/*<AddressModal show={showAddressModal} close={toggleAddressModal} address={address} updateAddress={updateAddressAndId} scrollToActive={scrollToActive} /> */}
             <h2>Shipping</h2>
             <AddressList updateAddress={updateAddressAndId} selectedAddress={selectedAddress} resetAddress={resetAddress} />
             <p className="or-divider"><span>Or</span></p>
