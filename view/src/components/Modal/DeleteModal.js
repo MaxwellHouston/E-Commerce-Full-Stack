@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import apiAccount from '../../utilities/api/apiAccount';
 import ReactModal from 'react-modal';
 import { deleteUserStyle } from './modalStyles';
 import { useContext } from 'react';

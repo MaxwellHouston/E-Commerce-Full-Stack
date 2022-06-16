@@ -32,9 +32,10 @@ export const SlidingContainer = ({cardList, sliderId}) => {
         if(rightBtn.style.display === 'none')  rightBtn.style.display = 'block';    
     };
 
-    const scrollable = () => {
-        if(!cardList) return;
-        if(cardList.length >= 3){
+    const renderScrollBtn = () => {
+        if(!container) return;
+        let scrollable = container.scrollWidth > container.clientWidth;
+        if(scrollable){
             return <ScrollBtn container={container} direction={'right'} />
         } 
     }
@@ -45,7 +46,7 @@ export const SlidingContainer = ({cardList, sliderId}) => {
             <div id={sliderId} onScroll={checkScroll} > 
                 {cardList}
             </div>
-            {scrollable()}
+            {renderScrollBtn()}
         </div>
     )
 }

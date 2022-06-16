@@ -19,6 +19,7 @@ export const AddressList = ({updateAddress, selectedAddress, resetAddress}) => {
                 <p>Create New Address</p>
             </div>
         );
+        setAddressCards(cardArray);
         if(addressList.length === 0) return;
         addressList.forEach(address => cardArray.push(<AddressCard key={address.id} address={address} updateAddress={updateAddress} selectedAddress={selectedAddress} />));
         setAddressCards(cardArray);

@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { AddressModal } from "../../../Modal/AddressModal";
+import { useContext, useState } from "react";
 import { ShippingForm } from "./ShippingForm";
 import { AddressList } from "../../../address/AddressList";
 import { AddressContext } from "../../../context/AddressContext";
@@ -49,12 +48,10 @@ export const Shipping = ({address, updateAddressByInput, updateAddressByObject})
     return(
         <div className="shipping">
             <AddressVerificationModal show={showAddressModal} close={toggleAddressModal} address={address} addressFunction={saveNewAddress} onCloseFunction={scrollToActive} />
-            {/*<AddressModal show={showAddressModal} close={toggleAddressModal} address={address} updateAddress={updateAddressAndId} scrollToActive={scrollToActive} /> */}
             <h2>Shipping</h2>
             <AddressList updateAddress={updateAddressAndId} selectedAddress={selectedAddress} resetAddress={resetAddress} />
             <p className="or-divider"><span>Or</span></p>
             <ShippingForm address={address} updateAddress={updateAddressByInput} toggleAddressModal={toggleAddressModal} selectedAddress={selectedAddress} />
         </div>
-
     )
-}
+}                                                                 

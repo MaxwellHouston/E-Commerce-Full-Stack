@@ -17,7 +17,7 @@ export function AddressVerificationModal({show, close, updateFunction, addressFu
             setMessage(validationResult);
         } else {
             setMessage('Save this address?')
-            validationResult.comments = address.comments;
+            validationResult.comments = address.comments || 'N/A';
             setValidatedAddress(validationResult);
         }
     };
