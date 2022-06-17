@@ -27,7 +27,7 @@ orderRouter.use('/:id', checkAuthentication, async (req, res, next) => {
 orderRouter.get('/', checkAuthentication, async (req, res) => {
     try {
         const result = await orderInstance.getAllOrders(req.user.id);
-        if(result.length === 0) return res.status(400).json('No orders found');
+        if(result.length === 0) return res.json([]);
         res.json(result);
     } catch (err) {
         res.status(400).json(err);

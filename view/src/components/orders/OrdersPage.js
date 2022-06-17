@@ -11,6 +11,7 @@ export const OrdersPage = () => {
 
     const fetchOrders = useCallback( async () => {
         const userOrders = await apiOrders.getUserOrders();
+        console.log(userOrders);
         setOrders(userOrders);
     },[]);
 
@@ -26,7 +27,7 @@ export const OrdersPage = () => {
     
     return(
         <div className="orders-page">
-            <h1>{/*user.first_name*/}Max's Orders</h1>
+            <h1>{user.first_name}'s Orders</h1>
             <ul className="orders-list">
                 {renderOrders()}
             </ul>

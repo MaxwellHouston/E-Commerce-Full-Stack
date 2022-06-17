@@ -2,7 +2,8 @@
 export const OrderCardHeader = ({order}) => {
 
     const formatDate = () => {
-        let date = order.created.slice(0,10);
+        if(!order.created) return;
+        let date = order.created.slice(0,10); 
         return date;
     }
 

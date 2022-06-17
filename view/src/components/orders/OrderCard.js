@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react"
-import apiAccount from "../../utilities/api/apiAccount";
 import apiOrders from "../../utilities/api/apiOrders";
 import { OrderCardHeader } from "./OrderCardHeader"
 import { OrderProductList } from "./OrderProductList"
