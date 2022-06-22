@@ -1,53 +1,21 @@
 import searchIcon from '../../utilities/images/icons/search.svg';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SearchContext } from '../context/SearchContext';
 
 export function SearchBar() {
 
     const [search, setSearch] = useState('');
 
-    const navigate = useNavigate();
+    const { submitSearch } = useContext(SearchContext);
 
-    const createParams = () => {
-        let nameSearch = '';
-        setSearch(search.trim().toLowerCase());
-        let pairArray = search.split(' ').map(word => {
-            switch (word) {
-              case 'large':
-                return ['size', 'L'];
-              case 'medium':
-                return ['size', 'M'];
-              case 'small':
-                return ['size', 'S'];
-              case 'black':
-                return ['color', 'Black'];
-              case 'blue':
-                return ['color', 'Blue'];
-              case 'red':
-                return ['color', 'Red'];
-              case 'white':
-                return ['color', 'White'];
-              case 'pink':
-                return ['color', 'Pink'];    
-              default:
-                if(!nameSearch){
-                  nameSearch = word
-                } else {
-                  nameSearch = nameSearch.concat(' ', word);
-                }
-                return null;
-            }
-        });
-        let paramsArray = pairArray.filter(pair => pair);
-        paramsArray.push(['name', nameSearch]);
-        return new URLSearchParams(paramsArray);
-    }
+    const navigate = useNavigate();
 
     const handleSearch = (e) => {
         e.preventDefault();
-        let searchParams = createParams();
-        let searchURL = `/shop/search/?${searchParams.toString()}`;
-        navigate(searchURL);
+        submitSearch(search);
+        setSearch('');
+        navigate('/shop/search');
     };
 
     const handleInput = ({target}) => {
@@ -59,7 +27,7 @@ export function SearchBar() {
             <button className='search-btn' type='submit'>
                 <img id='search-icon' src={searchIcon} alt='search button' />
             </button>
-            <input type='search' name='search' required placeholder="Search" onChange={handleInput} />
+            <input type='search' name='search' required placeholder="Search" onChange={handleInput} value={search} />
         </form>
     )
 }

@@ -11,6 +11,7 @@ import currency from 'currency.js';
 import { NoUserModal } from "../Modal/NoUserModal";
 import { ProductPage } from "./products/ProductPage";
 import { UserContext } from "../context/UserContext";
+import { ShopSearch } from "./ShopSearch";
 
 export function Shop() {
     const [filters, setFilters] = useState({price:'', color:'', size:'', sport:'', category:''});
@@ -41,6 +42,7 @@ export function Shop() {
     };
 
     const renderProducts = (products) => {
+        if(!products) return;
         return products.map(product => <ProductView key={product.id} product={product} />);
     };
 
@@ -50,6 +52,7 @@ export function Shop() {
             {!urlParams.item && <FiltersTab handleFilterChange={handleFilterChange} urlParams={urlParams}/>}
             <Routes>
                 <Route path='/' element={<ShopAll renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
+                <Route path='/search' element={<ShopSearch renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/:sport' element={<ShopSports renderProducts={renderProducts}  getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/all/:category' element={<ShopCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />
                 <Route path='/:sport/:category' element={<ShopSportsCategories renderProducts={renderProducts} getParams={getParams} filters={filters} filterProducts={filterProducts} />} />

@@ -73,6 +73,15 @@ const apiProducts = {
         });
         return products.data;
     },
+
+    fetchProductBySearch: async ({name, color, size}) => {
+        const products = await axios({
+            method: 'get',
+            withCredentials: true,
+            url: `/api/products/search/${name}-${color}-${size}`
+        });
+        return products.data;
+    }
 };
 
 export default apiProducts;

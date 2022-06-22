@@ -88,5 +88,16 @@ module.exports = class Productmodel {
         } catch(err) {
             throw err.stack
         }
+    };
+
+    async getProductsBySearch({name, color, size}){
+        const text = `SELECT * FROM product WHERE (LOWER(name) LIKE $1 OR LOWER(sport) LIKE $1) AND color LIKE $2 AND size LIKE $3;`;
+        const inputs = [`%${name}%`, `%${color}`, `%${size}`];
+        try {
+            const result = await query(text, inputs);
+            return result.rows;
+        } catch (err) {
+            throw err.stack;
+        }
     }
 }

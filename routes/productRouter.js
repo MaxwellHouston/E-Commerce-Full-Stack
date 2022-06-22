@@ -41,6 +41,21 @@ productRouter.get('/sports-list', async (req, res) => {
     }
 });
 
+//Get products by search params
+productRouter.get('/search/:name-:color-:size', async (req, res) => {
+    let data = {
+        name: req.params.name === 'null' ? '' : req.params.name,
+        color: req.params.color === 'null' ? '' : req.params.color,
+        size: req.params.size === 'null' ? '' : req.params.size
+    }
+    try {
+        const products = await productInstance.getProductsBySearch(data);
+        res.json(products);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 //Get product by sport
 productRouter.get('/:sport', async (req, res) => {
     let sport = req.params.sport;
@@ -110,5 +125,7 @@ productRouter.get('/name/:name/color/:color', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+
 
 module.exports = productRouter;
