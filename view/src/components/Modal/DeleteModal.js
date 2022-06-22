@@ -3,15 +3,24 @@ import ReactModal from 'react-modal';
 import { deleteUserStyle } from './modalStyles';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
+import { AddressContext } from '../context/AddressContext';
+import { SearchContext } from '../context/SearchContext';
+import { CartContext } from '../context/CartContext';
 
 export function DeleteModal() {
 
     const navigate = useNavigate();
 
     const { deleteUser } = useContext(UserContext);
+    const { clearAddressList } = useContext(AddressContext);
+    const { clearSearch } = useContext(SearchContext);
+    const { clearCart } = useContext(CartContext);
 
     const deleteAccount = () => {
         deleteUser();
+        clearAddressList();
+        clearSearch();
+        clearCart();
         navigate('/');         
     };
 
