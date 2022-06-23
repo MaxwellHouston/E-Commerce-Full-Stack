@@ -1149,6 +1149,7 @@ left: 0;
   font-size: 3rem;
   line-height: 5rem;
   text-align: center;
+  text-decoration: underline;
 }
 
 .orders-list {
@@ -1193,6 +1194,17 @@ left: 0;
 
 .order-card .order-product-view {
   background-color: #fff;
+}
+
+.empty-orders {
+  background-color: #0f0f59;
+  color: #fff;
+  width: 80%;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 8rem;
+  margin: 5rem;
+  border-radius: 1rem;
 }
 
 /*---------------------------Order Confirmation-----------------------------*/

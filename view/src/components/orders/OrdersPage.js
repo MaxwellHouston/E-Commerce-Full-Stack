@@ -1,6 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from "react"
 import apiOrders from "../../utilities/api/apiOrders";
 import { UserContext } from "../context/UserContext"
+import { EmptyOrders } from "./EmptyOrders";
 import { OrderCard } from "./OrderCard";
 
 export const OrdersPage = () => {
@@ -11,7 +12,6 @@ export const OrdersPage = () => {
 
     const fetchOrders = useCallback( async () => {
         const userOrders = await apiOrders.getUserOrders();
-        console.log(userOrders);
         setOrders(userOrders);
     },[]);
 
@@ -20,7 +20,9 @@ export const OrdersPage = () => {
     }, [fetchOrders]);
 
     const renderOrders = () => {
-        if(orders.length === 0) return;
+        if(orders.length === 0){
+            return <EmptyOrders />
+        };
         let orderCards = orders.map(order => <OrderCard key={order.id} orderId={order.id} />);
         return orderCards;
     };
