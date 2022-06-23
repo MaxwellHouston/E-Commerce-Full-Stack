@@ -1045,6 +1045,26 @@ left: 0;
   box-shadow: 2px 2px 5px black;
 }
 
+.address-card {
+  position: relative;
+  padding-right: .8rem;
+}
+
+.card-delete-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  float: right;
+  padding: 2px 5px;
+  background-color: inherit;
+  border: none;
+  color: inherit;
+}
+
+.card-delete-btn:hover {
+  color: red;
+}
+
 #address-card-0 {
   display: flex;
   justify-content: center;

@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import apiAddress from "../../utilities/api/apiAddress";
 import { AddressContext } from "../context/AddressContext";
 import { AddressVerificationModal } from "../Modal/AddressVerificationModal";
 import { AddressForm } from "./AddressForm";
@@ -67,6 +68,15 @@ export const Address = () => {
         }
     };
 
+    const deleteAddress = async (addressId) => {
+        let deleteResponse = await apiAddress.deleteAddress(addressId);
+        if(deleteResponse){
+            return 'Address Deleted';
+        } else {
+            return 'Something went wrong, please try again';
+        }
+    };
+
     const resetAddress = () => {
         setAddress({street: '', city: '', state: '', zip: '', comments: ''});
         setAddressUpdates({});
@@ -76,12 +86,12 @@ export const Address = () => {
     return(
         <div className="addresses">
         { selectedAddress === 0 ?
-            <AddressVerificationModal show={showAddressModal} close={toggleAddressModal} updateFunction={false} address={address} addressFunction={saveNewAddress} />
+            <AddressVerificationModal show={showAddressModal} close={toggleAddressModal} updateFunction={false} address={addressUpdates} addressFunction={saveNewAddress} />
         :
             <AddressVerificationModal show={showAddressModal} close={toggleAddressModal} updateFunction={true} address={verifyUpdates()} addressFunction={submitAddressUpdates} />
         }
         <h1>Your Addresses</h1>
-            <AddressList updateAddress={updateAddressByObject} selectedAddress={selectedAddress} resetAddress={resetAddress} />
+            <AddressList updateAddress={updateAddressByObject} selectedAddress={selectedAddress} resetAddress={resetAddress} deleteAddress={deleteAddress} />
             <AddressForm address={address} addressUpdates={addressUpdates} selectedAddress={selectedAddress} updateAddress={updateAddressByInput} toggleAddressModal={toggleAddressModal} />
         </div>
     )

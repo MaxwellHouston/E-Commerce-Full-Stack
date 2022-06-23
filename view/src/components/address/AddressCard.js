@@ -1,5 +1,5 @@
 
-export const AddressCard = ({address, updateAddress, selectedAddress}) => {
+export const AddressCard = ({address, updateAddress, selectedAddress, deleteAddress}) => {
 
     const handleUpdate= () => {
         let addressObject = {
@@ -13,8 +13,13 @@ export const AddressCard = ({address, updateAddress, selectedAddress}) => {
         updateAddress(addressObject);
     };
 
+    const handleDelete = () => {
+        deleteAddress(address.id);
+    }
+
     return(
         <div className={selectedAddress === address.id ? "address-card selected" : "address-card"} id={`address-card-${address.id}`} onClick={handleUpdate}>
+            {deleteAddress && <button className="card-delete-btn" onClick={handleDelete}>{String.fromCharCode(215)}</button>}
             <p>{address.street}</p>
             <p>{address.city}</p>
             <p>{address.state}</p>

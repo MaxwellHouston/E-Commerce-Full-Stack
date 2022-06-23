@@ -24,6 +24,7 @@ module.exports = {
 
     async validateAddress(req, res, next) {
         let data = req.body;
+        console.log(data);
         let body = `<AddressValidateRequest USERID="${USPSID}"><Revision>1</Revision><Address><Address1/><Address2>${data.street}</Address2><City>${data.city}</City><State>${data.state}</State><Zip5>${data.zip}</Zip5><Zip4/></Address></AddressValidateRequest>`;
         try{
             const validationResult = await axios({
@@ -33,6 +34,7 @@ module.exports = {
             });
             parseString(validationResult.data, (err, result) => {
                 if(result.AddressValidateResponse.Address[0].Error){
+                    console.log(result.AddressValidateResponse.Address[0].Error)
                     res.json({message: 'Invalid address'});
                 } else {
                     let confirm = result.AddressValidateResponse.Address[0].DPVConfirmation[0];

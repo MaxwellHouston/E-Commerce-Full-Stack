@@ -49,7 +49,7 @@ export const Shipping = ({address, updateAddressByInput, updateAddressByObject})
         <div className="shipping">
             <AddressVerificationModal show={showAddressModal} close={toggleAddressModal} address={address} addressFunction={saveNewAddress} onCloseFunction={scrollToActive} />
             <h2>Shipping</h2>
-            <AddressList updateAddress={updateAddressAndId} selectedAddress={selectedAddress} resetAddress={resetAddress} />
+            <AddressList updateAddress={updateAddressAndId} selectedAddress={selectedAddress} resetAddress={resetAddress} deleteAddress={false} />
             <p className="or-divider"><span>Or</span></p>
             <ShippingForm address={address} updateAddress={updateAddressByInput} toggleAddressModal={toggleAddressModal} selectedAddress={selectedAddress} />
         </div>
