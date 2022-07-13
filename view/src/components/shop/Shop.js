@@ -12,6 +12,7 @@ import { NoUserModal } from "../Modal/NoUserModal";
 import { ProductPage } from "./products/ProductPage";
 import { UserContext } from "../context/UserContext";
 import { ShopSearch } from "./ShopSearch";
+import { NoProducts } from "./NoProducts";
 
 export function Shop() {
     const [filters, setFilters] = useState({price:'', color:'', size:'', sport:'', category:''});
@@ -43,6 +44,7 @@ export function Shop() {
 
     const renderProducts = (products) => {
         if(!products) return;
+        if(products.length === 0) return <NoProducts />;
         return products.map(product => <ProductView key={product.id} product={product} />);
     };
 

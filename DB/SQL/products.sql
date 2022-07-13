@@ -305,3 +305,4 @@ VALUES
 ('057D11', 'Fishing Shirt', 'fishing', 'apparel', 35, 'Long sleeve but breathable', 'S', 'White'),
 ('057C11', 'Fishing Shirt', 'fishing', 'apparel', 35, 'Long sleeve but breathable', 'S', 'Blue');
 
+

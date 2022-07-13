@@ -61,7 +61,6 @@ productRouter.get('/:sport', async (req, res) => {
     let sport = req.params.sport;
     try {
         const products = await productInstance.getProductsBySport(sport);
-        if(!products) return res.status(404).json({message: 'Invalid sport'});
         res.json(products);
     } catch(err) {
         res.status(400).json(err);
@@ -74,7 +73,6 @@ productRouter.get('/all/:category', async (req, res) => {
     let category = req.params.category;
     try {
         const products = await productInstance.getProductsByCategory(category);
-        if(products.length === 0) return res.status(404).json({message: 'Invalid category'});
         res.json(products);
     } catch(err) {
         res.status(400).json(err);
@@ -89,7 +87,6 @@ productRouter.get('/:sport/:category', async (req, res) => {
     }
     try {
         const products = await productInstance.getProductsBySportAndCategory(data) ;
-        if(products.length === 0) return res.status(400).json({message: 'Invalid category'});
         res.json(products);
     } catch (err) {
         res.status(400).json(err);
@@ -104,7 +101,7 @@ productRouter.get('/name/:name/size/:size', async (req, res) => {
     }
     try {
         const products = await productInstance.getProductsByNameSize(data);
-        if(products.length === 0) return res.status(400).json({message: 'Invalid name/size'});
+        if(products.length === 0) return res.status(404).json({message: 'Invalid name/size'});
         res.json(products);
     } catch (err) {
         res.status(400).json(err);
@@ -119,7 +116,7 @@ productRouter.get('/name/:name/color/:color', async (req, res) => {
     }
     try {
         const products = await productInstance.getProductsByNameColor(data);
-        if(products.length === 0) return res.status(400).json({message: 'Invalid name/color'});
+        if(products.length === 0) return res.status(404).json({message: 'Invalid name/color'});
         res.json(products);
     } catch (err) {
         res.status(400).json(err);

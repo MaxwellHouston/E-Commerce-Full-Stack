@@ -845,12 +845,14 @@ left: 0;
 
 .cart-container {
   display: flex;
+  justify-content: center;
   width: 100%;
 }
 
 .cart-overview,
 .checkout-page {
   display: flex;
+  justify-content: center;
 }
 
 .cart-items-list,
@@ -858,6 +860,7 @@ left: 0;
   background-color: #fff;
   max-height: 90vh;
   overflow: scroll;
+  min-width: 50vw;
 }
 
 .cart-product-view,
@@ -901,6 +904,17 @@ left: 0;
 .color-size-container {
   width: 50%;
   line-height: 2rem;
+}
+
+.empty-cart {
+  width: 75%;
+  font-size: 2rem;
+  line-height: 4rem;
+  margin: 0 auto;
+  background-color: #0f0f59;
+  color: white;
+  text-align: center;
+  border-radius: 1rem;
 }
 
 .order-summary-container {

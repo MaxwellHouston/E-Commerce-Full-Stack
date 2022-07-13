@@ -14,17 +14,9 @@ export function ShopSearch({renderProducts, getParams, filters, filterProducts})
     setFilteredProducts(filterProducts(filters, searchResults))
     },[filters, searchResults, filterProducts]);
 
-    const renderSearch = () => {
-        if(filteredProducts.length === 0){
-            return <div className="no-products">No products found</div>
-        } else {
-            return renderProducts(filteredProducts);
-        }
-    }
-
     return (
         <div className="products-container">
-            {renderSearch()}
+            {renderProducts(filteredProducts)}
         </div>    
     )
 
