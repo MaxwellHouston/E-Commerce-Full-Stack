@@ -34,14 +34,13 @@ const apiCarts = {
         }
     },
 
-    addItemToCart: async (data) => {
+    addItemToCart: async (data, cartId) => {
         try{
-            const cart = await apiCarts.fetchActiveCart();
             const res = await axios({
                 method: 'post',
                 data,
                 withCredentials: true,
-                url: `/api/carts/${cart.id}/items`
+                url: `/api/carts/${cartId}/items`
             });
             return res.data;
         } catch(err) {

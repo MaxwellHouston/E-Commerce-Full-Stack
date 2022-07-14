@@ -31,6 +31,6 @@ export const AddressList = ({updateAddress, selectedAddress, resetAddress, delet
     },[addressList, resetAddress, selectedAddress, updateAddress, handleDelete]);
 
     return (
-        <SlidingContainer cardList={addressCards} sliderId={'address-slider'} />
+        <SlidingContainer cardList={addressCards} sliderId={'address-slider'} style={{ color: '#fff', fontSize: 40 }} distance={200} />
     )
 }

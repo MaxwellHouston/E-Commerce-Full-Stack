@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import { useContext, useState } from "react";
-import apiCarts from "../../../utilities/api/apiCarts";
 import { CartContext } from "../../context/CartContext";
 import { CartResponseModal } from "../../Modal/CartResponseModal";
 import { ColorDropdown } from "./inputs/ColorDropdown";
@@ -54,6 +54,10 @@ export function ProductInfo({product}) {
         setShowModal(false);
         setModalMessage('');
     };
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    },[])
 
     return(
         <div>

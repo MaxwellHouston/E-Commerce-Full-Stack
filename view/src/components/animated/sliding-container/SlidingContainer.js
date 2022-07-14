@@ -1,9 +1,9 @@
 import { ScrollBtn } from "./ScrollBtn";
 
 
-export const SlidingContainer = ({cardList, sliderId}) => {
+export const SlidingContainer = ({cardList, sliderId, style, distance}) => {
 
-    const container = document.getElementById('address-slider');
+    const container = document.getElementById(sliderId);
 
     const checkScroll = () => {
         if(container.scrollLeft <= 15) {
@@ -36,13 +36,13 @@ export const SlidingContainer = ({cardList, sliderId}) => {
         if(!container) return;
         let scrollable = container.scrollWidth > container.clientWidth;
         if(scrollable){
-            return <ScrollBtn container={container} direction={'right'} />
+            return <ScrollBtn container={container} direction={'right'} style={style} distance={distance} />
         } 
     }
 
     return (
-        <div className="slider-container">
-            <ScrollBtn container={container} direction={'left'} />
+        <div className="slider-container" id={sliderId + '-container'}>
+            <ScrollBtn container={container} direction={'left'} style={style} distance={distance} />
             <div id={sliderId} onScroll={checkScroll} > 
                 {cardList}
             </div>

@@ -1,7 +1,36 @@
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
+export const ScrollBtn = ({container, direction, style, distance}) => {
+
+    const scroll = () => {
+        let scrollLength = 0;
+        const scrollAction = setInterval(() => {
+            if(direction === 'left'){
+                container.scrollLeft -= distance;
+            } else {
+                container.scrollLeft += distance;
+            }
+            scrollLength += 50;
+            if(scrollLength >= 100){
+                clearInterval(scrollAction);
+            }
+        }, 50);        
+    }
+
+    return (
+        <button id={`scroll-btn-${direction}`} onClick={scroll}>
+           {direction === 'right' ?
+                <ArrowForwardIosIcon style={style} /> 
+                :
+                <ArrowBackIosIcon style={style} />
+            }
+        </button>
+    )
+}
 
 
-export const ScrollBtn = ({container, direction}) => {
-
+/*
     const scroll = () => {
         let scrollLength = 0;
         const scrollAction = setInterval(() => {
@@ -17,7 +46,4 @@ export const ScrollBtn = ({container, direction}) => {
         }, 50);        
     }
 
-    return (
-        <button id={`scroll-btn-${direction}`} onClick={scroll} />
-    )
-}
+*/

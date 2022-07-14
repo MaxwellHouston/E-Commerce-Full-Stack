@@ -31,7 +31,7 @@ export const CartProvider = ({children}) => {
     }, [cart, loadCart]);
 
     const addProduct = async (data) => {
-        const res = await apiCarts.addItemToCart(data);
+        const res = await apiCarts.addItemToCart(data, cart.id);
         if(res.message) loadCart();
         return res;
     };
