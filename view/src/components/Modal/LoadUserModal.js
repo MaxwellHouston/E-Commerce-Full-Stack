@@ -27,6 +27,6 @@ export function LoadUserModal() {
     }, [loadUser, navigate]);
 
     return (
-            <LoadingWheel />
+        <LoadingWheel />
     )
 }

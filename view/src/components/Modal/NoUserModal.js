@@ -1,5 +1,4 @@
 import ReactModal from 'react-modal';
-import { useEffect } from 'react';
 import { noUserStyle } from './modalStyles';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ export function NoUserModal() {
     const navigate = useNavigate();
 
     const backBtn = () => {
-        navigate(-1);
+        navigate('/');
     }
 
     return(

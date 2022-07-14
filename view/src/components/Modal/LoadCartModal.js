@@ -32,6 +32,6 @@ export function LoadCartModal() {
     }, [navigate, cart]);
 
     return (
-            <LoadingWheel />
+        <LoadingWheel />
     )
 }
