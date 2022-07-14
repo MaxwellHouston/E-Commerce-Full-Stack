@@ -1238,6 +1238,7 @@ left: 0;
 .order-product-list {
   width: 50%;
   min-height: 70vh;
+  min-width: 0;
 }
 
 .order-product-view h2 {
