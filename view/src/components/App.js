@@ -7,7 +7,7 @@ import { Register } from './account/Register';
 import { Login } from './account/Login';
 import { Homepage } from './homepage/Homepage';
 import { Shop } from './shop/Shop';
-import { LoggedInModal } from './Modal/LoggedInModal';
+import { ThirdPartyLoginModal } from './Modal/ThirdPartyLoginModal';
 import { LoadUserModal } from './Modal/LoadUserModal';
 import { LogoutModal } from './Modal/LogoutModal';
 import { Account } from './account/Account';
@@ -33,7 +33,7 @@ function App() {
                 <Route path='/homepage' element={<Homepage />} />
                 <Route path='/shop/*' element={<Shop />} />
                 <Route path='/account/*' element={<Account />} />
-                <Route path='/login/success' element={<LoggedInModal />} />
+                <Route path='/login/success' element={<ThirdPartyLoginModal />} />
                 <Route path='/load-user' element={<LoadUserModal /> } />
                 <Route path='/load-cart' element={<LoadCartModal /> } />
                 <Route path='/logout' element={<LogoutModal  /> } />

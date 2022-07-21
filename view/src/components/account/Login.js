@@ -30,7 +30,7 @@ export function Login (){
 
     const loginSuccess = () => {
         navigate('/load-user');
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();

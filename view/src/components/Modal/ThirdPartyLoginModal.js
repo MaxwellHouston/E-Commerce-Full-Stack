@@ -5,7 +5,7 @@ import { loggedInStyle } from './modalStyles';
 ReactModal.setAppElement('#root');
 
 
-export function LoggedInModal() {
+export function ThirdPartyLoginModal() {
 
     useEffect(() => {
         setTimeout(() => {

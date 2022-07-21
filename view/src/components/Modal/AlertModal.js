@@ -12,6 +12,11 @@ export function AlertModal({show, close, modalMessage, callback}) {
     }
 
     const handleMessage = useCallback( () => {
+        if(callback){
+            setTimeout(() => {
+                close();
+            }, 1000)
+        }
         if(typeof(modalMessage) === 'string'){
             setMessage(modalMessage);
         } else {
@@ -41,7 +46,7 @@ export function AlertModal({show, close, modalMessage, callback}) {
                 setMessage(errorAlert.replace(rawErrorType, errorType))
             }
         }
-    }, [modalMessage])
+    }, [modalMessage, callback, close])
 
     useEffect(() => {
         handleMessage();
