@@ -11,7 +11,7 @@ export const Shipping = ({address, updateAddressByInput, updateAddressByObject})
 
     const { saveAddress } = useContext(AddressContext);
 
-    const updateAddressAndId = (newAddress) => {
+    const updateAddressAndId =  async (newAddress) => {
         setSelectedAddress(newAddress.id);
         updateAddressByObject(newAddress);
     };
@@ -30,11 +30,6 @@ export const Shipping = ({address, updateAddressByInput, updateAddressByObject})
         }
     };
 
-    const scrollToActive = () => {
-        let activeCard = document.getElementById(`address-card-${selectedAddress}`);
-        activeCard.scrollIntoView(false);
-    };
-
     const saveNewAddress = async (validatedAddress) => {
         let saveResponse = await saveAddress(validatedAddress);
         if(saveResponse) {
@@ -47,7 +42,7 @@ export const Shipping = ({address, updateAddressByInput, updateAddressByObject})
 
     return(
         <div className="shipping">
-            <AddressVerificationModal show={showAddressModal} close={toggleAddressModal} address={address} addressFunction={saveNewAddress} onCloseFunction={scrollToActive} />
+            <AddressVerificationModal show={showAddressModal} close={toggleAddressModal} address={address} addressFunction={saveNewAddress} />
             <h2>Shipping</h2>
             <AddressList updateAddress={updateAddressAndId} selectedAddress={selectedAddress} resetAddress={resetAddress} deleteAddress={false} />
             <p className="or-divider"><span>Or</span></p>

@@ -4,7 +4,7 @@ import { AddressContext } from '../context/AddressContext';
 import { addressValidationStyle } from './modalStyles';
 ReactModal.setAppElement('#root');
 
-export function AddressVerificationModal({show, close, updateFunction, addressFunction, address, onCloseFunction}) {
+export function AddressVerificationModal({show, close, updateFunction, addressFunction, address}) {
 
     const [message, setMessage] = useState('Validating...');
     const [validatedAddress, setValidatedAddress] = useState(null);
@@ -49,7 +49,7 @@ export function AddressVerificationModal({show, close, updateFunction, addressFu
     };
     
     return(
-        <ReactModal className='address-modal' isOpen={show} onAfterOpen={handleValidation} onAfterClose={onCloseFunction} style={addressValidationStyle} >
+        <ReactModal className='address-modal' isOpen={show} onAfterOpen={handleValidation} style={addressValidationStyle} >
             <h2>{message}</h2>
             { validatedAddress && (
                 <div className='valid-address-card'>

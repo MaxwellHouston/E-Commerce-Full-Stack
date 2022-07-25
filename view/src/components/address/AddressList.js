@@ -26,9 +26,20 @@ export const AddressList = ({updateAddress, selectedAddress, resetAddress, delet
         );
         setAddressCards(cardArray);
         if(addressList.length === 0) return;
-        addressList.forEach(address => cardArray.push(<AddressCard key={address.id} address={address} updateAddress={updateAddress} selectedAddress={selectedAddress} deleteAddress={handleDelete} />));
+        addressList.forEach(address => cardArray.push(<AddressCard key={address.id} address={address} updateAddress={updateAddress} selectedAddress={selectedAddress} deleteAddress={deleteAddress && handleDelete} />));
         setAddressCards(cardArray);
-    },[addressList, resetAddress, selectedAddress, updateAddress, handleDelete]);
+    },[addressList, resetAddress, selectedAddress, updateAddress, handleDelete, deleteAddress]);
+
+    useEffect(() => {
+        let idList = addressCards.map(card => card.key);
+        if(idList.includes(selectedAddress.toString())){
+            let activeCard = document.getElementById(`address-card-${selectedAddress}`);
+            activeCard.scrollIntoView(false);
+        } else {
+            return
+        }
+
+    }, [selectedAddress, addressCards])
 
     return (
         <SlidingContainer cardList={addressCards} sliderId={'address-slider'} style={{ color: '#fff', fontSize: 40 }} distance={200} />
