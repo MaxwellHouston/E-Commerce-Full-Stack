@@ -4,12 +4,14 @@ import { Cart } from "../cart/Cart";
 import { UserPage } from "./UserPage";
 import { Orders } from "../orders/Orders";
 import { Address } from "../address/Address";
+import { AccountBreadcrumbs } from "./AccountBreadcrumbs";
 
 
 export function Account() {
 
     return(
         <div className="account-background">
+            <AccountBreadcrumbs />
             <Routes>
                 <Route path='/' element={<UserPage />} />
                 <Route path='/cart/*' element={<Cart />} />
