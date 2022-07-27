@@ -28,10 +28,10 @@ export function OrderSummary({subTotal, updateTotal}) {
 
     return(
         <div className='order-summary'>
-            <p>Subtotal: {subTotal}</p>
-            <p>Shipping & Handling: $0.00</p>
-            <p>Sales Tax: {currency(salesTax).format()}</p>
-            <p>Total: {currency(displayTotal).format()}</p>
+            <p>Subtotal: <span>{subTotal}</span></p>
+            <p>Shipping & Handling: <span>$0.00</span></p>
+            <p>Sales Tax: <span>{currency(salesTax).format()}</span></p>
+            <p>Total: <span>{currency(displayTotal).format()}</span></p>
         </div>
     )
 }

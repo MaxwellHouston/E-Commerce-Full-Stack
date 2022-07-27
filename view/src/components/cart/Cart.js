@@ -4,7 +4,6 @@ import currency from 'currency.js';
 import { CartContext } from "../context/CartContext";
 import { Checkout } from "./checkout/Checkout";
 import { CartOverview } from "./CartOverview";
-import { OrderConfirmation } from "../orders/OrderConfirmation";
 
 export function Cart() {
 
