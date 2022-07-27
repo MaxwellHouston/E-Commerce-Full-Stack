@@ -1,14 +1,11 @@
-import { useCallback, useContext, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import apiOrders from "../../utilities/api/apiOrders";
-import { UserContext } from "../context/UserContext"
 import { EmptyOrders } from "./EmptyOrders";
 import { OrderCard } from "./OrderCard";
 
 export const OrdersPage = () => {
 
     const [orders, setOrders] = useState([]);
-
-    const {user} = useContext(UserContext);
 
     const fetchOrders = useCallback( async () => {
         const userOrders = await apiOrders.getUserOrders();
@@ -29,7 +26,7 @@ export const OrdersPage = () => {
     
     return(
         <div className="orders-page">
-            <h1>{user.first_name}'s Orders</h1>
+            <h1 className="account-header">Past Orders</h1>
             <ul className="orders-list">
                 {renderOrders()}
             </ul>
