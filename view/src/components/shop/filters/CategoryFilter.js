@@ -31,13 +31,13 @@ export function CategoryFilter({updateFilter, resetFilter, category}) {
             <h2>Category</h2>
             <DropdownButton toggleCategory={toggleCategory} visible={visible} />
             <div id="category-inputs" className="filter-inputs" style={buttonStyle}>
-                {category && <button className="clear-btn" onClick={resetCategory}>clear</button>}
                 <input type='radio' id='apparel' name='category' value='apparel' />
                 <label for='apparel'>Apparel</label>
                 <br/>
                 <input type='radio' id='equipment' name='category' value='equipment' />
                 <label for='equipment'>Equipment</label>
             </div>
+            {category && <button className="clear-btn" onClick={resetCategory}>clear</button>}
         </fieldset>
     )
 }

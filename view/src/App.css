@@ -616,10 +616,11 @@ nav {
   height: fit-content;
 }
 
-#hide-show-btn {
-float: right;
-background-color: #fff;
-border: none;
+#hide-btn {
+  float: right;
+  background: none;
+  border: none;
+  color: white;
 }
 
 #filters-container h1 {
@@ -633,6 +634,7 @@ border: none;
 #filters-container fieldset {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   border: solid 1px black;
 }
 
@@ -664,10 +666,25 @@ border: none;
 }
 
 .clear-btn {
-  background-color: white !important;
+  background-color: #fff !important;
   border: none !important;
   background-image: none !important;
-  float: right;
+  height: 2rem;
+  font-size: 1rem;
+  width: 4rem !important;
+  text-decoration: underline;
+}
+
+#show-btn { 
+  transform: rotate(90deg) translate(5rem, -13.3vw);
+  position: absolute;
+  border-radius: 1rem;
+  background-color: #0f0f59;
+  color: #fff;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  height: 4rem;
+  width: 6rem;
 }
 
 /*---------------------------Shop-----------------------------*/

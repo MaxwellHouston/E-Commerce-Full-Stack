@@ -31,7 +31,6 @@ export function SizeFilter({updateFilter, resetFilter, size}) {
             <h2>Size</h2>
             <DropdownButton toggleCategory={toggleSize} visible={visible} />
             <div id="size-inputs" className="filter-inputs" style={buttonStyle}>
-                {size && <button className="clear-btn" onClick={resetSize}>clear</button>}
                 <input type='radio' id='small' name='size' value='S' />
                 <label for='small'>Small</label>
                 <br/>
@@ -44,6 +43,7 @@ export function SizeFilter({updateFilter, resetFilter, size}) {
                 <input type='radio' id='one-size' name='size' value='One-Size' />
                 <label for='one-size'>One-Size</label>
             </div>
+            {size && <button className="clear-btn" onClick={resetSize}>clear</button>}
         </fieldset>
     )
 }

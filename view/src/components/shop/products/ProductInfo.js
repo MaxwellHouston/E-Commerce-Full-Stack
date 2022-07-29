@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { CartResponseModal } from "../../Modal/CartResponseModal";
-import { ColorCircle } from "./inputs/ColorCircle";
 import { ColorDropdown } from "./inputs/ColorDropdown";
 import { QtyInput } from "./inputs/QtyInput";
 import { SizeDropdown } from "./inputs/SizeDropdown";
@@ -71,7 +70,6 @@ export function ProductInfo({product}) {
                 <SizeDropdown product={product} />
             </div>
             <QtyInput qty={qty} updateQty={updateQty} incrementQty={incrementQty} decrementQty={decrementQty} />
-            <ColorCircle />
             <button className="submit-btn" onClick={addToCart}>Add to cart</button>
         </div>
     )

@@ -31,7 +31,6 @@ export function PriceFilter({updateFilter, resetFilter, price}) {
             <h2>Price</h2>
             <DropdownButton toggleCategory={togglePrice} visible={visible} />
             <div id="price-inputs" className="filter-inputs" style={buttonStyle}>
-                {price && <button className="clear-btn" onClick={resetPrice}>clear</button>}
                 <input type='radio' id='0-25' name='price' value='0,25' />
                 <label for='0-25'>$0 - $25</label>
                 <br/>
@@ -43,7 +42,8 @@ export function PriceFilter({updateFilter, resetFilter, price}) {
                 <br/>
                 <input type='radio' id='75-plus' name='price' value='75,500' />
                 <label for='75-plus'>$75 +</label>
-            </div> 
+            </div>
+            {price && <button className="clear-btn" onClick={resetPrice}>clear</button>} 
         </fieldset>
     )
 }

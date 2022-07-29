@@ -31,7 +31,6 @@ export function ColorFilter({updateFilter, resetFilter, color}) {
             <h2>Color</h2>
             <DropdownButton toggleCategory={toggleColor} visible={visible} />
             <div id="color-inputs" className="filter-inputs" style={buttonStyle}>
-                {color && <button className="clear-btn" onClick={resetColor}>clear</button>}
                 <input type='radio' id='black' name='color' value='Black' />
                 <label for='black'>Black</label>
                 <br/>
@@ -50,6 +49,7 @@ export function ColorFilter({updateFilter, resetFilter, color}) {
                 <input type='radio' id='none' name='color' value='No Color' />
                 <label for='none'>None</label>
             </div>
+            {color && <button className="clear-btn" onClick={resetColor}>clear</button>}
         </fieldset>
     )
 }

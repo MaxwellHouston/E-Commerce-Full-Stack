@@ -30,7 +30,6 @@ export function SportFilter({updateFilter, resetFilter, sport}) {
             <h2>Sport</h2>
             <DropdownButton toggleCategory={toggleSport} visible={visible} />
             <div id="sport-inputs" className="filter-inputs" style={buttonStyle}>
-                {sport && <button className="clear-btn" onClick={resetSport}>clear</button>}
                 <input type='radio' id='baseball' name='sport' value='baseball' />
                 <label for='baseball'>Baseball</label>
                 <br/>
@@ -58,6 +57,7 @@ export function SportFilter({updateFilter, resetFilter, sport}) {
                 <input type='radio' id='fishing' name='sport' value='fishing' />
                 <label for='fishing'>Fishing</label>
             </div>
+            {sport && <button className="clear-btn" onClick={resetSport}>clear</button>}
         </fieldset>
     )
 }

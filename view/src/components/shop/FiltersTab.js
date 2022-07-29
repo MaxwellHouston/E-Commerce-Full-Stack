@@ -8,6 +8,7 @@ import { SportFilter } from "./filters/SportFilter";
 export function FiltersTab({handleFilterChange, urlParams}) {
 
     const [filters, setFilters] = useState({price:'', color:'', size:'', sport:'', category:''});
+    const [visible, setVisible] = useState(true);
     
     const {sport, category} = urlParams;
 
@@ -20,7 +21,7 @@ export function FiltersTab({handleFilterChange, urlParams}) {
             ...prev,
             [filter]: value
         }));
-    }
+    };
 
     const resetFilter = (fieldset) => {
         let inputs = fieldset.querySelectorAll("input");
@@ -29,9 +30,20 @@ export function FiltersTab({handleFilterChange, urlParams}) {
         })
     };
 
+    const toggleTab = (e) => {
+        e.preventDefault();
+        visible ? setVisible(false) : setVisible(true);
+    };
+
+    const filterStyle = {
+        transition: 'all 0.3s ease-out',
+        transform: 'translate(-100%)'
+    }
+
     return(
-        <form id="filters-container">
-            <button id='hide-show-btn'>Hide</button>
+        <form id="filters-container" style={visible ? null : filterStyle}>
+            <button id='hide-btn' onClick={toggleTab}>Hide</button>
+            {!visible && <button id='show-btn' onClick={toggleTab}>Filters</button>}
             <h1>Filters</h1>                       
             <PriceFilter updateFilter={updateFilter} resetFilter={resetFilter} price={filters.price} />
             <ColorFilter updateFilter={updateFilter} resetFilter={resetFilter} color={filters.color} />
