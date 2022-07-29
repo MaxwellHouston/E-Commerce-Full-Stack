@@ -445,6 +445,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background: linear-gradient(to bottom right, #6f84ab, #c46363);
 }
 
 .homepage-container h2 {
@@ -480,7 +481,7 @@ nav {
 }
 
 .large-shop-container,
-.small-shop-container a {
+.small-shop-container {
   font-size: 3rem;
   color: white;
   text-shadow: 3px 3px 5px black;
@@ -491,6 +492,8 @@ nav {
   width: 75%;
   height: 20rem;
   margin-bottom: 0;
+  background-image: url('./utilities/images/backgrounds/background-test-2.jpg');
+  background-position: 0 -5rem;
 }
 
 #shop-equipment {
@@ -605,9 +608,9 @@ nav {
 
 #filters-container {
   width: 15%;
-  position: absolute;
+  position: relative;
   left: 0;
-  top: 6rem;
+  top: 3rem;
   background-color: white;
   border: 2px solid black;
   height: fit-content;
@@ -622,7 +625,9 @@ border: none;
 #filters-container h1 {
   text-align: center;
   font-size: 2rem;
-  margin: 1rem 0;
+  line-height: 4rem;
+  background-color: #3e3e85;
+  color: #fff;
 }
 
 #filters-container fieldset {
@@ -636,24 +641,26 @@ border: none;
   text-align: center;
   align-self: center;
   font-size: 1.5rem;
+  line-height: 3rem;
+  background-color: #0f0f59;
+  color: #fff;
 }
 
 #filters-container fieldset button {
   width: 15%;
-  font-size: 1.5rem;
-  border: 2px solid rgb(118, 118, 118);
-  border-left: none;
-  border-right: none;
-  line-height: 2.5rem;
-  background-image: url('./utilities/images/arrows/up-arrow-notail.png');
-  background-size: 2.5rem;
-  background-repeat: no-repeat;
-  background-position: right 90%;
+  background-color: #0f0f59;
+  border: none;
+
 }
 
 #filters-container label {
   font-family: 'Archivo' !important;
   margin: .5rem;
+}
+
+.filter-inputs {
+  padding: .5rem;
+  line-height: 1.5rem;
 }
 
 .clear-btn {
@@ -668,7 +675,7 @@ border: none;
 .shop-page {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   background: #fff;
   overflow-y: hidden;
   min-height: 80vh;
@@ -678,7 +685,8 @@ border: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 70%;
+  width: 80%;
+  margin-top: 5rem;
 }
 
 /*---------------------------Product View-----------------------------*/
@@ -690,8 +698,12 @@ border: none;
   align-items: center;
   text-align: center;
   background-color: #fff;
-  box-shadow: 2px 2px 5px black;
-  margin: 2rem;
+  margin: 1rem;
+}
+
+.product-view:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 5px grey;
 }
 
 .product-view h2 {
@@ -701,7 +713,8 @@ border: none;
 
 .product-view a {
   text-decoration: none;
-  color: #fff;
+  color: black;
+  line-height: 1.5rem;
 }
 
 .product-thumbnail {
@@ -711,7 +724,6 @@ border: none;
 
 .product-view-info {
   width: 100%;
-  background-color: #0f0f59;
 }
 
 .product-view p,
@@ -744,6 +756,7 @@ border: none;
   background-color: #696969;
   color: #fff;
   width: 40%;
+  line-height: 2rem;
 }
 
 .product-info h1 {
@@ -1172,6 +1185,9 @@ left: 0;
 .payment {
   width: 30%;
   background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .payment-form {

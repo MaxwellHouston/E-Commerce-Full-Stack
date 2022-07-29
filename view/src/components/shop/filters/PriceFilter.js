@@ -1,13 +1,19 @@
+import { useState } from "react";
+import { DropdownButton } from "./DropdownButton";
 
 export function PriceFilter({updateFilter, resetFilter, price}) {
 
-    const priceInputs = document.getElementById('price-inputs');
+    const [visible, setVisible] = useState(false);
+
     const priceFieldset = document.getElementById('price-filter');
 
-    const togglePrice = (e) => {
-        e.preventDefault();
-        priceInputs.style.display === 'none' ? priceInputs.style.display = 'block' : priceInputs.style.display = 'none';
+    const togglePrice = () => {
+        visible === true ? setVisible(false) : setVisible(true);
     };
+
+    const buttonStyle = {
+        display: visible === true ? 'block' : 'none'
+    }
 
     const handleChange = ({target}) => {
         let priceRange = target.value.split(',');
@@ -23,8 +29,8 @@ export function PriceFilter({updateFilter, resetFilter, price}) {
     return(
         <fieldset id='price-filter' onChange={handleChange}>
             <h2>Price</h2>
-            <button onClick={togglePrice}>^</button>
-            <div id="price-inputs">
+            <DropdownButton toggleCategory={togglePrice} visible={visible} />
+            <div id="price-inputs" className="filter-inputs" style={buttonStyle}>
                 {price && <button className="clear-btn" onClick={resetPrice}>clear</button>}
                 <input type='radio' id='0-25' name='price' value='0,25' />
                 <label for='0-25'>$0 - $25</label>

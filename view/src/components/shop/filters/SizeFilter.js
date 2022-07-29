@@ -1,11 +1,18 @@
+import { useState } from "react";
+import { DropdownButton } from "./DropdownButton";
+
 export function SizeFilter({updateFilter, resetFilter, size}) {
 
-    const sizeInputs = document.getElementById('size-inputs');
+    const [visible, setVisible] = useState(false);
+
     const sizeFieldset = document.getElementById('size-filter');
 
-    const toggleSize = (e) => {
-        e.preventDefault();
-        sizeInputs.style.display === 'none' ? sizeInputs.style.display = 'block' : sizeInputs.style.display = 'none';
+    const toggleSize = () => {
+        visible === true ? setVisible(false) : setVisible(true);
+    };
+
+    const buttonStyle = {
+        display: visible === true ? 'block' : 'none'
     };
 
     const handleChange = ({target}) => {
@@ -22,8 +29,8 @@ export function SizeFilter({updateFilter, resetFilter, size}) {
     return(
         <fieldset id='size-filter' onChange={handleChange}>
             <h2>Size</h2>
-            <button onClick={toggleSize}>^</button>
-            <div id="size-inputs">
+            <DropdownButton toggleCategory={toggleSize} visible={visible} />
+            <div id="size-inputs" className="filter-inputs" style={buttonStyle}>
                 {size && <button className="clear-btn" onClick={resetSize}>clear</button>}
                 <input type='radio' id='small' name='size' value='S' />
                 <label for='small'>Small</label>

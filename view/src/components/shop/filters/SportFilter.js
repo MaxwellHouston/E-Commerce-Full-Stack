@@ -1,11 +1,18 @@
+import { useState } from "react";
+import { DropdownButton } from "./DropdownButton";
+
 export function SportFilter({updateFilter, resetFilter, sport}) {
 
-    const sportInputs = document.getElementById('sport-inputs');
+    const [visible, setVisible] = useState(false);
+
     const sportFieldset = document.getElementById('sport-filter');
 
-    const toggleSport = (e) => {
-        e.preventDefault();
-        sportInputs.style.display === 'none' ? sportInputs.style.display = 'block' : sportInputs.style.display = 'none';
+    const toggleSport = () => {
+        visible === true ? setVisible(false) : setVisible(true);
+    };
+
+    const buttonStyle = {
+        display: visible === true ? 'block' : 'none'
     };
 
     const handleChange = ({target}) => {
@@ -18,12 +25,11 @@ export function SportFilter({updateFilter, resetFilter, sport}) {
         resetFilter(sportFieldset);
     };
 
-
     return(
         <fieldset id='sport-filter' onChange={handleChange}>
             <h2>Sport</h2>
-            <button onClick={toggleSport}>^</button>
-            <div id="sport-inputs">
+            <DropdownButton toggleCategory={toggleSport} visible={visible} />
+            <div id="sport-inputs" className="filter-inputs" style={buttonStyle}>
                 {sport && <button className="clear-btn" onClick={resetSport}>clear</button>}
                 <input type='radio' id='baseball' name='sport' value='baseball' />
                 <label for='baseball'>Baseball</label>

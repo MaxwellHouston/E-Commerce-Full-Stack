@@ -1,12 +1,19 @@
+import { useState } from "react";
+import { DropdownButton } from "./DropdownButton";
+
 export function ColorFilter({updateFilter, resetFilter, color}) {
 
-    const colorInputs = document.getElementById('color-inputs');
+    const [visible, setVisible] = useState(false);
+
     const colorFieldset = document.getElementById('color-filter');
 
-    const toggleColor = (e) => {
-        e.preventDefault();
-        colorInputs.style.display === 'none' ? colorInputs.style.display = 'block' : colorInputs.style.display = 'none';
-    }
+    const toggleColor = () => {
+        visible === true ? setVisible(false) : setVisible(true);
+    };
+
+    const buttonStyle = {
+        display: visible === true ? 'block' : 'none'
+    };
 
     const handleChange = ({target}) => {
         updateFilter('color', target.value);
@@ -22,8 +29,8 @@ export function ColorFilter({updateFilter, resetFilter, color}) {
     return(
         <fieldset id='color-filter' onChange={handleChange}>
             <h2>Color</h2>
-            <button onClick={toggleColor}>^</button>
-            <div id="color-inputs">
+            <DropdownButton toggleCategory={toggleColor} visible={visible} />
+            <div id="color-inputs" className="filter-inputs" style={buttonStyle}>
                 {color && <button className="clear-btn" onClick={resetColor}>clear</button>}
                 <input type='radio' id='black' name='color' value='Black' />
                 <label for='black'>Black</label>

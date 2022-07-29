@@ -25,7 +25,6 @@ export function ColorDropdown({product}) {
         }
     },[getColors, product]);
 
-
     const renderColors = () => {
         if(colors){
             let dropdownArray = colors.map(color => <option key={color.id} value={color.id} > {color.color} </option>);
@@ -35,7 +34,7 @@ export function ColorDropdown({product}) {
                 <option>Loading...</option>
             )
         }
-    };
+    }
 
     const handleColorChange = ({target}) => {
         navigate(`/shop/${product.sport}/${product.category}/${target.value}`);

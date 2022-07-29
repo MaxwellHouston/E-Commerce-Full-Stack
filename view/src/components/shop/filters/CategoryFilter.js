@@ -1,11 +1,18 @@
+import { useState } from "react";
+import { DropdownButton } from "./DropdownButton";
+
 export function CategoryFilter({updateFilter, resetFilter, category}) {
 
-    const categoryInputs = document.getElementById('category-inputs');
+    const [visible, setVisible] = useState(false);
+
     const categoryFieldset = document.getElementById('category-filter');
 
-    const toggleCategory = (e) => {
-        e.preventDefault();
-        categoryInputs.style.display === 'none' ? categoryInputs.style.display = 'block' : categoryInputs.style.display = 'none';
+    const toggleCategory = () => {
+        visible === true ? setVisible(false) : setVisible(true);
+    };
+
+    const buttonStyle = {
+        display: visible === true ? 'block' : 'none'
     };
 
     const handleChange = ({target}) => {
@@ -22,8 +29,8 @@ export function CategoryFilter({updateFilter, resetFilter, category}) {
     return(
         <fieldset id='category-filter' onChange={handleChange}>
             <h2>Category</h2>
-            <button onClick={toggleCategory}>^</button>
-            <div id="category-inputs">
+            <DropdownButton toggleCategory={toggleCategory} visible={visible} />
+            <div id="category-inputs" className="filter-inputs" style={buttonStyle}>
                 {category && <button className="clear-btn" onClick={resetCategory}>clear</button>}
                 <input type='radio' id='apparel' name='category' value='apparel' />
                 <label for='apparel'>Apparel</label>
