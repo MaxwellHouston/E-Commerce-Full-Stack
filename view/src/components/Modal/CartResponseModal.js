@@ -23,8 +23,8 @@ export function CartResponseModal({show, close, modalMessage}) {
         } else {
             return (
                 <div className='product-added-options'>
-                    <button onClick={toCart}>Go to cart</button>
-                    <button onClick={toShopping}>Continue Shopping</button>
+                    <button id='alert-modal-button' onClick={toCart}>Go to cart</button>
+                    <button id='alert-modal-button' onClick={toShopping}>Continue Shopping</button>
                 </div>
             )
         }

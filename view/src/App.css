@@ -868,6 +868,24 @@ nav {
   cursor: pointer;
 }
 
+.product-added-options {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#alert-modal-button {
+  margin: .5rem;
+  background-color: #fff;
+  border: none;
+  box-shadow: 2px 2px 5px black;
+}
+
+#alert-modal-button:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
 /*---------------------------Account-----------------------------*/
 
 .account-background {
