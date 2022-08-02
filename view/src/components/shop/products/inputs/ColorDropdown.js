@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apiProducts from "../../../../utilities/api/apiProducts";
+import { ColorCircle } from "./ColorCircle";
 
 export function ColorDropdown({product}) {
 
     const [colors, setColors] = useState([]);
-    const [value, setValue] = useState('');
+    const [current, setCurrent] = useState('');
 
     const navigate = useNavigate();
 
@@ -21,31 +22,29 @@ export function ColorDropdown({product}) {
     useEffect(() => {
         if(product.id){
             getColors();
-            setValue(product.id);
+            setCurrent(product.id);
         }
     },[getColors, product]);
 
     const renderColors = () => {
         if(colors){
-            let dropdownArray = colors.map(color => <option key={color.id} value={color.id} > {color.color} </option>);
-            return dropdownArray;
+            let colorArray = colors.map(color => <ColorCircle key={color.id} color={color.color} value={color.id} colorChange={colorChange} current={current} />);
+            return colorArray;
         } else {
             return (
-                <option>Loading...</option>
+                <p>Loading...</p>
             )
         }
     }
 
-    const handleColorChange = ({target}) => {
-        navigate(`/shop/${product.sport}/${product.category}/${target.value}`);
+    const colorChange = (id) => {
+        navigate(`/shop/${product.sport}/${product.category}/${id}`);
     };
 
     return(
-        <fieldset className="product-dropdown">
-            <label for='colors'>Color:</label>
-            <select name='colors' value={value} onChange={handleColorChange}>
-                {renderColors()}
-            </select>
+        <fieldset className="product-dropdown" id='color-dropdown'>
+            <label>Color: </label>
+            {renderColors()}
         </fieldset>
     )
 }

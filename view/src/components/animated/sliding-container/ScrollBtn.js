@@ -28,22 +28,3 @@ export const ScrollBtn = ({container, direction, style, distance}) => {
         </button>
     )
 }
-
-
-/*
-    const scroll = () => {
-        let scrollLength = 0;
-        const scrollAction = setInterval(() => {
-            if(direction === 'left'){
-                container.scrollLeft -= 50;
-            } else {
-                container.scrollLeft += 50;
-            }
-            scrollLength += 10;
-            if(scrollLength >= 100){
-                clearInterval(scrollAction);
-            }
-        }, 50);        
-    }
-
-*/

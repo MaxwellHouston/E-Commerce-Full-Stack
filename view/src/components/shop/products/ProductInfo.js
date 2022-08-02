@@ -60,16 +60,16 @@ export function ProductInfo({product}) {
     },[])
 
     return(
-        <div>
+        <div className="product-info">
             <CartResponseModal show={showModal} modalMessage={modalMessage} close={closeModal} />
             <h1>{product.name}</h1>
             <p className="product-price">{`${product.price}`}</p>
             <p className="product-description">{product.description}</p>
-            <div className="product-dropdown-container">
+            <div className="product-input-container">
                 <ColorDropdown product={product} />
                 <SizeDropdown product={product} />
+                <QtyInput qty={qty} updateQty={updateQty} incrementQty={incrementQty} decrementQty={decrementQty} />
             </div>
-            <QtyInput qty={qty} updateQty={updateQty} incrementQty={incrementQty} decrementQty={decrementQty} />
             <button className="submit-btn" onClick={addToCart}>Add to cart</button>
         </div>
     )

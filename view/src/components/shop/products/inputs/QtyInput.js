@@ -18,10 +18,10 @@ export function QtyInput({qty, updateQty, incrementQty, decrementQty, disabled})
 
     return(
         <fieldset className="qty-input">
-            <label for='qty'>Qty:</label>
+            <label for='qty'>Qty: </label>
             <input id='qty-input' name='qty' value={qty} onChange={handleQtyChange} onKeyDown={numberValidation} disabled={disabled || false}/>
-            <button onClick={incrementQty}>+</button>
-            <button onClick={decrementQty}>-</button>
+            <button className="qty-btn" onClick={incrementQty}>+</button>
+            <button className="qty-btn" onClick={decrementQty}>-</button>
         </fieldset>
 
     )

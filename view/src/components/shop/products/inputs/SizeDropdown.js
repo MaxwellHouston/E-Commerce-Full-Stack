@@ -42,7 +42,7 @@ export function SizeDropdown({product}) {
 
     return(
         <fieldset className="product-dropdown">
-            <label for='size'>Size:</label>
+            <label for='size'>Size: </label>
             <select name='size' value={value} onChange={handleSizeChange}>
                 {renderSizes()}
             </select>

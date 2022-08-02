@@ -445,7 +445,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: linear-gradient(to bottom right, #6f84ab, #c46363);
+  background: linear-gradient(to bottom right, #fff, #6f84ab);
 }
 
 .homepage-container h2 {
@@ -769,11 +769,11 @@ nav {
 }
 
 .product-info {
-  text-align: center;
   background-color: #696969;
-  color: #fff;
+  color: #ffffff;
   width: 40%;
   line-height: 2rem;
+  text-align: center;
 }
 
 .product-info h1 {
@@ -784,8 +784,90 @@ nav {
 
 .product-price {
   font-size: 2rem;
+  text-decoration: underline;
 }
 
+.product-description {
+  margin: 2rem;
+}
+
+.product-input-container {
+  text-align: left;
+  width: 30%;
+  margin: 2rem auto;
+}
+
+#qty-input {
+  width: 1rem;
+  margin: .5rem;
+  padding-left: .5rem;
+}
+
+.qty-btn {
+  background-color: #0f0f59;
+  color: #fff;
+  border: none;
+  margin: .15rem;
+  box-shadow: 2px 2px 5px black;
+}
+
+.qty-btn:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+#color-dropdown {
+  display: flex;
+}
+
+#color-dropdown label {
+  transform: translateY(-.25rem);
+}
+
+
+.color-wrapper {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-tooltip {
+  visibility: hidden;
+  position: absolute;
+  top: -110%;
+  background-color: #0f0f59;
+  color: #fff;
+  padding: 0 .5rem;
+  border-radius: .5rem;
+}
+
+.color-tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.color-wrapper:hover .color-tooltip {
+  visibility: visible;
+}
+
+.product-dropdown label {
+  margin-right: .5rem;
+}
+
+.color-circle {
+  margin: 0 .2rem;
+}
+
+.color-circle:hover {
+  cursor: pointer;
+}
 
 /*---------------------------Account-----------------------------*/
 

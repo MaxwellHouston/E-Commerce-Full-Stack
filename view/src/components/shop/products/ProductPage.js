@@ -33,9 +33,7 @@ export function ProductPage({getParams}) {
             <div className="product-img-container">
                 {product.id ? <img src={imgPath} alt={product.name} /> : <LoadingWheel />}
             </div>
-            <div className="product-info">
-                <ProductInfo product={product} />
-            </div>
+            <ProductInfo product={product} />
         </div>
     )
 }
