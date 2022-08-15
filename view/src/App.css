@@ -1432,6 +1432,7 @@ left: 0;
 
 .order-info {
   width: 50%;
+  text-align: center;
 }
 
 .order-shipping {
@@ -1441,17 +1442,28 @@ left: 0;
 .order-shipping h2 {
   font-size: 2rem;
   line-height: 3rem;
+  margin: 2rem;
 }
 
 .order-shipping-address {
+  width: 50%;
   line-height: 1.5rem;
   text-decoration: underline;
-  margin: 2rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  background-color: #0f0f59;
+  color: #fff;
 }
 
 .order-shipping textarea {
-  margin: 2rem;
+  width: 35%;
   resize: none;
+}
+
+.order-total {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem;
 }
 
 /*---------------------------Addresses-----------------------------*/

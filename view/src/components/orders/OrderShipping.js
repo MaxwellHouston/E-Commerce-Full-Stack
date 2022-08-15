@@ -10,7 +10,7 @@ export const OrderShipping = ({address}) => {
                 <p>{address.zip}</p>
             </div>
             <div className="order-shipping-info">
-                <p className='order-additional-info'>Shipping instructions:</p>
+                <h2 className='order-additional-info'>Shipping instructions:</h2>
                 {address.comments ? <textarea value={address.comments} readOnly /> : <textarea value={'N/A'} readOnly></textarea>}
             </div>
         </div>
