@@ -10,6 +10,8 @@ export const CartOverview = ({products, subTotal}) => {
         navigate('/account/cart/checkout');
     };
 
+    const btnDisabled = products.length === 0 ? true : false;
+
     return(
         <div className="cart-overview">
             <h1 className="account-header">Cart Summary</h1>
@@ -18,21 +20,8 @@ export const CartOverview = ({products, subTotal}) => {
             </div>
             <div className="order-summary-container">
                 <OrderSummary subTotal={subTotal} />
-                <button className='submit-btn' onClick={toCheckout}>Check Out</button>
+                <button className='submit-btn' onClick={toCheckout} disabled={btnDisabled}>Check Out</button>
             </div>
         </div>
     )
 }
-
-/*
-            <div className="product-list-container">
-                <h2 className="account-header">Cart Items</h2>
-                <CartProductList products={products} />
-            </div>
-            <div className="order-summary-container">
-                <h2>Cart Summary</h2>
-                <OrderSummary subTotal={subTotal} />
-                <button className='submit-btn' onClick={toCheckout}>Check Out</button>
-            </div>
-
-*/

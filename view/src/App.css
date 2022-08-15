@@ -408,6 +408,16 @@ nav {
   box-shadow: 3px 3px 5px black;
 }
 
+.submit-btn:disabled {
+  background-color: #3e3e85;
+  cursor: default;
+}
+
+.submit-btn:disabled:active {
+  box-shadow: 3px 3px 5px black;
+  transform: none;
+}
+
 .submit-btn:hover {
   background-color: #3e3e85;
 }
