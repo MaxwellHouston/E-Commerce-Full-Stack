@@ -110,7 +110,7 @@ export const addressValidationStyle = {
         width: '75%',
         height: '75%',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
         background: 'white', 
         border: '1px solid black',

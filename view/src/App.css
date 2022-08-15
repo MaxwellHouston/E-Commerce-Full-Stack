@@ -445,7 +445,9 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: linear-gradient(to bottom right, #fff, #6f84ab);
+  background-image: url('./utilities/images/backgrounds/home-page-background.jpg');
+  background-size: cover;
+ /* background: linear-gradient(to bottom right, #fff, #6f84ab); */
 }
 
 .homepage-container h2 {
@@ -492,7 +494,7 @@ nav {
   width: 75%;
   height: 20rem;
   margin-bottom: 0;
-  background-image: url('./utilities/images/backgrounds/background-test-2.jpg');
+  background-image: url('./utilities/images/backgrounds/shop-all-background.jpg');
   background-position: 0 -5rem;
 }
 
@@ -889,7 +891,9 @@ nav {
 /*---------------------------Account-----------------------------*/
 
 .account-background {
-  background: linear-gradient(to bottom right, #fff, #6f84ab);
+  background-image: url('./utilities/images/backgrounds/coming-soon-background.jpg');
+  background-size: contain;
+  /*background: linear-gradient(to bottom right, #fff, #6f84ab); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1289,7 +1293,7 @@ left: 0;
   justify-content: space-around;
 }
 
-.address-modal-btns button {
+.address-modal-btns #alert-modal-button {
   background-color: #0f0f59;
   color: #fff;
   font-size: 1.25rem;
@@ -1508,6 +1512,37 @@ left: 0;
   padding: 0 1rem;
   margin-bottom: 1rem;
 }
+
+/*---------------------------Information-----------------------------*/
+
+.coming-soon-background {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  background-image: url('./utilities/images/backgrounds/coming-soon-background.jpg');
+  background-size: cover;
+}
+
+.coming-soon-container {
+  box-shadow: 5px 5px 5px black;
+}
+
+.coming-soon-container h1 {
+  font-size: 4rem;
+  padding: 2rem;
+  background-color: #0f0f59;
+  color: #fff;
+}
+
+.coming-soon-container p {
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+}
+
 
 /*---------------------------Footer-----------------------------*/
 footer {

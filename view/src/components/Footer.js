@@ -13,23 +13,23 @@ export function AppFooter() {
             <ul>
                 <li><Link to='#'>This Project</Link></li>
                 <li><Link to='#'>About Me</Link></li>
-                <li><Link to='#'>Github</Link></li>
+                <li><a href='https://github.com/MaxwellHouston'>My Github</a></li>
             </ul>
         </div>
         <div className="footer-container">
             <h4>Information</h4>
             <ul>
-                <li><Link to='#'>Your Account</Link></li>
-                <li><Link to='#'>Your Orders</Link></li>
-                <li><Link to='#'>Delete Account</Link></li>
+                <li><Link to='/account'>Your Account</Link></li>
+                <li><Link to='/account/orders'>Your Orders</Link></li>
+                <li><Link to='/account/addresses'>Your Addresses</Link></li>
             </ul>
         </div>
         <div className="footer-container">
             <h4>Help</h4>
             <ul>
-                <li><Link to='#'>Track Package</Link></li>
-                <li><Link to='#'>Cancel Order</Link></li>
-                <li><Link to='#'>Customer Service</Link></li>
+                <li><Link to='/track-package'>Track Package</Link></li>
+                <li><Link to='/cancel-order'>Cancel Order</Link></li>
+                <li><Link to='/customer-service'>Customer Service</Link></li>
             </ul>
         </div>
         <div className="footer-container">

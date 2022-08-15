@@ -16,6 +16,8 @@ import { CartProvider } from './context/CartContext';
 import { LoadCartModal } from './Modal/LoadCartModal';
 import { AddressProvider } from './context/AddressContext';
 import { SearchProvider } from './context/SearchContext';
+import { ComingSoon } from './Information/ComingSoon';
+import { Project } from './Information/Project';
 
 function App() {
 
@@ -37,6 +39,10 @@ function App() {
                 <Route path='/load-user' element={<LoadUserModal /> } />
                 <Route path='/load-cart' element={<LoadCartModal /> } />
                 <Route path='/logout' element={<LogoutModal  /> } />
+                <Route path='/track-package' element={<ComingSoon />} />
+                <Route path='/cancel-order' element={<ComingSoon />} />
+                <Route path='/customer-service' element={<ComingSoon />} />
+                <Route path='/project' element={<Project />} />
               </Routes>
               <AppFooter />
             </SearchProvider>
