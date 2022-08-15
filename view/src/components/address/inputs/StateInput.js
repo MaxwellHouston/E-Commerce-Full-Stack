@@ -7,7 +7,9 @@ export const StateInput = ({state, updateAddress, selectedAddress}) => {
 
     return (
         <fieldset className="input-container" id="state-input">
+			<label className={state ? 'input-filled' : 'input-empty'}>State</label>
             <select value={state} onChange={handleInput} disabled={selectedAddress === 0 ? false : true} required >
+				<option value={''}></option>
 	            <option value="AL">AL</option>
 	            <option value="AK">AK</option>
 	            <option value="AR">AR</option>	
