@@ -1535,7 +1535,7 @@ left: 0;
   margin-bottom: 1rem;
 }
 
-/*---------------------------Information-----------------------------*/
+/*---------------------------Coming Soon-----------------------------*/
 
 .coming-soon-background {
   height: 70vh;
@@ -1563,6 +1563,71 @@ left: 0;
 .coming-soon-container p {
   background-color: #fff;
   padding: 1.5rem 2rem;
+}
+
+/*---------------------------Project-----------------------------*/
+
+.project-background {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./utilities/images/backgrounds/coming-soon-background.jpg');
+  background-size: cover;
+}
+
+.header-container {
+  width: 100%;
+  margin: 3rem;
+}
+
+.header-container h1 {
+  width: 50%;
+  margin: 0 auto;
+  font-size: 3rem;
+  line-height: 6rem;
+  text-align: center;
+  background-color: #0f0f59;
+  color: #fff;
+  border: 2px solid black;
+  box-shadow: 3px 3px 5px black;
+  text-shadow: 2px 2px 5px black;
+}
+
+.language-icon-container,
+.article-container {
+  border: 2px solid black;
+  box-shadow: 3px 3px 5px black;
+  margin: 0 3rem 3rem 0;
+  background-color: #fff;
+}
+
+
+.language-icon-container {
+  width: 30%;
+  max-height: 36rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  grid-auto-rows: 7rem;
+  row-gap: 2rem;
+  padding: 2rem 0 2rem 0;
+}
+
+.language-icon-container svg {
+  width: 7rem;
+}
+
+.article-container {
+  width: 50%;
+  padding: 1rem;
+}
+
+.article-container p {
+  font-family: Helvetica;
+  margin: 1rem;
+  line-height: 1.5rem;
+  text-indent: 2rem;
 }
 
 

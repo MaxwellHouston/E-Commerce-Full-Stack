@@ -11,7 +11,7 @@ export function AppFooter() {
         <div className="footer-container">
             <h4>About Us</h4>
             <ul>
-                <li><Link to='#'>This Project</Link></li>
+                <li><Link to='/project'>This Project</Link></li>
                 <li><Link to='#'>About Me</Link></li>
                 <li><a href='https://github.com/MaxwellHouston'>My Github</a></li>
             </ul>

@@ -2,11 +2,17 @@
 export const Project = () => {
     return(
         <div className="project-background">
-            <h1>E-commerce Portfolio Project</h1>
-            <p>
-                This Portfolio project was built on many different program languages
-            </p>
-            <div className="language-icon-container" style={{display: 'flex', width: '50%'}}>
+            <div className="header-container">
+                <h1>E-commerce Portfolio Project</h1>
+            </div>
+            <div className="article-container">
+                <p>Thank you for taking the time to review my portfolio project for the Codecademy full-stack engineering course. The objective of the project was to create the front and back-end portion of an e-commerce website and host the live, working version to Heroku. Having a passion for sports my whole life I decided to make a mock sports equipment store with inventory like what you would find at your local sporting goods store. </p>
+                <p>I created the database using PostgreSQL, including 304 mock items with sizes, color, price, descriptions, and categories. The other tables include users, address, product, cart, order, product-cart, and product-order.  For the full breakdown and relations of the tables refer to the ERD file in the documents folder of the project. The database also includes triggers for update time stamps when modifying data in the tables.</p>
+                <p>The back-end portion of this project is written with Express in a NodeJS environment. The core features of the back-end portion are to manage users and their information, as well as provide products and cart information to the front-end. All calls to the database are made using node-postgres. A user is created by entering registration information or by logging in through Google or Facebook O-Auth. The login session is created using Passport.js then using this credential, access to user specific information can be controlled. Different routes are used for specific calls to the database to retrieve products, user information, cart information, and order information. All user inputs are validated using express-validation to prevent SQL injection and other security breaches.</p>
+                <p>The website front-end was created using the React library and all site navigation is handled with React-Router. The login and registration of users is handled with two components, then upon a successful login, the user, cart, and address data is loaded and provided to the web app through React Context. I decided to use Context instead of Redux because the scale of the project was too small to warrant all the boilerplate code required for Redux. All pop-ups and loading screens are Modal components using React-Modal. The front-end is divided into two main sections, the Shop component which deals with products, and the Account component which has user, address, cart, and order operations. Some key features of the Shop component are the navigation bread crumbs, the filters tab to apply filters to the products shown, and the color/size selection in the Product component to switch sizes and colors of the same item. In the Account component when adding an address, the address is first submitted to the USPS API to be verified before being saved in the database. </p>
+                <p>This ended up being a very extensive project that really challenged me to use the many internet resources available, as well as think outside the box and come up with my own solutions to a problem. In the end I learned a lot and really developed my skills as a software engineer. I want to show that in handling a project of this size I’m ready to jump into the software engineering field and begin my first job. I want to thank unsplash.com, devicon.dev, and iconsdb.com for stock photos and svg icons for my project.</p>
+            </div>
+            <div className="language-icon-container" >
                 {/*---------------------------JS---------------------------*/}  
                 <svg viewBox="0 0 128 128">
                     <path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185H1.408z"></path><path fill="#323330" d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"></path>
@@ -50,10 +56,7 @@ export const Project = () => {
                 {/*---------------------------  HEROKU---------------------------*/} 
                 <svg viewBox="0 0 128 128">
                     <path d="M35.3 101.8c-4 0-7.3.5-9.7 1.4-.9 3.2-1.3 6.6-1.3 10.4 0 7 1.2 11.3 9.2 11.3 3.7 0 6.8-1.1 9.3-2.3L42 119c-2.4.9-5.5 1.7-8.2 1.7-3.5 0-4.6-.9-4.8-6.9h15v-2.2c0-6.1-2.2-9.8-8.7-9.8zM29 111c.1-3 .3-3.8.5-4.7 1.9-.4 4.1-.4 5.6-.4 3.3 0 3.9 2.1 3.9 5.1H29zm-15.1-9.2c-2.7 0-4.9.7-7.9 1.5V93H2v31h4v-16.6c3-1 5-1.5 7-1.5 1 0 2 .5 2 1.7v16.9l.4-.4H20v-15.8c0-3.8-1.8-6.5-6.1-6.5zm108.1.2v17.4c-3 1-5.6 1.5-7.7 1.5-1 0-2.3-.5-2.3-1.7V102h-4v16.7c0 3.7 1.3 6.3 5.6 6.3 2.7 0 7.4-.4 12.4-3.5V102h-4zm-18.2 0h-5.4c-1.3 3-3.2 7-5.6 9H91V93h-5v31h5v-10h2.1c2.8 3 4.6 7 6 10h5.6c-2.1-4-4.5-8.4-7.7-12.4 2.6-2.7 5-5.6 6.8-9.6zM48 124h4v-16.6c2-.8 5-1.1 7-1.2v-4c-3 .2-7 .9-11 3.1V124zm23.4-22.2c-6.1 0-10.3 3.2-10.3 11.7 0 8 3.2 11.5 10.3 11.5 6.1 0 10.3-3.2 10.3-11.7 0-8-3.2-11.5-10.3-11.5zm0 19.2c-4 0-5.7-1.4-5.7-7.5 0-5.6 2-7.7 5.7-7.7 4 0 5.7 1.4 5.7 7.5-.1 5.6-2.1 7.7-5.7 7.7zM99 10.3C99 5.7 95.3 2 90.7 2H37.3C32.7 2 29 5.7 29 10.3v70.4c0 4.6 3.7 8.3 8.3 8.3h53.4c4.6 0 8.3-3.7 8.3-8.3V10.3zm-67 .5C32 7.5 34.5 5 37.7 5h52.5c3.3 0 5.8 2.6 5.8 5.8v69.4c0 3.3-2.5 5.9-5.7 5.9H37.7c-3.3 0-5.7-2.6-5.7-5.9V10.8zM85.9 14H75.2s-3.4 8-7.1 12h10.4c5.6-7 7.4-12 7.4-12zM45 76.9l9.8-9.9-9.8-9.8zm28-34.5v34.5l-.1.1H82V42.5c0-18.9-27-8.2-27-8.2V13.8l-9.8.1s0 32 .1 31.9C75.2 34.2 73 42.4 73 42.4z" fill="#6762A6"></path>
-                </svg>
-          
-          
-          
+                </svg>          
             </div>
         </div>
     )
