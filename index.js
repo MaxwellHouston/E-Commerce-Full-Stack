@@ -9,7 +9,7 @@ const flash = require('express-flash');
 const xmlparser = require('express-xml-bodyparser');
 const path = require('path');
 //--------------------------------------------------Imports-----------------------------------------------------------------//
-const {PORT, session_secret} = require('./config/config');
+const {PORT, session_secret, node_env} = require('./config/config');
 const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const productRouter = require('./routes/productRouter');
@@ -21,6 +21,7 @@ const paymentRouter = require('./routes/paymentRouter');
 const app = express();
 
 //--------------------------------------------------Serve Front-End-----------------------------------------------------------------//
+
 
 app.use(express.static(path.join(__dirname, "view/build")));
 
@@ -49,9 +50,13 @@ app.use('/api/orders', orderRouter);
 app.use('/api/payment', paymentRouter);
 
 
-//--------------------------------------------------Server-----------------------------------------------------------------//
-app.listen(PORT, () => {
-    console.log(`Server running on port: ${PORT}`)
+//--------------------------------------------------Catch All-----------------------------------------------------------------//
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "view/build/index.html"))
 });
 
-
+//--------------------------------------------------Server-----------------------------------------------------------------//
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
+});
