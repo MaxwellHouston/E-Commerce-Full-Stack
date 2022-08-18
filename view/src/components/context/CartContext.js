@@ -8,6 +8,7 @@ export const CartProvider = ({children}) => {
     const [cart, setCart] =useState({});
 
     const checkCart = useCallback (async () => {
+        console.log(cart.id)
         if(cart.id) return;
         const activeCart = await apiCarts.fetchActiveCart();
         if(!activeCart){

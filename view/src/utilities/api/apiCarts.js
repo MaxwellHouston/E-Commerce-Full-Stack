@@ -9,7 +9,9 @@ const apiCarts = {
                 withCredentials: true,
                 url: '/api/carts'
             });
+            console.log(carts)
             let activeCart = await carts.data.slice(-1)[0];
+            console.log(activeCart)
             const cart = await axios({
                 method: 'get',
                 withCredentials: true,
