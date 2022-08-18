@@ -7,19 +7,19 @@ export const CartProvider = ({children}) => {
 
     const [cart, setCart] =useState({});
 
-    const checkCart = useCallback (async () => {
-        console.log(cart.id)
-        if(cart.id) return;
-        const activeCart = await apiCarts.fetchActiveCart();
-        if(!activeCart){
-            await apiCarts.create();
-        }
-    },[cart]);
-
     const loadCart = useCallback (async () => {
         const activeCart = await apiCarts.fetchActiveCart();
         if(activeCart) setCart(activeCart);
     },[]);
+
+    const checkCart = useCallback (async () => {
+        if(cart.id) return;
+        const activeCart = await apiCarts.fetchActiveCart();
+        if(!activeCart){
+            await apiCarts.create();
+            loadCart();
+        }
+    },[cart, loadCart]);
 
     const updateQty = useCallback( async (productId, qty) => {
         const res = await apiCarts.updateItemQty(productId, qty, cart.id);

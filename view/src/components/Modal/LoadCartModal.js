@@ -23,7 +23,7 @@ export function LoadCartModal() {
 
     useEffect(() => {
         loadCart();
-    }, [loadCart]);
+    },[loadCart]);
 
     useEffect(() => {
         if(cart.id){

@@ -10,7 +10,6 @@ export const UserProvider = ({children}) => {
     const loadUser = useCallback( 
         async () => {
             const loadedUser = await apiAccount.fetchUser();
-            console.error('test')
             if(loadedUser.status){
                 return false;
             } else {

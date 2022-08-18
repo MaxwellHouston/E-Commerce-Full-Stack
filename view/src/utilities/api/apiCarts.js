@@ -9,9 +9,10 @@ const apiCarts = {
                 withCredentials: true,
                 url: '/api/carts'
             });
-            console.log(carts)
             let activeCart = await carts.data.slice(-1)[0];
-            console.log(activeCart)
+            if(!activeCart){
+                return null;
+            };
             const cart = await axios({
                 method: 'get',
                 withCredentials: true,
@@ -24,12 +25,14 @@ const apiCarts = {
     },
 
     create: async () => {
+        console.log('creating')
         try{
             const newCart = await axios({
                 method: 'post',
                 withCredentials: true,
                 url: '/api/carts'
             });
+            console.log(newCart)
             return newCart.data;
         } catch(err) {
             return err.response;
