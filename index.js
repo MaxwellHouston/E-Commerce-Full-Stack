@@ -2,8 +2,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDoc = require('./config/swaggerDoc.json');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
@@ -22,6 +20,10 @@ const paymentRouter = require('./routes/paymentRouter');
 
 const app = express();
 
+//--------------------------------------------------Serve Static-----------------------------------------------------------------//
+
+
+
 //--------------------------------------------------Middleware-----------------------------------------------------------------//
 app.use(flash());
 app.use(bodyParser.json());
@@ -39,7 +41,6 @@ app.use(passport.session());
 loadPassport(passport);
 
 //--------------------------------------------------Routes-----------------------------------------------------------------//
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 app.use('/api', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/products', productRouter);
@@ -47,9 +48,6 @@ app.use('/api/carts', cartRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/payment', paymentRouter);
 
-app.get('/', (req, res) => {
-    res.redirect('/api-docs');
-})
 
 //--------------------------------------------------Server-----------------------------------------------------------------//
 app.listen(PORT, () => {
