@@ -30,7 +30,6 @@ cartRouter.use('/:id/items', productCartRouter);
 cartRouter.get('/', checkAuthentication, async (req, res) => {
     try {
         const userCarts = await cartInstance.getCartsByUserId(req.user.id);
-        //if(userCarts.length === 0) return res.status(400).json({message: 'No cart found'});
         res.json(userCarts);
     } catch(err) {
         res.status(400).json(err);
