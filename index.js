@@ -22,8 +22,9 @@ const app = express();
 
 //--------------------------------------------------Serve Front-End-----------------------------------------------------------------//
 
-
-app.use(express.static(path.join(__dirname, "view/build")));
+if(node_env === 'production'){
+    app.use(express.static(path.join(__dirname, "view/build")));
+}
 
 //--------------------------------------------------Middleware-----------------------------------------------------------------//
 app.use(flash());
