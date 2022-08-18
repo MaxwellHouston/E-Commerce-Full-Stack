@@ -7,7 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('express-flash');
 const xmlparser = require('express-xml-bodyparser');
-
+const path = require('path');
 //--------------------------------------------------Imports-----------------------------------------------------------------//
 const {PORT, session_secret} = require('./config/config');
 const authRouter = require('./routes/authRouter');
@@ -20,9 +20,9 @@ const paymentRouter = require('./routes/paymentRouter');
 
 const app = express();
 
-//--------------------------------------------------Serve Static-----------------------------------------------------------------//
+//--------------------------------------------------Serve Front-End-----------------------------------------------------------------//
 
-
+app.use(express.static(path.join(__dirname, "view/build")));
 
 //--------------------------------------------------Middleware-----------------------------------------------------------------//
 app.use(flash());
