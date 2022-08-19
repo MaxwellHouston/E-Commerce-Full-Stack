@@ -11,7 +11,7 @@ export const OrderConfirmation = () => {
     const [orderTotal, setOrderTotal] = useState('');
     const [shippingAddress, setShippingAddress] = useState({});
 
-    const {cart, deleteCart} = useContext(CartContext);
+    const {cart, deleteCart, } = useContext(CartContext);
 
     const submitOrder = useCallback( 
         async () => {

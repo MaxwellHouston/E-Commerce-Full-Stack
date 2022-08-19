@@ -101,7 +101,6 @@ const apiCarts = {
                 withCredentials: true,
                 url: `/api/carts/${cartId}`
             });
-            console.log(res.data);
             return res.data;
         } catch (err) {
             return err.response;

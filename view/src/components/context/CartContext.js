@@ -48,18 +48,14 @@ export const CartProvider = ({children}) => {
     };
 
     const deleteCart = useCallback( async (cartId) => {
-        const res = await apiCarts.deleteCart(cartId);
-        console.log(res);
-        setCart({});
-        checkCart();
+        await apiCarts.deleteCart(cartId);
+        await apiCarts.create();
         loadCart();
-    },[checkCart, loadCart])
+    },[loadCart])
 
     const clearCart = useCallback( 
         () => { setCart({}) }, [] 
     );
-
-
 
     return (
         <CartContext.Provider value={{cart: cart, loadCart: loadCart, checkCart: checkCart, updateQty: updateQty, addProduct: addProduct, removeProduct: removeProduct, deleteCart: deleteCart, clearCart: clearCart}}>
