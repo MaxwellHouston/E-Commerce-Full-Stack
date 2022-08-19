@@ -45,6 +45,7 @@ userRouter.put('/', checkAuthentication, validate(updateSchema), async (req, res
 userRouter.delete('/', checkAuthentication, async (req, res) => {
     try {
         await userInstance.deleteByEmail(req.user.email);
+        req.logOut();
         res.status(204).send();
     } catch(err) {
         res.status(400).json(err)
