@@ -62,7 +62,7 @@ module.exports = class Cartmodel {
     };
 
     async getAllProducts(data) {
-        const text = 'SELECT product.*, qty FROM product JOIN cart_product ON product_id = id WHERE cart_id = $1;';
+        const text = 'SELECT product.*, qty FROM product JOIN cart_product ON product_id = id WHERE cart_id = $1 ORDER BY product.name;';
         const inputs = [data];
         try {
             const result = await query(text, inputs);
