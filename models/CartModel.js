@@ -1,6 +1,5 @@
 const { query } = require('../DB/db');
 const Ordermodel = require('../models/OrderModel');
-const { processPayment } = require('../functions_schemas/paymentFunctions');
 
 const orderInstance = new Ordermodel();
 
@@ -123,6 +122,5 @@ module.exports = class Cartmodel {
         } catch (err) {
             throw err;
         }
-        
     };
 }

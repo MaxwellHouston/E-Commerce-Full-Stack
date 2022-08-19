@@ -25,7 +25,7 @@ const loadPassport = (passport) => {
     passport.use(new GoogleStrategy({
             clientID: GOOGLE_CLIENT_ID,
             clientSecret: GOOGLE_CLIENT_SECRET,
-            callbackURL: "http://localhost:5000/api/login-google/redirect",
+            callbackURL: "/api/login-google/redirect",
             passReqToCallback: true
         },
         async (req, accessToken, refreshToken, profile, done) => {
@@ -52,7 +52,7 @@ const loadPassport = (passport) => {
     passport.use(new FacebookStrategy({
             clientID: FACEBOOK_CLIENT_ID,
             clientSecret: FACEBOOK_CLIENT_SECRET,
-            callbackURL: "http://localhost:5000/api/login-facebook/redirect",
+            callbackURL: "/api/login-facebook/redirect",
             profileFields: ['id', 'name', 'email']
         },
         async (accessToken, refreshToken, profile, done) => {

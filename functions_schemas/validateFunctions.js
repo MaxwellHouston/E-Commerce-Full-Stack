@@ -18,10 +18,6 @@ module.exports = {
         return hashedPassword;
         },
 
-    async validateCard(data) {
-        
-    },
-
     async validateAddress(req, res, next) {
         let data = req.body;
         console.log(data);
