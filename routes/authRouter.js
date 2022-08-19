@@ -41,7 +41,7 @@ authRouter.get('/login-google', passport.authenticate('google', {scope: ['profil
 
 });
 
-authRouter.get('/login-google/redirect', passport.authenticate('google', {failureRedirect: 'http://localhost:3000/login', successRedirect: 'http://localhost:3000/login/success'}), (req, res) => {
+authRouter.get('/login-google/redirect', passport.authenticate('google', {failureRedirect: '/login', successRedirect: '/login/success'}), (req, res) => {
 
 });
 
@@ -49,7 +49,7 @@ authRouter.get('/login-facebook', passport.authenticate('facebook', {scope: ['em
 
 });
 
-authRouter.get('/login-facebook/redirect', passport.authenticate('facebook', {failureRedirect: 'http://localhost:3000/login', successRedirect: 'http://localhost:3000/login/success'}), (req, res) => {
+authRouter.get('/login-facebook/redirect', passport.authenticate('facebook', {failureRedirect: '/login', successRedirect: '/login/success'}), (req, res) => {
 
 });
 
