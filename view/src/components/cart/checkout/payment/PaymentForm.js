@@ -8,6 +8,8 @@ export const PaymentForm = ({shippingAddress, saveState}) => {
     const [showModal, setShowModal] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
+    const rootPath = window.location.origin;
+
     const stripe = useStripe();
     const elements = useElements();
 
@@ -24,7 +26,7 @@ export const PaymentForm = ({shippingAddress, saveState}) => {
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: 'http://localhost:3000/account/cart/checkout/result'
+                return_url: `${rootPath}/account/cart/checkout/result`
             }
         });
         if(error) {

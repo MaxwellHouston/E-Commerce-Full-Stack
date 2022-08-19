@@ -1,13 +1,9 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { CheckoutStatus } from "./CheckoutStatus";
 import { CheckoutForms } from "./CheckoutForms";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-
-import { PaymentVerification } from "./payment/PaymentVerification";
-import apiOrders from "../../../utilities/api/apiOrders";
-import { TestPay } from "./payment/TestPay";
 
 const stripePromise = loadStripe('pk_test_51L5WeeITjfAKbWHqglZGdbyKmaSBnG3wOIT4eP5gxKOuGCZx33taIoP6ymu7lOb7AFH7xUpiL5eTYblygO4hVU0p001NcHjned');
 
