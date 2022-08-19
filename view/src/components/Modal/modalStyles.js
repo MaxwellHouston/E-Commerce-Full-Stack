@@ -50,7 +50,8 @@ export const noUserStyle = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',   
-        backgroundColor: 'rgba(255, 255, 255, 0.95)'
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        zIndex: '100'
     },
     content: {
         position: 'static',
@@ -63,7 +64,8 @@ export const noUserStyle = {
         overflow: 'hidden',
         width: '75%',
         border: '1px solid black',
-        boxShadow: '3px 3px 5px black'
+        boxShadow: '3px 3px 5px black',
+        zIndex: '101'
     }
 }
 

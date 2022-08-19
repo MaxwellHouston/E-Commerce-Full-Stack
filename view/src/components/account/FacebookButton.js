@@ -7,7 +7,7 @@ export function FacbookButton({location}) {
     const openWindow = (win, w, h) => {
         const y = win.top.outerHeight / 2 + win.top.screenY - ( h / 2);
         const x = win.top.outerWidth / 2 + win.top.screenX - ( w / 2);
-        return window.open("http://localhost:5000/api/login-facebook", "_blank", `top=${y}, left=${x}, width=${w}, height=${h}`);
+        return window.open("/api/login-facebook", "_blank", `top=${y}, left=${x}, width=${w}, height=${h}`);
     }
 
     const facebookLogin = async (e) => {

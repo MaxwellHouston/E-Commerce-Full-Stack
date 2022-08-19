@@ -33,7 +33,6 @@ authRouter.post('/register', validate(registerSchema), async (req, res) => {
 });
 
 authRouter.post('/login', validate(loginSchema), passport.authenticate('local', {failureFlash: true}), (req, res) => {
-    const user = req.user;
     res.json({message: `Login Successful`});
 });
 

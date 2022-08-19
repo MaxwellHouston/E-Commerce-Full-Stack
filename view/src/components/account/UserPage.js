@@ -51,7 +51,7 @@ export function UserPage() {
 
     return(
         <div className="account-container">
-            <h1>{`${user.first_name || 'Max'}'s Account`}</h1>
+            <h1>{`${user.first_name || 'User'}'s Account`}</h1>
             <form className='user-page-form'>
                 <AlertModal show={showModal} close={closeModal} modalMessage={modalMessage} />
                 <FirstNameInput firstname={userUpdates.first_name || user.first_name} updateFunction={updateUserInfo} updateLocked={updateLocks.first_name} toggleUpdate={toggleUpdate} />
