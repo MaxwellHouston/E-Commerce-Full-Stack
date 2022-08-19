@@ -3,9 +3,9 @@ const { query } = require('../DB/db');
 
 module.exports = class Ordermodel {
 
-    async create(data) {
-        const text = 'INSERT INTO orders (user_id, status, created) VALUES ($1, $2, current_timestamp) RETURNING id;';
-        const inputs = [data, 'PENDING'];
+    async create(user_id, total_price) {
+        const text = 'INSERT INTO orders (user_id, status, total_price, created) VALUES ($1, $2, $3, current_timestamp) RETURNING id;';
+        const inputs = [user_id, 'PENDING', total_price];
         try {
             return await query(text, inputs);
         } catch (err) {

@@ -25,14 +25,12 @@ const apiCarts = {
     },
 
     create: async () => {
-        console.log('creating')
         try{
             const newCart = await axios({
                 method: 'post',
                 withCredentials: true,
                 url: '/api/carts'
             });
-            console.log(newCart)
             return newCart.data;
         } catch(err) {
             return err.response;

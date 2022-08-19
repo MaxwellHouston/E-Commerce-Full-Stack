@@ -16,10 +16,11 @@ const apiOrders = {
         }
     },
 
-    submitOrder: async (cartId) => {
+    submitOrder: async (cartId, orderTotal) => {
         try {
             const newOrder = await axios({
-                method: 'get',
+                method: 'post',
+                data: {orderTotal: orderTotal},
                 withCredentials: true,
                 url: `/api/carts/${cartId}/checkout`
             });

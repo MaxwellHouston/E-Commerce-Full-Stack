@@ -13,12 +13,19 @@ export const OrderConfirmation = () => {
 
     const {cart, deleteCart, } = useContext(CartContext);
 
+    useEffect(() => {
+        const address = window.localStorage.getItem('ORDER_SHIPPING_ADDRESS');
+        if(address) setShippingAddress(JSON.parse(address));
+        const total = window.localStorage.getItem('ORDER_TOTAL');
+        if(total) setOrderTotal(JSON.parse(total));
+    }, []);
+
     const submitOrder = useCallback( 
         async () => {
-            const newOrderid = await apiOrders.submitOrder(cart.id);
+            const newOrderid = await apiOrders.submitOrder(cart.id, orderTotal/100);
             const newOrder = await apiOrders.getOrderById(newOrderid.order_id);
             setOrder(newOrder);
-        }, [cart]
+        }, [cart, orderTotal]
     );
 
     useEffect(() => {
@@ -33,13 +40,6 @@ export const OrderConfirmation = () => {
             setOrderStatus(false);
         }
     }, [submitOrder, orderStatus, deleteCart, cart]);
-
-    useEffect(() => {
-        const address = window.localStorage.getItem('ORDER_SHIPPING_ADDRESS');
-        if(address) setShippingAddress(JSON.parse(address));
-        const total = window.localStorage.getItem('ORDER_TOTAL');
-        if(total) setOrderTotal(JSON.parse(total));
-    }, [])
 
     return (
         <div className="order-confirmation">

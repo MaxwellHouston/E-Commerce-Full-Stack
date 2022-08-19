@@ -108,7 +108,7 @@ module.exports = class Cartmodel {
         try {
             const products = await this.getAllProducts(data.cart_id);
             if(products.length === 0) return 'empty';
-            const newOrder = await orderInstance.create(data.user_id);
+            const newOrder = await orderInstance.create(data.user_id, data.total_price);
             const orderId = newOrder.rows[0].id;
             for(const item of products){
                 let newItem = {
