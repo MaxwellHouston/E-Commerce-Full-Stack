@@ -722,6 +722,12 @@ nav {
   margin-top: 3rem;
 }
 
+.no-products {
+  text-align: center;
+  font-size: 2rem;
+  grid-area: 2 / 1 / 3 / 8;
+}
+
 /*---------------------------Product View-----------------------------*/
 
 .product-view {
@@ -792,7 +798,8 @@ nav {
 
 .product-info h1 {
   font-size: 5rem;
-  margin: 3rem;
+  line-height: 6rem;
+  margin: 1rem;
   text-shadow: 2px 2px 5px black;
 }
 
