@@ -460,7 +460,6 @@ nav {
   justify-content: center;
   background-image: url('./utilities/images/backgrounds/home-page-background.jpg');
   background-size: cover;
- /* background: linear-gradient(to bottom right, #fff, #6f84ab); */
 }
 
 .homepage-container h2 {
@@ -537,14 +536,6 @@ nav {
   background-position: center;
 }
 
-.left-slider-btn {
-  background-image: url('./utilities/images/arrows/slider-left-arrow.png');
-}
-
-.right-slider-btn {
-  background-image: url('./utilities/images/arrows/slider-right-arrow.png');
-}
-
 #sports-slider {
   width: 90%;
   display: flex;
@@ -561,7 +552,6 @@ nav {
   margin: 2rem;
   align-items: flex-end;
 }
-
 
 .small-shop-container span {
   color: white;
