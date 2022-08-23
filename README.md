@@ -20,9 +20,20 @@ https://max-ecommerce-fullstack.herokuapp.com/
 - Review past orders.
 
 ### Coming Soon
-- Favorites table so user can mark wishlist items
+- Favorites table so user can mark wishlist items.
 - Mock shipping price and time using UPS API.
-- Always updating CSS to improve user experience.
+- Optimize for mobile use.
+
+## How to use
+To start, click the Sign Up button on the homepage. Enter your name, email, and password to create an account or sign in with your Google or Facebook account. Then using your email and password, login from the login page. Once logged in you can access anything in the app. View products in the shop section, manage your account and addresses in the accounts dropdown, and complete the checkout process with your cart. The billing is handled with Stripe API and they provide sample card information for mock checkouts. Enter this information when checking out to complete your order:
+
+| Card Number | Expiration | CVC | Type |
+| ----------- | ---------- | --- | ---- |
+| 4242 4242 4242 4242 | Any Valid Date | Any | Accepted Visa
+| 5555 5555 5555 4444 | Any Valid Date | Any | Accepted Mastercard
+| 3782 822463 10005 | Any Valid Date | Any | Accepted Amex
+| 6011 1111 1111 1117 | Any Valid Date | Any | Accepted Discover
+| 4000 0000 0000 0002 | Any Valid Date | Any | Declined card
 
 ## Setup
 Clone or download the project from Github and run npm install in the root directory as well as in the view folder to get the dependencies for both the front and back end. This project uses Postgresql so you need to have that set up and running on your computer. Create a database then enter the sql files provided in this order: tables.sql, triggers.sql, and products.sql. Next set up a .env file in the root directory with the following information. Be sure to include your own postgres server information in the database section. The PORT can be any port except 3000, as that is what the react front end will be running on, and the SESSION_SECRET can be any string. In order to use the OAuth 2.0 login or the USPS API you will need your own API codes. Check with the companies documentation on creating an account and getting these codes.
