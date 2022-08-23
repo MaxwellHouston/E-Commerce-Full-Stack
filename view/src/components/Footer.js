@@ -12,7 +12,7 @@ export function AppFooter() {
             <h4>About Us</h4>
             <ul>
                 <li><Link to='/project'>This Project</Link></li>
-                <li><Link to='#'>About Me</Link></li>
+                <li><Link to='/about'>About Me</Link></li>
                 <li><a href='https://github.com/MaxwellHouston'>My Github</a></li>
             </ul>
         </div>

@@ -18,6 +18,7 @@ import { AddressProvider } from './context/AddressContext';
 import { SearchProvider } from './context/SearchContext';
 import { ComingSoon } from './Information/ComingSoon';
 import { Project } from './Information/Project';
+import { About } from './Information/About';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
                 <Route path='/cancel-order' element={<ComingSoon />} />
                 <Route path='/customer-service' element={<ComingSoon />} />
                 <Route path='/project' element={<Project />} />
+                <Route path='/about' element={<About />} />
               </Routes>
               <AppFooter />
             </SearchProvider>

@@ -1574,6 +1574,7 @@ left: 0;
   align-items: center;
   background-image: url('./utilities/images/backgrounds/coming-soon-background.jpg');
   background-size: cover;
+  min-height: 60vh;
 }
 
 .header-container {
@@ -1628,6 +1629,10 @@ left: 0;
   margin: 1rem;
   line-height: 1.5rem;
   text-indent: 2rem;
+}
+
+.email-link {
+  color: blue;
 }
 
 
