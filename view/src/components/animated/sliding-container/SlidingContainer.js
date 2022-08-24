@@ -1,9 +1,21 @@
+import { useEffect, useState } from "react";
 import { ScrollBtn } from "./ScrollBtn";
-
 
 export const SlidingContainer = ({cardList, sliderId, style, distance}) => {
 
     const container = document.getElementById(sliderId);
+    const [btnElement, setBtnElement] = useState(null);
+
+    useEffect(() => {
+        if(!container) return;
+        let scrollable = container.scrollWidth > container.clientWidth;
+        if(scrollable && !btnElement){
+            setBtnElement(<ScrollBtn container={container} direction={'right'} style={style} distance={distance} />);
+        }
+        if(!scrollable && btnElement){
+            setBtnElement(null);
+        }
+    },[container, distance, style, btnElement])
 
     const checkScroll = () => {
         if(container.scrollLeft <= 15) {
@@ -32,21 +44,13 @@ export const SlidingContainer = ({cardList, sliderId, style, distance}) => {
         if(rightBtn.style.display === 'none')  rightBtn.style.display = 'block';    
     };
 
-    const renderScrollBtn = () => {
-        if(!container) return;
-        let scrollable = container.scrollWidth > container.clientWidth;
-        if(scrollable){
-            return <ScrollBtn container={container} direction={'right'} style={style} distance={distance} />
-        } 
-    }
-
     return (
         <div className="slider-container" id={sliderId + '-container'}>
             <ScrollBtn container={container} direction={'left'} style={style} distance={distance} />
             <div id={sliderId} onScroll={checkScroll} > 
                 {cardList}
             </div>
-            {renderScrollBtn()}
+            {btnElement}
         </div>
-    )
+    );
 }
