@@ -1,10 +1,21 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
 export function CartMenu({user}) {
 
     const { cart } = useContext(CartContext);
+
+    const cartEmpty = () => {
+        if (!cart.products) return true;
+        if (cart.products.length === 0) return true;
+        return false;
+    }
+
+    const disabledStyle = {
+        backgroundColor: '#535370',
+        cursor: 'default'
+    }
 
     const renderCartOptions = () => {
         if(!user.id) {
@@ -18,7 +29,7 @@ export function CartMenu({user}) {
                 <ul className="dropdown-menu" id='cart-menu'>
                     <li>Items in Cart: <span>{cart.products ? cart.products.length : 0}</span></li>
                     <li><Link to='/account/cart'>View Cart</Link></li>
-                    <li><Link to='/account/cart/checkout'>Checkout</Link></li>
+                    <li><Link to={ cartEmpty() ? '#' : '/account/cart/checkout' } style={cartEmpty() ? disabledStyle : {}} >Checkout</Link></li>
                 </ul>
             )
         }
